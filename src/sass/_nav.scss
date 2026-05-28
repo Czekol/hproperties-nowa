@@ -1,0 +1,164 @@
+.stop-scrolling {
+	overflow-y: hidden;
+}
+
+.nav {
+	position: fixed;
+	top: 0;
+	padding-inline: 3rem;
+	padding-block: 1.3rem;
+	width: 100%;
+	z-index: 1000;
+
+	&__container {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		height: 100%;
+	}
+
+	&.nav-shadow {
+		background-color: rgba(0, 0, 0, 0.7);
+	}
+
+	&__logo {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		&-img {
+			height: 28px;
+
+			&.nav-open {
+				filter: invert(1);
+			}
+		}
+	}
+
+	&__links {
+		position: absolute;
+		top: 57px;
+		right: 0;
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 2.8rem;
+		padding-top: 8rem;
+		width: 246px;
+		height: 100vh;
+		background-color: #0c2446;
+		transform: translateX(100%);
+		transition: transform 0.3s ease-out;
+		z-index: 9;
+		&.show-menu {
+			transform: translateX(0%);
+		}
+
+		&-link {
+			display: flex;
+			align-items: center;
+			gap: 1rem;
+			margin-left: 3rem;
+			color: #fff;
+			font-size: 1.8rem;
+
+			img {
+				width: 22px;
+			}
+		}
+	}
+
+	&__links-desktop {
+		display: none;
+	}
+
+	.nav-right-box {
+		display: flex;
+		gap: 1.3rem;
+		position: relative;
+
+		.nav__language {
+			display: flex;
+			gap: 0.6rem;
+			align-items: center;
+			padding: 0.9rem;
+			background-color: #112f59;
+			border-radius: 9px;
+
+			z-index: 456;
+
+			&.open {
+				border-bottom-left-radius: 0;
+				border-bottom-right-radius: 0;
+			}
+
+			&-flag-icon {
+				width: 13px;
+			}
+
+			&-down-icon {
+				width: 8px;
+				height: 8px;
+			}
+		}
+
+		.other-language {
+			position: absolute;
+			bottom: -26px;
+			// left: -29px;
+			display: none;
+			align-items: center;
+			padding:0.45rem 0.9rem 0.9rem 0.9rem;
+			width: 45px;
+			border-bottom-left-radius: 9px;
+			border-bottom-right-radius: 9px;
+			background-color: #112f59;
+
+			z-index: 456;
+
+			a {
+				height: 13px;
+			}
+
+			&.open {
+				display: flex;
+			}
+
+			&__flag {
+				width: 13px;
+				height: 13px;
+			}
+
+		
+		}
+	}
+
+	&__hamburger {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		&-img {
+			width: 28px;
+
+			filter: invert(1);
+
+			&.nav-open {
+				filter: invert(0);
+			}
+		}
+	}
+
+	&__shadow {
+		position: absolute;
+		top: 57px;
+		left: 0;
+		width: 100%;
+		height: 100vh;
+		background-color: rgba(0, 0, 0, 0);
+		pointer-events: none;
+
+		&.show-shadow {
+			background-color: rgba(0, 0, 0, 0.3);
+			pointer-events: auto;
+		}
+	}
+}

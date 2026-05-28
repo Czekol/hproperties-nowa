@@ -1,0 +1,583 @@
+@media (width >= 744px) {
+	html {
+		scroll-padding-top: 95px;
+	}
+
+	body {
+		font-size: 1.7rem;
+	}
+
+	.nav {
+		padding-inline: 6rem;
+
+		&__logo {
+			&-img {
+				height: 33px;
+			}
+		}
+
+		&__links {
+			top: 64px;
+			gap: 2.8rem;
+			padding-top: 10rem;
+			width: 360px;
+
+			&-link {
+				margin-left: 6rem;
+				gap: 1.2rem;
+				font-size: 2.2rem;
+
+				img {
+					width: 27px;
+				}
+			}
+		}
+
+		.nav-right-box {
+			gap: 1.5rem;
+
+			.nav__language {
+				gap: 0.9rem;
+				padding: 1.1rem;
+
+				&-flag-icon {
+					width: 16px;
+				}
+
+				&-down-icon {
+					width: 10px;
+					height: 10px;
+				}
+			}
+
+			.other-language {
+				bottom: -27px;
+				padding: 0rem 1.1rem 1.1rem 1.1rem;
+				width: 57px;
+
+				a {
+					height: 16px;
+				}
+
+				&__flag {
+					width: 16px;
+					height: 16px;
+				}
+			}
+		}
+
+		&__hamburger {
+			&-img {
+				width: 33px;
+			}
+		}
+
+		&__shadow {
+			top: 64px;
+		}
+	}
+
+	.header {
+		margin-top: 11.4rem;
+		margin-inline: 6rem;
+		padding-block: 3.9rem 5rem;
+
+		&__heading {
+			max-width: 532px;
+			font-size: 3.9rem;
+			line-height: 49px;
+		}
+
+		&__text {
+			padding-block: 0.6rem 4.5rem;
+			max-width: max-content;
+			font-size: 1.9rem;
+			line-height: normal;
+		}
+
+		&__img {
+			width: 303px;
+		}
+
+		&__btn {
+			margin-top: 4.5rem;
+			padding: 1.4rem 2.8rem;
+			font-size: 1.8rem;
+		}
+	}
+
+	.main {
+		.section-heading {
+			margin: 10rem 0 7rem;
+			font-size: 3.3rem;
+			line-height: normal;
+		}
+
+		.services {
+			.main-container {
+				gap: 8rem;
+			}
+
+			&__container {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				&-img {
+					height: 233px;
+				}
+
+				.services__box {
+					max-width: 531px;
+					&-heading {
+						font-size: 2.5rem;
+					}
+
+					&-text {
+						padding: 1.2rem 0rem 3.5rem;
+						line-height: 22px;
+					}
+
+					&-btn {
+						padding: 1.5rem 3rem;
+					}
+				}
+			}
+		}
+
+		.about {
+			margin-top: 10rem;
+			padding-block: 6.1rem 7rem;
+
+			&__container {
+				&-img {
+					margin-bottom: 4rem;
+					width: 355px;
+					height: 470px;
+				}
+
+				.about__box {
+					gap: 1.5rem;
+					max-width: 960px;
+
+					&-text {
+						padding-inline: 6rem;
+						line-height: 22px;
+					}
+				}
+			}
+		}
+
+		.special {
+			margin-inline: auto;
+			&__container {
+				padding-inline: 6rem;
+				flex-direction: row;
+				align-items: center;
+				justify-content: center;
+				flex-wrap: wrap;
+				gap: 4.5rem;
+
+				.special__box {
+					&:nth-of-type(3) {
+						.special__box-text {
+							max-width: 310px;
+						}
+					}
+
+					&-img {
+						width: 49px;
+					}
+
+					&-heading {
+						padding-block: 1.1rem 0.8rem;
+						max-width: 245px;
+						font-size: 2.4rem;
+						line-height: 30px;
+					}
+
+					&-text {
+						max-width: 330px;
+						line-height: 23px;
+					}
+				}
+			}
+		}
+
+		.sell-info {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+
+			&__img-container {
+				max-width: 531px;
+				&-img {
+					height: 275px;
+					border-radius: 10px;
+				}
+
+				.sell-info__text-box {
+					padding-inline: 0rem;
+
+					&-text {
+						line-height: 22px;
+					}
+				}
+			}
+
+			.process-heading {
+				margin-block: 6rem 5rem;
+			}
+
+			&__process-container {
+				gap: 9.5rem;
+				padding-inline: 6rem;
+				max-width: 960px;
+				.sell-info__process-box {
+					.icon-heading-box {
+						img {
+							margin-right: 1.3rem;
+							width: 30px;
+						}
+					}
+
+					padding: 3.5rem;
+
+					&-heading {
+						font-size: 2.4rem;
+					}
+
+					&-text {
+						padding-top: 1.2rem;
+						line-height: 22px;
+					}
+
+					&:nth-child(2) {
+						&::before,
+						&::after {
+							height: 95px;
+							border-left: 4px dotted #112f59;
+						}
+
+						&::before {
+							top: -47px;
+						}
+
+						&::after {
+							bottom: -143px;
+						}
+					}
+				}
+			}
+		}
+
+		.cta {
+			margin-top: 10rem;
+			padding: 5.5rem 0rem 6.5rem;
+
+			&__container {
+				&-heading {
+					max-width: 601px;
+					font-size: 3.4rem;
+					line-height: 48px;
+				}
+
+				&-text {
+					padding-block: 0.6rem 3.8rem;
+					max-width: 510px;
+					font-size: 1.7rem;
+					line-height: 25px;
+				}
+
+				&-img {
+					width: 301px;
+				}
+
+				&-btn {
+					margin-top: 4.4rem;
+					padding: 1.5rem 3rem;
+					font-size: 1.7rem;
+				}
+			}
+		}
+
+		.reviews {
+			padding: 5.5rem 6rem 5.5rem 6rem;
+
+			.section-heading {
+				margin-bottom: 6.3rem;
+			}
+
+			&__container {
+				.reviews__box {
+					display: flex;
+					flex-direction: column;
+					align-items: center;
+					padding-left: 3.3rem; // miejsce na cudzysłów
+
+					//! 1 slajd = 100% szerokości kontenera
+					//! min-width: 100%;
+
+					// DEKORACYJNY CUDZYSŁÓW (nie wychodzi poza box)
+
+					.test {
+						&::before {
+							left: -34px;
+							top: -14px;
+							font-size: 6.4rem;
+						}
+					}
+
+					&-text {
+						max-height: 100px; // widoczna wysokość fragmentu
+						line-height: 24px;
+						margin-bottom: 0.9rem;
+						max-width: 457px;
+
+						// delikatny zanik u dołu
+						&::after {
+							height: 40px;
+						}
+					}
+
+					&-show-more {
+						font-size: 1.8rem;
+						line-height: 26px;
+					}
+
+					.person-box {
+						align-self: flex-start;
+						gap: 1rem;
+						margin-top: 2.8rem;
+					}
+
+					&-img {
+						width: 52px;
+						height: 52px;
+						border: 1px solid #0c2445;
+					}
+
+					&-name {
+						font-size: 1.8rem;
+					}
+				}
+
+				// --- KROPKI ---
+				.reviews__dot-box {
+					margin-top: 4.5rem;
+
+					&-dot {
+						width: 6px;
+						height: 6px;
+
+						&.active {
+							outline: 2px solid #3566aa;
+						}
+					}
+				}
+			}
+		}
+
+		.faq {
+			.main-container {
+				gap: 1.5rem;
+				padding-inline: 6rem;
+				margin-inline: auto;
+				max-width: 960px;
+			}
+
+			&__box {
+				padding: 1.5rem;
+
+				&-icon {
+					width: 14px;
+				}
+
+				&-heading {
+					font-size: 1.8rem;
+					line-height: 22px;
+				}
+
+				&-text {
+					padding: 0 1.5rem 1.5rem 1.5rem;
+					font-size: 1.4rem;
+					line-height: 18px;
+				}
+			}
+		}
+
+		.contact {
+			&__form-container {
+				padding-inline: 6rem;
+				margin-inline: auto;
+				max-width: 960px;
+
+				.name-phone-box {
+					flex-direction: row;
+					gap: 2.5rem;
+
+					.text {
+						width: 100%;
+					}
+
+					input {
+						margin-top: 0.6rem;
+						// padding: 1.5rem;
+						font-size: 1.7rem;
+					}
+				}
+
+				.textarea-box {
+					label {
+						margin-top: 2.5rem;
+					}
+
+					textarea {
+						margin-block: 0.6rem 3.3rem;
+						// padding: 1.5rem;
+						font-size: 1.7rem;
+					}
+				}
+
+				.checkbox-container {
+					gap: 4rem;
+					margin-top: 0.9rem;
+
+					.checkbox-section-container {
+						// gap: 0.6rem;
+					}
+
+					.checkbox-box {
+						gap: 0.7rem;
+						input {
+							height: 13px;
+							width: 13px;
+						}
+					}
+				}
+
+				.send-button {
+					margin-top: 2.6rem;
+					padding: 1.7rem;
+					font-size: 1.7rem;
+				}
+			}
+		}
+	}
+
+	.footer {
+		&__top-container {
+			margin-top: 10rem;
+			padding: 4.4rem 6rem 5rem;
+
+			.top-second-container {
+				gap: 3.5rem;
+
+				.write-to-us__box {
+					max-width: 380px;
+					&-title {
+						font-size: 2.4rem;
+					}
+
+					&-text {
+						padding-top: 0.7rem;
+						font-size: 1.6rem;
+						line-height: 20px;
+					}
+				}
+
+				.top-box {
+					gap: 1.1rem;
+
+					.gmail-icon {
+						margin-top: 0.3rem;
+						width: 24px;
+						height: 17px;
+					}
+
+					.location-icon {
+						margin-top: 0.3rem;
+						width: 21px;
+						height: 21px;
+					}
+
+					.instagram-icon {
+						margin-top: 0.3rem;
+						width: 17.75px;
+						height: 17.75px;
+					}
+
+					.top__box {
+						gap: 0.6rem;
+						&-title {
+							font-size: 2.1rem;
+						}
+					}
+				}
+			}
+
+			.social-media__box {
+				gap: 3rem;
+				margin-top: 5rem;
+
+				&-icon {
+					width: 30px;
+				}
+			}
+		}
+
+		&__bottom-container {
+			padding-block: 7.5rem;
+
+			&-logo {
+				margin-bottom: 1.3rem;
+				width: 166px;
+			}
+
+			.footer-bottom__box {
+				gap: 1.3rem;
+
+				&-dot {
+					width: 5px;
+					height: 5px;
+				}
+			}
+		}
+	}
+
+	.privacy-policy {
+		padding-inline: 6rem;
+		margin-bottom: 10rem;
+
+		.section-heading {
+			margin-top: 16.4rem;
+		}
+
+		&__container {
+			// gap: 2.5rem;
+
+			.privacy-policy__box {
+				&-heading {
+					margin-bottom: 0.7rem;
+					font-size: 2.3rem;
+				}
+
+				&-second-heading {
+					margin-top: 1.5rem;
+					margin-bottom: 0.5rem;
+					font-size: 1.9rem;
+				}
+
+				&-text {
+					// margin-bottom: 1rem;
+					line-height: 23px;
+				}
+
+				ul {
+					li {
+						margin-bottom: 0.7rem;
+					}
+				}
+			}
+		}
+	}
+}
