@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>H.Properties - Darmowy kalkulator wyceny nieruchomości Kraków</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Onest:wght@700&family=Urbanist:wght@100..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../dist/css/main.min.css">
+    <!-- Favicona dla jasnego motywu (białe tło przeglądarki) -->
+    <link rel="icon" type="image/png" sizes="32x32" href="../dist/img/black-favicon.png"
+        media="(prefers-color-scheme: light)">
+
+    <!-- Favicona dla ciemnego motywu (czarne tło przeglądarki) -->
+    <link rel="icon" type="image/png" sizes="32x32" href="../dist/img/favicon.png" media="(prefers-color-scheme: dark)">
+
+    <meta name="description"
+        content="Darmowy kalkulator wartości mieszkań i domów na krakowskim rynku i nie tylko. Sprawdź aktualne ceny bez wychodzenia z domu.">
+</head>
+
+<body class="sonarhome-body">
+    <nav class="nav">
+
+    <div class="nav__container">
+
+        <div class="nav__shadow"></div>
+
+        <a href="../index.html" class="nav__logo">
+            <img src="dist/img/logo.png" alt="Logo firmy H.properties" class="nav__logo-img">
+        </a>
+
+        <div class="nav__links">
+            <a href="/#services" class="nav__links-link"> <img src="../dist/img/services-nav-icon.png" alt=""> Usługi</a>
+            <a href="/#about" class="nav__links-link"> <img src="../dist/img/about-nav-icon.png" alt=""> O nas</a>
+            <a href="/#foreign" class="nav__links-link foreign-link"> <img src="../dist/img/foreign-nav-language.png" alt=""> Klienci zagraniczni</a>
+            <a href="/#contact" class="nav__links-link"> <img src="../dist/img/contact-nav-icon.png" alt=""> Kontakt</a>
+            <a href="../wycena-nieruchomosci.html" class="nav__links-link"> <img src="../dist/img/property-valuation.png" alt="Ikona wyceny nieruchomości w Krakowie"> Wycena nieruchomości</a>
+            <a href="https://www.otodom.pl/pl/firmy/biura-nieruchomosci/h-properties-ID10649871" class="nav__links-link"> <img src="../dist/img/offers-nav-icon.png" alt=""> Nasze oferty</a>
+        </div>
+
+
+        <div class="nav__links-desktop">
+
+            <div>
+                <a href="/#services" class="nav__links-link-desktop">Usługi</a>
+                <a href="/#foreign" class="nav__links-link-desktop foreign-link">Klienci zagraniczni</a>
+                <a href="/#contact" class="nav__links-link-desktop">Kontakt</a>
+                <a href="../wycena-nieruchomosci.html" class="nav__links-link-desktop">Wycena nieruchomości</a>
+            </div>
+
+
+            <a href="https://www.otodom.pl/pl/firmy/biura-nieruchomosci/h-properties-ID10649871" class="nav__links-link-desktop sell-link">Nasze oferty</a>
+
+        </div>
+
+        <div class="nav-right-box">
+            <div class="nav__language">
+                <img src="../dist/img/polish-flag.png" alt="Flaga polski" class="nav__language-flag-icon">
+                <img src="../dist/img/down-flag-icon.png" alt="" class="nav__language-down-icon">
+            </div>
+
+            <div class="other-language">
+
+
+                <!-- w html zamienic na polityce na dobry link -->
+                <!-- w html zamienic na polityce na dobry link -->
+                <!-- w html zamienic na polityce na dobry link -->
+                <a href="ua.html">
+                    <img src="../dist/img/ukraine-flag.png" alt="Flaga ukrainy" class="other-language__flag">
+                </a>
+            </div>
+            
+            <button class="nav__hamburger" aria-label="Hamburger Menu">
+                    <img src="../dist/img/menu.png" alt="" class="nav__hamburger-img">
+            </button>
+        </div>
+
+    </div>
+</nav>
+
+    <main class="main">
+
+        <section class="sonarhome">
+
+            <h1 class="section-heading h1">Darmowa wycena nieruchomości w Krakowie</h1>
+            <div class="sonarhome__container">
+                <p class="sonarhome__container-sub-title">Zastanawiasz się, ile warte jest Twoje mieszkanie? Wypełnij
+                    krótki formularz i poznaj szacunkową wartość
+                    rynkową w kilka minut.</p>
+
+                <!-- Iframe z Twoim tokenem -->
+                <iframe id="sonarhome-iframe"
+                    src="https://sonarhome.pl/estimate-form?apiToken=c9cdb6ysgrh7jywxx5pdmcnavvybxgblumnurilgk6jjczjkgnjrwa9hh8myos8e"
+                    title="Wycena nieruchomości SonarHome" scrolling="no">
+                </iframe>
+            </div>
+
+        </section>
+
+        <section class="faq">
+            <h2 class="section-heading">Częste pytania</h2>
+
+            <div class="main-container">
+
+                <div class="faq__container">
+                    <div class="faq-mini-container">
+                        <div class="faq__box">
+                            <img src="../dist/img/plus-icon-faq.png" alt="" class="faq__box-icon">
+                            <h3 class="faq__box-heading">Czy wycena nieruchomości jest całkowicie darmowa?
+                            </h3>
+                        </div>
+
+                        <p class="faq__box-text"><b>Tak</b>, skorzystanie z naszego formularza oraz otrzymanie
+                            szacunkowej wartości nieruchomości nic nie kosztuje i do niczego nie zobowiązuje.</p>
+                    </div>
+                </div>
+
+                <div class="faq__container">
+                    <div class="faq-mini-container">
+                        <div class="faq__box">
+                            <img src="../dist/img/plus-icon-faq.png" alt="" class="faq__box-icon">
+                            <h3 class="faq__box-heading">Ile czasu zajmuje przygotowanie wyceny nieruchomości?
+                            </h3>
+                        </div>
+
+                        <p class="faq__box-text">Wynik otrzymasz <b>niemal natychmiast</b>. Po wypełnieniu formularza i
+                            potwierdzeniu adresu e-mail gotowa wycena trafi na Twoją skrzynkę w zaledwie kilka minut.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="faq__container">
+                    <div class="faq-mini-container">
+                        <div class="faq__box">
+                            <img src="../dist/img/plus-icon-faq.png" alt="" class="faq__box-icon">
+                            <h3 class="faq__box-heading">Jak dokładna jest nasz kalkulator online do wyceny
+                                nieruchomości?</h3>
+                        </div>
+
+                        <p class="faq__box-text">Kalkulator bazuje na tysiącach rzeczywistych transakcji z lokalnego
+                            rynku, co daje bardzo rzetelny punkt odniesienia. Jest to jednak wartość szacunkowa. Aby
+                            uwzględnić unikalne cechy mieszkania, takie jak wysoki standard wykończenia czy piękny widok
+                            z okna, zachęcamy do <a href="#contact">bezpłatnej konsultacji</a> z naszym agentem.</p>
+                    </div>
+                </div>
+
+
+                <div class="faq__container">
+                    <div class="faq-mini-container">
+                        <div class="faq__box">
+                            <img src="../dist/img/plus-icon-faq.png" alt="" class="faq__box-icon">
+                            <h3 class="faq__box-heading">Co zrobić w sytuacji braku mojego adresu na liście?</h3>
+                        </div>
+
+                        <p class="faq__box-text">Algorytm najlepiej radzi sobie z dużymi ośrodkami miejskimi oraz ich
+                            najbliższymi okolicami. Jeśli Twoja lokalizacja nie jest obsługiwana, zapraszamy do
+                            bezpośredniego <a href="#contact">kontaktu</a>, a my przygotujemy wycenę ręcznie na
+                            podstawie naszej wiedzy rynkowej.</p>
+                    </div>
+                </div>
+
+
+                <div class="faq__container" id="foreign">
+                    <div class="faq-mini-container">
+                        <div class="faq__box">
+                            <img src="../dist/img/plus-icon-faq.png" alt="" class="faq__box-icon">
+                            <h3 class="faq__box-heading">Czy informacja o wycenie mojego mieszkania będzie gdziekolwiek
+                                publicznie widoczna?</h3>
+                        </div>
+
+                        <p class="faq__box-text foreign-faq"><b>Absolutnie nie</b>, cały proces jest dyskretny i w pełni
+                            poufny. Wynik wyceny trafia wyłącznie na podany przez Ciebie adres e-mail oraz do naszego
+                            wewnętrznego systemu, więc nikt postronny nie dowie się o Twoich planach sprzedażowych.</p>
+                    </div>
+                </div>
+
+
+
+
+
+
+            </div>
+        </section>
+
+        <section class="contact" id="contact">
+            <h2 class="section-heading">Kontakt</h2>
+
+            <div class="main-container ">
+                <form action="send.php" method="POST" class="contact__form-container">
+
+                    <!-- Honeypot (ukryte pole anty-spam) -->
+                    <input type="text" name="company" style="display:none">
+
+                    <div class="name-phone-box">
+
+                        <div class="text">
+                            <label for="name" class="name">Imię</label>
+                            <input type="text" id="name" name="name" placeholder="Wioleta" required>
+                        </div>
+
+                        <div class="text">
+                            <label for="phone" class="phone">Telefon</label>
+                            <input type="text" id="phone" name="phone" placeholder="123 456 789" required>
+                        </div>
+
+                    </div>
+
+                    <div class="textarea-box">
+                        <label for="message">Wiadomość</label>
+                        <textarea id="message" name="message"
+                            placeholder="Potrzebuję pomocy przy zakupie pierwszej nieruchomości w Krakowie"
+                            required></textarea>
+                    </div>
+
+                    <div>
+                        <label class="checkbox-label">Wybierz typ nieruchomości: </label>
+                        <div class="checkbox-container">
+
+                            <div class="checkbox-section-container">
+                                <div class="checkbox-box">
+                                    <input type="checkbox" name="property_types[]" value="Mieszkanie" id="mieszkanie">
+                                    <label for="mieszkanie">Mieszkanie</label>
+                                </div>
+                                <div class="checkbox-box">
+                                    <input type="checkbox" name="property_types[]" value="Dom" id="dom">
+                                    <label for="dom">Dom</label>
+                                </div>
+                                <div class="checkbox-box">
+                                    <input type="checkbox" name="property_types[]" value="Garaż" id="garaz">
+                                    <label for="garaz">Garaż</label>
+                                </div>
+                            </div>
+
+                            <div class="checkbox-section-container">
+                                <div class="checkbox-box">
+                                    <input type="checkbox" name="property_types[]" value="Działka" id="dzialka">
+                                    <label for="dzialka">Działka</label>
+                                </div>
+                                <div class="checkbox-box">
+                                    <input type="checkbox" name="property_types[]" value="Lokale" id="lokal">
+                                    <label for="lokal">Lokal</label>
+                                </div>
+                                <div class="checkbox-box">
+                                    <input type="checkbox" name="property_types[]" value="Hale" id="hala">
+                                    <label for="hala">Hala</label>
+                                </div>
+                            </div>
+
+                            <div class="checkbox-section-container">
+                                <div class="checkbox-box">
+                                    <input type="checkbox" name="property_types[]" value="Biura" id="biuro">
+                                    <label for="biuro">Biuro</label>
+                                </div>
+                                <div class="checkbox-box">
+                                    <input type="checkbox" name="property_types[]" value="Inwestycje" id="inwestycje">
+                                    <label for="inwestycje">Inwestycje</label>
+                                </div>
+                                <div class="checkbox-box">
+                                    <input type="checkbox" name="property_types[]" value="Inne" id="inne">
+                                    <label for="inne">Inne</label>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <button type="submit" class="send-button">Wyślij wiadomość</button>
+                </form>
+
+
+                <div class="footer__top-container">
+
+                    <div class="top-second-container">
+                        <div class="write-to-us__box">
+                            <p class="write-to-us__box-title">Napisz do nas</p>
+                            <p class="write-to-us__box-text">Masz pytania lub chcesz umówić konsultację? Wypełnij
+                                formularz, a oddzwonimy jeszcze dziś</p>
+                        </div>
+
+                        <div class="top-box">
+                            <img src="../dist/img/mail-icon.png" alt="" class="gmail-icon">
+
+                            <div class="top__box">
+                                <p class="top__box-title">Mail</p>
+                                <p class="top__box-text">Wyślij maila a my zajmiemy się resztą</p>
+                                <a class="top__box-link" href="mailto:dima@hproperties.pl">dima@hproperties.pl</a>
+                            </div>
+                        </div>
+
+                        <div class="top-box">
+                            <img src="../dist/img/locatin-icon.png" alt="" class="location-icon">
+
+                            <div class="top__box">
+                                <p class="top__box-title">Tu jesteśmy</p>
+                                <p class="top__box-text">
+                                    Konsultacja po wcześniejszym umówieniu
+                                </p>
+                                <a class="top__box-link" href="https://maps.app.goo.gl/cXuazeJ2jq4BsAKA7">Józefa
+                                    Wybickiego 3A/104, 31-261 Kraków</a>
+                            </div>
+                        </div>
+
+                        <div class="top-box">
+                            <img src="../dist/img/phone-icon.png" alt="" class="instagram-icon">
+
+                            <div class="top__box">
+                                <p class="top__box-title">Numer telefonu</p>
+                                <p class="top__box-text">Zadzwoń i ustalimy dogodny termin spotkania</p>
+                                <a class="top__box-link" href="tel:+48572910341">572 910 341</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="social-media__box">
+
+                        <a href="https://www.facebook.com/profile.php?id=61573598463451&locale=pl_PL"
+                            aria-label="Link do profilu na facebook">
+                            <img src="../dist/img/facebook-icon.png" alt="" class="social-media__box-icon">
+                        </a>
+
+                        <a href="https://www.tiktok.com/@hproperties?_t=ZN-90wVJ21d3oM&_r=1"
+                            aria-label="Link do profilu na tiktok">
+                            <img src="../dist/img/tiktok-icon.png" alt="" class="social-media__box-icon">
+                        </a>
+
+                        <a href="https://www.instagram.com/dima_hrycyszyn_nieruchomosci/"
+                            aria-label="Link do profilu na instagramie">
+                            <img src="../dist/img/instagram-icon.png" alt="" class="social-media__box-icon">
+                        </a>
+
+
+                    </div>
+
+
+                </div>
+
+                <div class="contact__info-container">
+
+                </div>
+
+            </div>
+
+        </section>
+    </main>
+
+
+
+
+    <footer class="footer">
+
+    <div class="footer__bottom-container">
+        <img src="../dist/img/logo.png" alt="" class="footer__bottom-container-logo">
+
+        <div class="footer-bottom__box">
+            <p class="footer-bottom__box-name">&copy; <span class="footer-bottom__box-year">2022</span> H.Properties</p>
+            <span class="footer-bottom__box-dot"></span>
+            <a href="../privacy-policy.html" class="footer-bottom__box-link">Polityka prywatności</a>
+        </div>
+
+    </div>
+</footer>
+
+    <script>
+        window.addEventListener('message', (event) => {
+            // Zabezpieczenie domeny
+            if (event.origin !== "https://sonarhome.pl") return;
+
+            // NOWOŚĆ 1: Logujemy w konsoli absolutnie wszystko, co wysyła SonarHome
+            console.log("Wiadomość z SonarHome:", event.data);
+
+            const iframe = document.getElementById('sonarhome-iframe');
+            if (!iframe) return;
+
+            // --- OBSŁUGA WYSOKOŚCI ---
+            let heightToSet = null;
+            if (typeof event.data === 'object' && event.data.height) {
+                heightToSet = event.data.height;
+            } else if (typeof event.data === 'string') {
+                try {
+                    const parsed = JSON.parse(event.data);
+                    if (parsed.height) heightToSet = parsed.height;
+                } catch (e) { }
+            }
+
+            if (heightToSet) {
+                let buffer = 0;
+                const screenWidth = window.innerWidth;
+                if (screenWidth < 744) {
+                    buffer = 40;
+                } else if (screenWidth >= 744 && screenWidth < 1440) {
+                    buffer = 60;
+                } else if (screenWidth >= 1440) {
+                    buffer = 70;
+                }
+                iframe.style.height = (heightToSet + buffer) + 'px';
+            }
+
+            // --- NOWOŚĆ 2: OBSŁUGA PRZEKIEROWANIA ---
+            // Szukamy, czy SonarHome nie wysłał nam linku do kolejnego kroku
+            let redirectUrl = null;
+            if (typeof event.data === 'object') {
+                redirectUrl = event.data.redirectUrl || event.data.redirect || event.data.url || event.data.redirectTo;
+            } else if (typeof event.data === 'string') {
+                try {
+                    const parsed = JSON.parse(event.data);
+                    redirectUrl = parsed.redirectUrl || parsed.redirect || parsed.url || parsed.redirectTo;
+                } catch (e) { }
+            }
+
+            // Jeśli znaleźliśmy link, automatycznie przenosimy tam użytkownika
+            if (redirectUrl && typeof redirectUrl === 'string' && redirectUrl.startsWith('http')) {
+                window.location.href = redirectUrl;
+            }
+        });
+    </script>
+
+    <script src="../dist/js/main.min.js"></script>
+</body>
+
+</html>

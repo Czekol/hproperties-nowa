@@ -26,7 +26,7 @@
 		justify-content: space-between;
 		align-items: center;
 		&-img {
-			height: 28px;
+			height: 14px;
 
 			&.nav-open {
 				filter: invert(1);
@@ -43,7 +43,7 @@
 		align-items: flex-start;
 		gap: 2.8rem;
 		padding-top: 8rem;
-		width: 246px;
+		width: 271px;
 		height: 100vh;
 		background-color: #0c2446;
 		transform: translateX(100%);
