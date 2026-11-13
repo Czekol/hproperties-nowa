@@ -12,7 +12,10 @@ const kit = require('gulp-kit');
 const browserSync = require('browser-sync').create();
 
 const paths = {
-	html: './html/**/*.kit',
+	// Części wspólne (używane przez @include) nie są budowane osobno,
+	// bo korzystają ze zmiennych ustawianych w kitach podstron.
+	html: ['./html/**/*.kit', '!./html/about.kit', '!./html/contact.kit', '!./html/reviews.kit'],
+	htmlWatch: './html/**/*.kit',
 	sass: './src/sass/**/*.scss',
 	js: './src/js/**/*.js',
 	img: './src/img/*',
@@ -82,7 +85,7 @@ function startBrowserSync(done) {
 
 // Watchery
 function watchForChanges(done) {
-	watch(paths.html, handleKits);
+	watch(paths.htmlWatch, handleKits);
 	watch(paths.sass, sassCompailer);
 	watch(paths.js, javaScript);
 	watch(paths.img, convertImages);

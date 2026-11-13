@@ -1,0 +1,114 @@
+// Polityka prywatności
+
+// Mobile
+.privacy-policy {
+	padding-inline: 3rem;
+	max-width: 1200px;
+	margin-inline: auto;
+	margin-bottom: 8rem;
+
+	.section-heading {
+		margin-top: 13.7rem;
+	}
+
+	&__container {
+		display: flex;
+		flex-direction: column;
+		gap: 2rem;
+
+		.privacy-policy__box {
+			&-heading {
+				margin-bottom: 0.5rem;
+				font-size: 1.8rem;
+			}
+
+			&-second-heading {
+				margin-top: 1rem;
+				margin-bottom: 0.3rem;
+				font-size: 1.5rem;
+			}
+
+			&-text {
+				margin-bottom: 1rem;
+				line-height: 19px;
+			}
+
+			ul {
+				list-style: circle inside;
+
+				li {
+					margin-bottom: 0.5rem;
+				}
+			}
+		}
+	}
+}
+
+// Tablet
+@media (width >= 744px) {
+	.privacy-policy {
+		padding-inline: 6rem;
+		margin-bottom: 10rem;
+
+		.section-heading {
+			margin-top: 16.4rem;
+		}
+
+		&__container {
+			.privacy-policy__box {
+				&-heading {
+					margin-bottom: 0.7rem;
+					font-size: 2.3rem;
+				}
+
+				&-second-heading {
+					margin-top: 1.5rem;
+					margin-bottom: 0.5rem;
+					font-size: 1.9rem;
+				}
+
+				&-text {
+					// margin-bottom: 1rem;
+					line-height: 23px;
+				}
+
+				ul {
+					li {
+						margin-bottom: 0.7rem;
+					}
+				}
+			}
+		}
+	}
+}
+
+// Desktop
+@media (width >= 1440px) {
+	.privacy-policy {
+		padding-inline: 0rem;
+		margin-bottom: 12.5rem;
+
+		.section-heading {
+			margin-top: 22.17rem;
+		}
+
+		&__container {
+			gap: 3rem;
+
+			.privacy-policy__box-heading {
+				margin-bottom: 1rem;
+				font-size: 2.5rem;
+			}
+
+			.privacy-policy__box-second-heading {
+				margin-top: 1.6rem;
+				margin-bottom: 0.6rem;
+				font-size: 2rem;
+			}
+
+			.privacy-policy__box-text {
+				line-height: 24px;
+			}
+		}
+	}
+}

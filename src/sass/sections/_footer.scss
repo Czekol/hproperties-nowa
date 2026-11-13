@@ -1,0 +1,305 @@
+// Stopka
+
+// Mobile
+.footer__top-container {
+	margin-top: 8rem;
+	padding: 4rem 3rem 4.5rem;
+	background-color: #081b35;
+
+	.top-second-container {
+		display: flex;
+		flex-direction: column;
+		gap: 3rem;
+
+		.write-to-us__box {
+			max-width: 300px;
+
+			&-title {
+				font-size: 2rem;
+				font-weight: bold;
+				color: #fff;
+			}
+
+			&-text {
+				padding-top: 0.6rem;
+				color: #e1e1e1;
+				line-height: 19px;
+			}
+		}
+
+		.top-box {
+			display: flex;
+			gap: 1rem;
+
+			.gmail-icon {
+				width: 21px;
+				height: 15px;
+			}
+
+			.location-icon {
+				width: 18px;
+				height: 18px;
+			}
+
+			.instagram-icon {
+				width: 15.75px;
+				height: 15.75px;
+			}
+
+			.top__box {
+				display: flex;
+				flex-direction: column;
+				gap: 0.5rem;
+
+				&-title {
+					font-size: 1.7rem;
+					font-weight: bold;
+					color: #fff;
+				}
+
+				&-text {
+					color: #e1e1e1;
+				}
+
+				&-link {
+					color: #fff;
+					font-weight: bold;
+				}
+			}
+		}
+	}
+
+	.social-media__box {
+		display: flex;
+		gap: 2.5rem;
+		margin-top: 4rem;
+
+		&-icon {
+			width: 28px;
+		}
+
+		a {
+			display: flex;
+		}
+	}
+
+	&::before {
+		background-color: #081b35;
+	}
+
+	.top__box-text,
+	.write-to-us__box-text {
+		white-space: normal;
+	}
+}
+
+.footer__bottom-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding-block: 7.3rem;
+	background-color: #081930;
+
+	&-logo {
+		width: 147px;
+		filter: invert(1);
+		margin-bottom: 1.4rem;
+	}
+
+	.footer-bottom__box {
+		display: flex;
+		align-items: center;
+		gap: 1.1rem;
+
+		&-name {
+			color: #e7e7e7;
+		}
+
+		&-dot {
+			display: inline-block;
+			border-radius: 50%;
+			width: 5px;
+			height: 5px;
+			background-color: #ccc;
+		}
+
+		&-link {
+			text-decoration: underline;
+			color: #e7e7e7;
+		}
+	}
+}
+
+// Tablet
+@media (width >= 744px) {
+	.footer__top-container {
+		margin-top: 10rem;
+		padding: 4.4rem 6rem 5rem;
+
+		.top-second-container {
+			gap: 3.5rem;
+
+			.write-to-us__box {
+				max-width: 380px;
+
+				&-title {
+					font-size: 2.4rem;
+				}
+
+				&-text {
+					padding-top: 0.7rem;
+					font-size: 1.6rem;
+					line-height: 20px;
+				}
+			}
+
+			.top-box {
+				gap: 1.1rem;
+
+				.gmail-icon {
+					margin-top: 0.3rem;
+					width: 24px;
+					height: 17px;
+				}
+
+				.location-icon {
+					margin-top: 0.3rem;
+					width: 21px;
+					height: 21px;
+				}
+
+				.instagram-icon {
+					margin-top: 0.3rem;
+					width: 17.75px;
+					height: 17.75px;
+				}
+
+				.top__box {
+					gap: 0.6rem;
+
+					&-title {
+						font-size: 2.1rem;
+					}
+				}
+			}
+		}
+
+		.social-media__box {
+			gap: 3rem;
+			margin-top: 5rem;
+
+			&-icon {
+				width: 30px;
+			}
+		}
+	}
+
+	.footer__bottom-container {
+		padding-block: 7.5rem;
+
+		&-logo {
+			width: 166px;
+		}
+
+		.footer-bottom__box {
+			gap: 1.3rem;
+		}
+	}
+}
+
+// Desktop
+@media (width >= 1440px) {
+	.footer__top-container {
+		position: relative;
+		margin-top: 00rem;
+		padding: 5.2rem 11rem 8.9rem 0;
+		border-top-right-radius: 120px;
+		flex: 0 0 506px;
+		min-width: 0;
+
+		.top-second-container {
+			gap: 4rem;
+
+			.write-to-us__box-title {
+				font-size: 2.6rem;
+			}
+
+			.write-to-us__box-text {
+				font-size: 1.7rem;
+				padding-top: 0.8rem;
+				line-height: 24px;
+			}
+
+			.top-box {
+				gap: 1.2rem;
+
+				.gmail-icon {
+					// margin-top: 0.3rem;
+					width: 27px;
+					height: 19px;
+				}
+
+				.location-icon {
+					// margin-top: 0.3rem;
+					width: 24px;
+					height: 24px;
+				}
+
+				.instagram-icon {
+					// margin-top: 0.3rem;
+					width: 19.75px;
+					height: 19.75px;
+				}
+
+				.top__box {
+					gap: 0.7rem;
+
+					&-title {
+						font-size: 2.3rem;
+					}
+				}
+			}
+
+			.top__box-title {
+				line-height: 31px;
+			}
+
+			.top__box-text,
+			.top__box-link {
+				line-height: 25px;
+				white-space: nowrap;
+			}
+		}
+
+		.social-media__box {
+			margin-top: 6.1rem;
+
+			&-icon {
+				width: 32px;
+			}
+		}
+
+		&::before {
+			content: '';
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			left: -40vw;
+			width: 40vw;
+		}
+	}
+
+	.footer__bottom-container {
+		padding-block: 8.6rem;
+
+		&-logo {
+			width: 187px;
+		}
+
+		.footer-bottom__box {
+			gap: 1.4rem;
+			line-height: 25px;
+		}
+	}
+}

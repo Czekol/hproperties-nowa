@@ -1,0 +1,166 @@
+// Scenariusze (zdjęcie + opis)
+
+// Mobile
+.main {
+	.services {
+		.main-container {
+			display: flex;
+			flex-direction: column;
+			gap: 6.5rem;
+		}
+
+		&__container {
+			height: fit-content;
+			text-align: center;
+
+			.services__box-heading {
+				font-size: 2rem;
+			}
+
+			.services__box-text {
+				padding: 0.9rem 3rem 3rem;
+				color: #2a2a2a;
+				line-height: 19px;
+			}
+		}
+
+		&__container-img {
+			margin-bottom: 2.1rem;
+			height: 167px;
+		}
+
+		&__container:nth-child(3) {
+			.services__container-img {
+				transform: scaleX(-1);
+			}
+		}
+	}
+}
+
+.services__box-heading {
+	font-weight: 700;
+}
+
+.services__container-img {
+	border-radius: 6px;
+	object-fit: cover;
+	width: 100%;
+}
+
+// Tablet
+@media (width >= 744px) {
+	.main {
+		.services {
+			.main-container {
+				gap: 8rem;
+			}
+
+			&__container {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+
+				.services__box {
+					max-width: 531px;
+
+					&-heading {
+						font-size: 2.5rem;
+					}
+
+					&-text {
+						padding: 1.2rem 0rem 3.5rem;
+						line-height: 22px;
+					}
+				}
+			}
+
+			&__container-img {
+				height: 233px;
+			}
+		}
+	}
+}
+
+// Desktop
+@media (width >= 1440px) {
+	.main {
+		.services {
+			.main-container {
+				gap: 10.5rem;
+				max-width: 1104px;
+				margin-inline: auto;
+			}
+
+			&__container {
+				flex-direction: row;
+				justify-content: space-between;
+				margin-inline: auto;
+				width: 100%;
+				gap: 10rem;
+				max-width: 1104px;
+
+				.services__box {
+					text-align: left;
+					max-width: 504px;
+
+					&-heading {
+						font-size: 2.6rem;
+					}
+
+					&-text {
+						padding: 1.5rem 0 0;
+						line-height: 26px;
+					}
+
+					&.longer {
+						max-width: 504px;
+					}
+				}
+			}
+
+			&__container-img {
+				width: 500px;
+				max-width: 500px;
+				height: 310px;
+				flex: 0 0 500px;
+				margin: 0;
+			}
+
+			&__container:nth-of-type(1) {
+				.services__container-img {
+					order: 2;
+				}
+			}
+
+			&__container:nth-of-type(3) {
+				.services__container-img {
+					order: 2;
+				}
+			}
+
+			&__box,
+			&__box.longer {
+				flex: 1 1 500px;
+			}
+
+			&__box-heading {
+				line-height: normal;
+			}
+
+			&__box.longer-heading {
+				font-size: 2.6rem;
+				line-height: normal;
+			}
+
+			&__box-text {
+				font-size: 1.8rem;
+			}
+
+			&__box.longer-text {
+				padding: 1.5rem 0 0;
+				font-size: 1.8rem;
+				line-height: 26px;
+			}
+		}
+	}
+}

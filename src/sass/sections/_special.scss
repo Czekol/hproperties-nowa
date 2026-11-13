@@ -1,0 +1,165 @@
+// Wyróżniki (3 kolumny z ikonami)
+
+// Mobile
+.main {
+	.special__container {
+		display: flex;
+		flex-direction: column;
+		gap: 4.5rem;
+
+		.special__box {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			text-align: center;
+
+			&:nth-of-type(3) {
+				.special__box-text {
+					max-width: 250px;
+				}
+			}
+
+			&-img {
+				width: 45px;
+			}
+
+			&-heading {
+				padding-block: 0.6rem;
+				max-width: 188px;
+				font-size: 1.9rem;
+				line-height: 23px;
+			}
+
+			&-text {
+				max-width: 269px;
+				color: #2a2a2a;
+				line-height: 20px;
+			}
+		}
+	}
+}
+
+.special__box-heading {
+	font-weight: 700;
+}
+
+// Tablet
+@media (width >= 744px) {
+	.main {
+		.special {
+			margin-inline: auto;
+
+			&__container {
+				padding-inline: 6rem;
+				flex-direction: row;
+				align-items: center;
+				justify-content: center;
+				flex-wrap: wrap;
+
+				.special__box:nth-of-type(3) {
+					.special__box-text {
+						max-width: 310px;
+					}
+				}
+
+				.special__box-img {
+					width: 49px;
+				}
+
+				.special__box-heading {
+					padding-block: 1.1rem 0.8rem;
+					max-width: 245px;
+					font-size: 2.4rem;
+					line-height: 30px;
+				}
+
+				.special__box-text {
+					max-width: 330px;
+					line-height: 23px;
+				}
+			}
+		}
+	}
+}
+
+// Desktop
+@media (width >= 1440px) {
+	.main {
+		.special__container {
+			padding-inline: 0rem;
+			align-items: flex-start;
+			max-width: 1200px;
+			margin-inline: auto;
+			justify-content: space-between;
+			gap: 0;
+
+			.special__box {
+				flex: 0 0 auto;
+
+				&:nth-of-type(3) {
+					width: 336px;
+
+					.special__box-text {
+						max-width: 319px;
+					}
+				}
+
+				&-img {
+					width: 55px;
+				}
+
+				&-heading {
+					max-width: none;
+					font-size: 2.6rem;
+					line-height: 33px;
+					padding: 1.3rem 0 0;
+				}
+
+				&-text {
+					max-width: none;
+					line-height: 26px;
+				}
+
+				&:nth-of-type(1) {
+					width: 359px;
+
+					.special__box-text {
+						max-width: 359px;
+					}
+				}
+
+				&:nth-of-type(2) {
+					width: 321px;
+
+					.special__box-text {
+						max-width: 321px;
+					}
+				}
+
+				.special__box-text {
+					margin-top: 0.8rem;
+				}
+			}
+		}
+
+		.special__box {
+			flex: 1 1 0;
+			max-width: none;
+
+			&-img {
+				height: 55px;
+			}
+
+			&:nth-of-type(3) {
+				.special__box-text {
+					font-size: 1.8rem;
+					line-height: 26px;
+				}
+			}
+
+			&-text {
+				font-size: 1.8rem;
+			}
+		}
+	}
+}

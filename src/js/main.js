@@ -85,6 +85,14 @@ languageBox.addEventListener('click', changeLanguage)
 faqItems.forEach(el => el.addEventListener('click', handleFaq))
 foreingFaqLinks.forEach(el => el.addEventListener('click', foreignFaqOpen))
 
+document.querySelectorAll('.about__card').forEach(card => {
+	card.addEventListener('click', () => {
+		const open = card.classList.contains('is-open')
+		document.querySelectorAll('.about__card.is-open').forEach(other => other.classList.remove('is-open'))
+		if (!open) card.classList.add('is-open')
+	})
+})
+
 
 document.addEventListener('DOMContentLoaded', () => {
 	const container = document.querySelector('.reviews__container')

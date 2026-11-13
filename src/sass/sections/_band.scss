@@ -1,0 +1,61 @@
+// Pasek z przyciskiem (band)
+
+// Mobile
+.band {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 2rem;
+	margin: 8rem 2.4rem;
+	text-align: center;
+
+	&__heading {
+		font-size: 2.6rem;
+		font-weight: 700;
+		line-height: 1.25;
+	}
+
+	&__btn {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.9rem;
+		padding: 1.6rem 3.2rem;
+		background: #112f59;
+		border-radius: 6px;
+		color: #fff;
+		font-size: 2rem;
+		font-weight: 700;
+
+		img {
+			width: 26px;
+			height: 26px;
+		}
+	}
+}
+
+// Tablet
+@media (width >= 744px) {
+	.band {
+		flex-direction: row;
+		justify-content: center;
+		margin-inline: auto;
+		max-width: 1100px;
+	}
+}
+
+// Desktop
+@media (width >= 1440px) {
+	.band {
+		gap: 3rem;
+		max-width: none;
+		margin: 12.5rem auto;
+
+		&__heading {
+			font-size: 3.2rem;
+		}
+
+		&__btn {
+			font-size: 2.3rem;
+		}
+	}
+}

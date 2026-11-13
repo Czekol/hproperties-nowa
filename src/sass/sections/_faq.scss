@@ -1,0 +1,131 @@
+// Najczęstsze pytania
+
+// Mobile
+.main {
+	.faq {
+		.main-container {
+			display: flex;
+			flex-direction: column;
+			gap: 1.3rem;
+			padding-inline: 3rem;
+		}
+
+		&__container {
+			background-color: #bfcde2;
+			overflow: hidden;
+			border-radius: 10px;
+		}
+
+		&__box {
+			display: flex;
+			align-items: center;
+			gap: 0.8rem;
+			padding: 1.3rem;
+		}
+
+		&__box-icon {
+			width: 13px;
+		}
+
+		&__box-heading {
+			font-size: 1.5rem;
+			line-height: 19px;
+		}
+
+		&__box-text {
+			display: none;
+			padding: 0 1.3rem 1.3rem 1.3rem;
+			color: #2a2a2a;
+			font-size: 1.3rem;
+			line-height: 18px;
+
+			a {
+				font-weight: bold;
+				color: #112F59;
+			}
+		}
+
+		&__box-text.show {
+			display: block;
+		}
+
+		.faq__container {
+			background-color: #dadfe7;
+			border-radius: 6px;
+			box-shadow: 3px 3px 2.5px #a4abb1;
+		}
+
+		.faq__box-heading {
+			color: #000;
+		}
+	}
+}
+
+// Tablet
+@media (width >= 744px) {
+	.main {
+		.faq {
+			.main-container {
+				gap: 1.5rem;
+				padding-inline: 6rem;
+				margin-inline: auto;
+				max-width: 960px;
+			}
+
+			&__box {
+				padding: 1.5rem;
+			}
+
+			&__box-icon {
+				width: 14px;
+			}
+
+			&__box-heading {
+				font-size: 1.8rem;
+				line-height: 22px;
+			}
+
+			&__box-text {
+				padding: 0 1.5rem 1.5rem 1.5rem;
+				font-size: 1.4rem;
+			}
+		}
+	}
+}
+
+// Desktop
+@media (width >= 1440px) {
+	.main {
+		.faq {
+			.main-container {
+				gap: 2rem;
+				padding-inline: 0;
+				max-width: 846px;
+			}
+
+			&__box {
+				gap: 0.9rem;
+				padding: 1.9rem;
+			}
+
+			&__box-icon {
+				width: 18px;
+			}
+
+			&__box-heading {
+				font-size: 2rem;
+				line-height: normal;
+			}
+
+			&__box-text {
+				padding: 0 1.9rem 1.9rem 1.9rem;
+				font-size: 1.5rem;
+				line-height: 21px;
+			}
+
+			.faq__box-heading {
+				white-space: nowrap;
+			}
+		}
+	}
+}

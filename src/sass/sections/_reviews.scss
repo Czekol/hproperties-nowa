@@ -1,0 +1,392 @@
+// Opinie
+
+// Mobile
+.main {
+	.reviews {
+		padding: 4.1rem 3rem 4rem 3rem;
+		background-color: #081a32;
+
+		.section-heading {
+			margin-top: 0;
+			margin-bottom: 4rem;
+			color: #fff;
+		}
+
+		&__nav {
+			display: none;
+		}
+
+		&__container {
+			position: relative;
+			margin: 0 auto;
+			overflow: hidden;
+
+			.reviews__box {
+				position: relative;
+				color: #e1e1e1;
+				padding-left: 3rem;
+				// miejsce na cudzysłów
+				padding-top: 1rem;
+				// 1 slajd = 100% szerokości kontenera
+				min-width: 100%;
+
+				&.desktop-review {
+					display: none;
+				}
+
+				.test {
+					position: relative;
+
+					&::before {
+						font-family: 'Onest', sans-serif;
+						content: '“';
+						position: absolute;
+						left: -29px;
+						top: -12px;
+						font-size: 5.4rem;
+						font-weight: bold;
+						color: #bfcde2;
+					}
+				}
+
+				&-text {
+					position: relative;
+					// max-width: 500px;
+					max-height: 100px;
+					// widoczna wysokość fragmentu
+					overflow: hidden;
+					// ukryj resztę
+					line-height: 19px;
+					margin-bottom: 0.7rem;
+				}
+
+				&-text::after {
+					content: '';
+					position: absolute;
+					left: 0;
+					right: 0;
+					bottom: 0;
+					height: 40px;
+					pointer-events: none;
+					// gradient w kolorze tła sekcji (ciemny granat)
+					background: linear-gradient(to bottom, rgba(17, 47, 89, 0), rgba(17, 47, 89, 1));
+				}
+
+				&.is-expanded {
+					.reviews__box-text {
+						max-height: none;
+
+						&::after {
+							display: none;
+						}
+					}
+				}
+
+				&-show-more {
+					color: #bfcde2;
+					font-size: 1.5rem;
+					font-weight: bold;
+					text-decoration: none;
+				}
+
+				.person-box {
+					display: flex;
+					align-items: center;
+					gap: 0.8rem;
+					margin-top: 2.4rem;
+				}
+
+				&-img {
+					width: 47px;
+					height: 47px;
+					border-radius: 50%;
+					border: 1px solid #0c2445;
+					object-fit: cover;
+				}
+
+				&-name {
+					font-size: 1.5rem;
+				}
+			}
+
+			.reviews__dot-box {
+				display: flex;
+				gap: 1.8rem;
+				justify-content: center;
+				margin-top: 4rem;
+				padding-bottom: 1rem;
+				text-align: center;
+
+				&-dot {
+					display: inline-block;
+					width: 6px;
+					height: 6px;
+					border-radius: 50%;
+					background-color: #020e19;
+					transition:
+						background-color 0.2s ease,
+						outline-color 0.2s ease;
+					cursor: pointer;
+					touch-action: manipulation;
+					position: relative;
+					z-index: 2;
+				}
+
+				&-dot.active {
+					outline: 1px solid #3566aa;
+					outline-offset: 0px;
+				}
+			}
+		}
+
+		.reviews__wrapper {
+			display: flex;
+			transition: transform 0.4s ease-in-out;
+			will-change: transform;
+			touch-action: pan-y;
+			user-select: none;
+		}
+
+		.reviews__container {
+			.reviews__box {
+				&-text::after {
+					background: linear-gradient(to bottom, rgba(8, 26, 50, 0), #081a32);
+				}
+
+				&-show-more {
+					color: #619ae6;
+				}
+
+				.test::before {
+					color: #e0e0e0;
+				}
+			}
+
+			.reviews__dot-box {
+				align-items: center;
+				gap: 1.6rem;
+
+				&-dot {
+					width: 6px;
+					height: 6px;
+					background-color: #010509;
+				}
+
+				&-dot.active {
+					width: 10px;
+					height: 10px;
+					outline: 0;
+					border: 2px solid #619ae6;
+					background-color: #020e18;
+				}
+			}
+		}
+	}
+}
+
+// Tablet
+@media (width >= 744px) {
+	.main {
+		.reviews {
+			padding: 5.5rem 6rem 5.5rem 6rem;
+
+			.section-heading {
+				margin-bottom: 6.3rem;
+			}
+
+			&__container {
+				.reviews__box {
+					display: flex;
+					flex-direction: column;
+					align-items: center;
+					padding-left: 3.3rem;
+
+					.test::before {
+						left: -34px;
+						top: -14px;
+						font-size: 6.4rem;
+					}
+
+					&-text {
+						// widoczna wysokość fragmentu
+						line-height: 24px;
+						margin-bottom: 0.9rem;
+						max-width: 457px;
+					}
+
+					&-show-more {
+						font-size: 1.8rem;
+						line-height: 26px;
+					}
+
+					.person-box {
+						align-self: flex-start;
+						gap: 1rem;
+						margin-top: 2.8rem;
+					}
+
+					&-img {
+						width: 52px;
+						height: 52px;
+					}
+
+					&-name {
+						font-size: 1.8rem;
+					}
+				}
+
+				.reviews__dot-box {
+					margin-top: 4.5rem;
+
+					&-dot.active {
+						outline: 2px solid #3566aa;
+					}
+				}
+			}
+		}
+	}
+}
+
+// Desktop
+@media (width >= 1440px) {
+	.main {
+		.reviews {
+			padding: 6.7rem 0 6.5rem;
+			margin-top: 0;
+			padding-block: 6.7rem 7.1rem;
+
+			.section-heading {
+				margin-bottom: 8.9rem;
+			}
+
+			&__container {
+				z-index: 1;
+				max-width: 1053px;
+
+				.reviews__box {
+					padding-left: 4rem;
+
+					&.desktop-review {
+						display: flex;
+					}
+
+					.test::before {
+						left: -39px;
+						top: -19px;
+						font-size: 7.5rem;
+					}
+
+					&-text {
+						max-width: 430px;
+						// widoczna wysokość fragmentu
+						line-height: 26px;
+						margin-bottom: 1rem;
+					}
+
+					&-show-more,
+					&-name {
+						font-size: 1.9rem;
+					}
+
+					.person-box {
+						margin-top: 3.5rem;
+					}
+
+					&-img {
+						width: 58px;
+						height: 58px;
+					}
+				}
+
+				.reviews__dot-box {
+					margin-top: 5.5rem;
+
+					&-dot {
+						box-sizing: border-box;
+					}
+				}
+			}
+
+			.reviews__container {
+				position: relative;
+				z-index: 1;
+
+				.reviews__dot-box {
+					padding-bottom: 0;
+					margin-top: 5.5rem;
+				}
+
+				.reviews__wrapper {
+					.reviews__box {
+						// min-width: 50%;
+						// była 100% – teraz dwie karty w jednym widoku
+						// max-width: 550px;
+						min-width: fit-content;
+					}
+				}
+
+				.reviews__box {
+					padding-top: 0;
+
+					&-text {
+						max-height: 104px;
+					}
+				}
+			}
+
+			.test-section {
+				max-width: 1200px;
+				width: 100%;
+				margin-inline: auto;
+				position: relative;
+				z-index: 2;
+			}
+
+			&__wrapper {
+				position: relative;
+				gap: 11.2rem;
+				z-index: 1;
+			}
+
+			.reviews__nav {
+				position: absolute;
+				background: transparent;
+				border: 0;
+				width: 40px;
+				height: 40px;
+				line-height: 40px;
+				text-align: center;
+				cursor: pointer;
+				color: #bfcde2;
+				user-select: none;
+				display: block;
+				top: 66px;
+				z-index: 10;
+				pointer-events: auto;
+				transform: translateY(-50%);
+				rotate: none;
+
+				img {
+					width: 16px;
+					height: 16px;
+				}
+
+				&--prev {
+					rotate: none;
+					transform: translateY(-50%);
+					top: 84px;
+					left: 4px;
+
+					img {
+						transform: scaleX(-1);
+					}
+				}
+
+				&--next {
+					top: 58px;
+					right: -12px;
+				}
+			}
+		}
+	}
+}
