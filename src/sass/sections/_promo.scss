@@ -1,0 +1,76 @@
+// Baner z przyciskiem (promo)
+
+// Mobile
+.promo {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	margin: 0;
+	padding: 6rem 2.4rem 7.6rem;
+	text-align: center;
+	color: #fff;
+	background:
+		linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)),
+		url('../img/promo-talk.png') center / cover no-repeat;
+
+	&__inner {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 4rem;
+		max-width: 693px;
+	}
+
+	&__copy {
+		display: flex;
+		flex-direction: column;
+		gap: 0.8rem;
+	}
+
+	&__heading {
+		font-size: 3.2rem;
+		font-weight: 700;
+		line-height: 1.25;
+	}
+
+	&__text {
+		color: #f3f3f3;
+		font-size: 1.7rem;
+		line-height: 27px;
+	}
+
+	&__btn {
+		display: inline-flex;
+		align-items: center;
+		gap: 1rem;
+		padding: 1.5rem 3rem;
+		background: #112f59;
+		border-radius: 6px;
+		color: #fff;
+		font-size: 1.9rem;
+		font-weight: 700;
+
+		img {
+			width: 22px;
+			height: 22px;
+		}
+	}
+}
+
+// Desktop
+@media (width >= 1440px) {
+	.promo {
+		margin-top: 12.5rem;
+
+		&__heading {
+			max-width: 648px;
+			font-size: 4.5rem;
+			line-height: 63px;
+		}
+
+		&__text {
+			max-width: 648px;
+			font-size: 1.9rem;
+		}
+	}
+}

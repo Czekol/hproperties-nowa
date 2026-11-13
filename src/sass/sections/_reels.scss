@@ -1,0 +1,53 @@
+// Rolki
+
+// Mobile
+.reels__grid {
+	display: grid;
+	gap: 2rem;
+	padding-inline: 2.4rem;
+}
+
+.reels__item {
+	display: block;
+	border-radius: 6px;
+	overflow: hidden;
+
+	img {
+		width: 100%;
+		height: 520px;
+		object-fit: cover;
+		object-position: center top;
+		display: block;
+	}
+}
+
+// Tablet
+@media (width >= 744px) {
+	.reels__grid {
+		grid-template-columns: repeat(3, 1fr);
+		max-width: 1200px;
+		margin-inline: auto;
+	}
+}
+
+// Desktop
+@media (width >= 1440px) {
+	.reels__grid {
+		display: flex;
+		justify-content: space-between;
+		gap: 4.2rem;
+		margin: 0 auto;
+		padding: 0;
+	}
+
+	.reels__item {
+		flex: 0 0 372px;
+		width: 372px;
+		box-shadow: 4px 4px 4px rgba(17, 47, 89, 0.23);
+
+		img {
+			width: 372px;
+			height: 671px;
+		}
+	}
+}

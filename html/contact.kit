@@ -1,0 +1,128 @@
+<section class="contact" id="contact">
+            <h2 class="section-heading">Kontakt</h2>
+
+            <div class="main-container ">
+                <form action="send.php" method="POST" class="contact__form-container">
+
+                    <!-- Honeypot (ukryte pole anty-spam) -->
+                    <input type="text" name="company" style="display:none">
+
+                    <div class="name-phone-box">
+
+                        <div class="text">
+                            <label for="name" class="name">Imię</label>
+                            <input type="text" id="name" name="name" placeholder="Wioleta" required>
+                        </div>
+
+                        <div class="text">
+                            <label for="phone" class="phone">Numer telefonu</label>
+                            <input type="text" id="phone" name="phone" placeholder="123 456 789" required>
+                        </div>
+
+                    </div>
+
+                    <div class="textarea-box">
+                        <label for="message">Wiadomość</label>
+                        <textarea id="message" name="message"
+                            placeholder="<!-- $messagePlaceholder -->"
+                            required></textarea>
+                    </div>
+
+                    <div>
+                        <label class="checkbox-label">W czym możemy Ci pomóc?</label>
+                        <div class="checkbox-container">
+                            <div class="checkbox-section-container">
+                                <div class="checkbox-box"><input type="checkbox" name="property_types[]" value="Zmienić na większe" id="help-bigger"><label for="help-bigger">Zmienić na większe</label></div>
+                                <div class="checkbox-box"><input type="checkbox" name="property_types[]" value="Zmienić na mniejsze" id="help-smaller"><label for="help-smaller">Zmienić na mniejsze</label></div>
+                                <div class="checkbox-box"><input type="checkbox" name="property_types[]" value="Zmienić na nowsze" id="help-newer"><label for="help-newer">Zmienić na nowsze</label></div>
+                            </div>
+                            <div class="checkbox-section-container">
+                                <div class="checkbox-box"><input type="checkbox" name="property_types[]" value="Chcę sprzedać" id="help-sell"><label for="help-sell">Chcę sprzedać</label></div>
+                                <div class="checkbox-box"><input type="checkbox" name="property_types[]" value="Sprzedać ze spadku" id="help-inheritance"><label for="help-inheritance">Sprzedać ze spadku</label></div>
+                                <div class="checkbox-box"><input type="checkbox" name="property_types[]" value="Chcę kupić" id="help-buy"><label for="help-buy">Chcę kupić</label></div>
+                            </div>
+                            <div class="checkbox-section-container">
+                                <div class="checkbox-box"><input type="checkbox" name="property_types[]" value="Wynajem" id="help-rent"><label for="help-rent">Wynajem</label></div>
+                                <div class="checkbox-box"><input type="checkbox" name="property_types[]" value="Inwestycje" id="help-invest"><label for="help-invest">Inwestycje</label></div>
+                                <div class="checkbox-box"><input type="checkbox" name="property_types[]" value="Inne" id="help-other"><label for="help-other">Inne</label></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="send-button">Wyślij wiadomość</button>
+                </form>
+
+
+                <div class="footer__top-container">
+
+                    <div class="top-second-container">
+                        <div class="write-to-us__box">
+                            <p class="write-to-us__box-title">Napisz do nas</p>
+                            <p class="write-to-us__box-text">Masz pytania lub chcesz umówić konsultację? Wypełnij
+                                formularz, a oddzwonimy jeszcze dziś</p>
+                        </div>
+
+                        <div class="top-box">
+                            <img src="../dist/img/mail-icon.png" alt="" class="gmail-icon">
+
+                            <div class="top__box">
+                                <p class="top__box-title">Mail</p>
+                                <p class="top__box-text">Wyślij maila a my zajmiemy się resztą</p>
+                                <a class="top__box-link" href="mailto:kontakt@hproperties.pl">Kontakt@hproperties.pl</a>
+                            </div>
+                        </div>
+
+                        <div class="top-box">
+                            <img src="../dist/img/locatin-icon.png" alt="" class="location-icon">
+
+                            <div class="top__box">
+                                <p class="top__box-title">Tu jesteśmy</p>
+                                <p class="top__box-text">
+                                    Porozmawiajmy w biurze przy kawie
+                                </p>
+                                <a class="top__box-link" href="https://maps.app.goo.gl/cXuazeJ2jq4BsAKA7">Józefa
+                                    Wybickiego 3A/104, 31-261 Kraków</a>
+                            </div>
+                        </div>
+
+                        <div class="top-box">
+                            <img src="../dist/img/phone-icon.png" alt="" class="instagram-icon">
+
+                            <div class="top__box">
+                                <p class="top__box-title">Numer telefonu</p>
+                                <p class="top__box-text">Zadzwoń i ustalimy dogodny termin spotkania</p>
+                                <a class="top__box-link" href="tel:+48572910341">572 910 341</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="social-media__box">
+
+                        <a href="https://www.facebook.com/profile.php?id=61573598463451&locale=pl_PL"
+                            aria-label="Link do profilu na facebook">
+                            <img src="../dist/img/facebook-icon.png" alt="" class="social-media__box-icon">
+                        </a>
+
+                        <a href="https://www.tiktok.com/@hproperties?_t=ZN-90wVJ21d3oM&_r=1"
+                            aria-label="Link do profilu na tiktok">
+                            <img src="../dist/img/tiktok-icon.png" alt="" class="social-media__box-icon">
+                        </a>
+
+                        <a href="https://www.instagram.com/dima_hrycyszyn_nieruchomosci/"
+                            aria-label="Link do profilu na instagramie">
+                            <img src="../dist/img/instagram-icon.png" alt="" class="social-media__box-icon">
+                        </a>
+
+
+                    </div>
+
+
+                </div>
+
+                <div class="contact__info-container">
+
+                </div>
+
+            </div>
+
+        </section>

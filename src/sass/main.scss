@@ -1,8 +1,25 @@
 @use 'reset';
-@use 'nav';
-@use 'style';
-@use 'footer';
-@use 'privacy-policy';
-@use 'rwd/tablet';
-@use 'rwd/desktop';
-@use 'sonar-home';
+@use 'base';
+
+// Sekcje wspólne
+@use 'sections/nav';
+@use 'sections/header';
+@use 'sections/services';
+@use 'sections/about';
+@use 'sections/special';
+@use 'sections/sell-info';
+@use 'sections/reels';
+@use 'sections/promo';
+@use 'sections/band';
+@use 'sections/reviews';
+@use 'sections/faq';
+@use 'sections/contact';
+@use 'sections/footer';
+@use 'sections/privacy-policy';
+
+// Podstrony
+@use 'pages/home';
+@use 'pages/rent';
+@use 'pages/foreigners';
+@use 'pages/developers';
+@use 'pages/valuation';

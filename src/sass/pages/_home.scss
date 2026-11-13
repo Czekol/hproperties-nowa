@@ -1,0 +1,25 @@
+// Strona główna (index.html)
+
+// Mobile
+
+.main #proces .sell-info__process-box {
+	background-color: #0b203d;
+	border-radius: 8px;
+}
+
+.main #proces .sell-info__process-container .sell-info__process-box:not(:last-child)::after {
+	background: repeating-linear-gradient(to bottom, #0b203d 0 4px, transparent 4px 12px);
+}
+
+// Desktop
+@media (width >= 1440px) {
+	.main {
+		#proces .sell-info__process-container {
+			gap: 11rem;
+
+			.sell-info__process-box:not(:last-child)::after {
+				height: 110px;
+			}
+		}
+	}
+}

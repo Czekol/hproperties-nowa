@@ -1,0 +1,91 @@
+// Obsługa inwestycji deweloperskich (obsluga-inwestycji.html)
+
+// Mobile
+
+.promo {
+	&--dev {
+		background:
+			linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)),
+			url('../img/promo-dev.png') center 35% / cover no-repeat;
+	}
+}
+
+// Desktop
+@media (width >= 1440px) {
+	.promo--wide {
+		.promo__inner,
+		.promo__heading {
+			max-width: 991px;
+		}
+
+		.promo__text {
+			max-width: 822px;
+		}
+	}
+
+	.main.main--dev {
+		.sell-info__img-container-img {
+			min-height: 0;
+		}
+
+		.process-heading {
+			margin-top: 15.1rem;
+		}
+
+		.reels .section-heading {
+			margin-top: 15.1rem;
+		}
+
+		.special__container {
+			align-items: center;
+
+			.special__box {
+				&:nth-of-type(1) {
+					width: 333px;
+
+					.special__box-img {
+						width: 60px;
+						height: 55px;
+						object-fit: cover;
+					}
+
+					.special__box-text {
+						max-width: 333px;
+					}
+				}
+
+				&:nth-of-type(2) {
+					width: 329px;
+
+					.special__box-img {
+						width: 55px;
+						height: 55px;
+					}
+
+					.special__box-text {
+						width: 336px;
+						max-width: 336px;
+					}
+				}
+
+				&:nth-of-type(3) {
+					width: 339px;
+
+					.special__box-img {
+						width: 55px;
+						height: 55px;
+						transform: scale(1.1169);
+					}
+
+					.special__box-text {
+						max-width: 339px;
+					}
+				}
+			}
+		}
+
+		.faq .main-container {
+			max-width: 888px;
+		}
+	}
+}
