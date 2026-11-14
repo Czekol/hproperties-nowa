@@ -38,19 +38,56 @@
             <img src="dist/img/logo.png" alt="Logo firmy H.properties" class="nav__logo-img">
         </a>
 
+        <!-- Menu mobile / tablet (wysuwany panel) -->
         <div class="nav__links">
-            <a href="../wynajem-i-najem.html" class="nav__links-link">Najem i wynajem</a>
-            <a href="../obsluga-inwestycji.html" class="nav__links-link">Dla deweloperów</a>
-            <a href="../obcokrajowcy.html" class="nav__links-link">Obcokrajowcy</a>
+            <div class="nav__accordion">
+                <button type="button" class="nav__links-link nav__accordion-toggle" aria-expanded="false" aria-controls="nav-services-mobile">
+                    Usługi
+                    <img src="../dist/img/down-flag-icon.png" alt="" class="nav__accordion-icon">
+                </button>
+                <div class="nav__submenu" id="nav-services-mobile">
+                    <div class="nav__submenu-inner">
+                        <a href="../index.html" class="nav__submenu-link">Transakcje wiązane</a>
+                        <a href="../index.html#buy" class="nav__submenu-link nav__submenu-link--sub">Kupno nieruchomości</a>
+                        <a href="../index.html#sell" class="nav__submenu-link nav__submenu-link--sub">Sprzedaż nieruchomości</a>
+                        <a href="../index.html#faq-spadek" class="nav__submenu-link nav__submenu-link--sub">Nieruchomość ze spadku</a>
+                        <a href="../index.html#faq-kredyt" class="nav__submenu-link nav__submenu-link--sub">Wsparcie kredytowe</a>
+                        <a href="../index.html#faq-architekt" class="nav__submenu-link nav__submenu-link--sub">Pomoc architekta wnętrz</a>
+                        <a href="../obcokrajowcy.html" class="nav__submenu-link">Obsługa obcokrajowców</a>
+                        <a href="../obsluga-inwestycji.html" class="nav__submenu-link">Dla deweloperów</a>
+                        <a href="../wynajem-i-najem.html" class="nav__submenu-link">Wynajem i najem</a>
+                    </div>
+                </div>
+            </div>
+            <a href="../index.html#about" class="nav__links-link">O nas</a>
+            <a href="../index.html#contact" class="nav__links-link">Kontakt</a>
             <a href="../wycena-nieruchomosci.html" class="nav__links-link">Wycena nieruchomości</a>
             <a href="https://www.otodom.pl/pl/firmy/biura-nieruchomosci/h-properties-ID10649871" class="nav__links-link">Nasze oferty</a>
         </div>
 
-
+        <!-- Menu desktop -->
         <div class="nav__links-desktop">
-            <a href="../wynajem-i-najem.html" class="nav__links-link-desktop">Najem i wynajem</a>
-            <a href="../obsluga-inwestycji.html" class="nav__links-link-desktop">Dla deweloperów</a>
-            <a href="../obcokrajowcy.html" class="nav__links-link-desktop">Obcokrajowcy</a>
+            <div class="nav__dropdown">
+                <button type="button" class="nav__links-link-desktop nav__dropdown-toggle" aria-expanded="false" aria-haspopup="true">
+                    Usługi
+                    <img src="../dist/img/down-flag-icon.png" alt="" class="nav__dropdown-icon">
+                </button>
+                <div class="nav__dropdown-menu">
+                    <div class="nav__dropdown-list">
+                        <a href="../index.html" class="nav__dropdown-link">Transakcje wiązane</a>
+                        <a href="../index.html#buy" class="nav__dropdown-link nav__dropdown-link--sub">Kupno nieruchomości</a>
+                        <a href="../index.html#sell" class="nav__dropdown-link nav__dropdown-link--sub">Sprzedaż nieruchomości</a>
+                        <a href="../index.html#faq-spadek" class="nav__dropdown-link nav__dropdown-link--sub">Nieruchomość ze spadku</a>
+                        <a href="../index.html#faq-kredyt" class="nav__dropdown-link nav__dropdown-link--sub">Wsparcie kredytowe</a>
+                        <a href="../index.html#faq-architekt" class="nav__dropdown-link nav__dropdown-link--sub">Pomoc architekta wnętrz</a>
+                        <a href="../obcokrajowcy.html" class="nav__dropdown-link">Obsługa obcokrajowców</a>
+                        <a href="../obsluga-inwestycji.html" class="nav__dropdown-link">Dla deweloperów</a>
+                        <a href="../wynajem-i-najem.html" class="nav__dropdown-link">Wynajem i najem</a>
+                    </div>
+                </div>
+            </div>
+            <a href="../index.html#about" class="nav__links-link-desktop">O nas</a>
+            <a href="../index.html#contact" class="nav__links-link-desktop">Kontakt</a>
             <a href="../wycena-nieruchomosci.html" class="nav__links-link-desktop">Wycena nieruchomości</a>
         </div>
 

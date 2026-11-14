@@ -16,7 +16,35 @@
 	border-radius: 0;
 	text-align: center;
 	color: #fff;
-	background: url('../img/hero.png') center / cover no-repeat;
+	position: relative;
+	overflow: hidden;
+	// Zdjęcie widoczne zanim wczyta się film (oraz gdy film jest wyłączony)
+	background: url('../video/hero-poster.jpg') center / cover no-repeat;
+
+	// Film w tle (źródło wybiera JS zależnie od szerokości ekranu)
+	&__video {
+		position: absolute;
+		inset: 0;
+		z-index: 0;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		pointer-events: none;
+	}
+
+	// Przyciemnienie, żeby biały tekst był czytelny na jasnym filmie
+	&::before {
+		content: '';
+		position: absolute;
+		inset: 0;
+		z-index: 1;
+		background: rgba(0, 0, 0, 0.5);
+	}
+
+	& > :not(.header__video) {
+		position: relative;
+		z-index: 2;
+	}
 
 	&__heading {
 		font-size: 2.7rem;

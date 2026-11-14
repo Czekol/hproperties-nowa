@@ -23,6 +23,11 @@
     <!-- $messagePlaceholder = Opisz po krótce swoją sytuację mieszkaniową -->
     <!-- @include 'nav.kit' -->
     <header class="header">
+        <video class="header__video" autoplay muted loop playsinline preload="metadata" aria-hidden="true"
+            poster="../dist/video/hero-poster.jpg"
+            data-desktop="../dist/video/hero-desktop.mp4"
+            data-tablet="../dist/video/hero-tablet.mp4"
+            data-mobile="../dist/video/hero-mobile.mp4"></video>
         <h1 class="header__heading">Bezpieczna zmiana mieszkania w Krakowie</h1>
         <p class="header__text">Sprzedaj obecną nieruchomość i płynnie kup nową. Zgrywamy terminy, notariuszy i przelewy w taki sposób, abyś ani na jeden dzień nie został bez dachu nad głową.</p>
         <a href="#zmiana" class="header__btn">Dowiedz się więcej</a>
@@ -181,9 +186,9 @@
         <section class="reels">
             <h2 class="section-heading">Zobacz, jak bezpiecznie przeprowadzić zmianę lokum</h2>
             <div class="reels__grid">
-                <a class="reels__item" href="https://www.instagram.com/dima_hrycyszyn_nieruchomosci/" target="_blank" rel="noopener"><img src="../dist/img/reel-1.png" alt="Rolka: rodzina się powiększyła"></a>
-                <a class="reels__item" href="https://www.instagram.com/dima_hrycyszyn_nieruchomosci/" target="_blank" rel="noopener"><img src="../dist/img/reel-2.png" alt="Rolka o zmianie mieszkania"></a>
-                <a class="reels__item" href="https://www.instagram.com/dima_hrycyszyn_nieruchomosci/" target="_blank" rel="noopener"><img src="../dist/img/reel-3.png" alt="Rolka o bezpiecznej zmianie lokum"></a>
+                <a class="reels__item" href="https://www.instagram.com/dima_hrycyszyn_nieruchomosci/" target="_blank" rel="noopener"><img src="../dist/img/reel-1.jpg" alt="Rolka: rodzina się powiększyła"></a>
+                <a class="reels__item" href="https://www.instagram.com/dima_hrycyszyn_nieruchomosci/" target="_blank" rel="noopener"><img src="../dist/img/reel-2.jpg" alt="Rolka o zmianie mieszkania"></a>
+                <a class="reels__item" href="https://www.instagram.com/dima_hrycyszyn_nieruchomosci/" target="_blank" rel="noopener"><img src="../dist/img/reel-3.jpg" alt="Rolka o bezpiecznej zmianie lokum"></a>
             </div>
         </section>
 
@@ -202,9 +207,9 @@
         <section class="faq">
             <h2 class="section-heading">Częste pytania</h2>
             <div class="main-container">
-                <div class="faq__container"><div class="faq-mini-container"><div class="faq__box"><img src="../dist/img/plus-icon-faq.png" alt="" class="faq__box-icon"><h3 class="faq__box-heading">Otrzymałem mieszkanie w spadku. Czy możecie mi pomóc?</h3></div><p class="faq__box-text">Tak. Prostujemy stany prawne i prowadzimy sprawy spadkowe: od weryfikacji dokumentów po sprzedaż albo zmianę lokalu.</p></div></div>
-                <div class="faq__container"><div class="faq-mini-container"><div class="faq__box"><img src="../dist/img/plus-icon-faq.png" alt="" class="faq__box-icon"><h3 class="faq__box-heading">Czy pomagacie w uzyskaniu najlepszego kredytu hipotecznego?</h3></div><p class="faq__box-text">Tak. Współpracujemy z doradcami kredytowymi i pomagamy dopasować finansowanie do zakupu nowego lokum.</p></div></div>
-                <div class="faq__container"><div class="faq-mini-container"><div class="faq__box"><img src="../dist/img/plus-icon-faq.png" alt="" class="faq__box-icon"><h3 class="faq__box-heading">Czy pomagacie również w wykończeniu i aranżacji nowego mieszkania?</h3></div><p class="faq__box-text">Tak. Współpracujemy z architektem wnętrz, żeby po odbiorze kluczy można było spokojnie urządzić nowe mieszkanie.</p></div></div>
+                <div class="faq__container"><div class="faq-mini-container" id="faq-spadek"><div class="faq__box"><img src="../dist/img/plus-icon-faq.png" alt="" class="faq__box-icon"><h3 class="faq__box-heading">Otrzymałem mieszkanie w spadku. Czy możecie mi pomóc?</h3></div><p class="faq__box-text">Tak. Prostujemy stany prawne i prowadzimy sprawy spadkowe: od weryfikacji dokumentów po sprzedaż albo zmianę lokalu.</p></div></div>
+                <div class="faq__container"><div class="faq-mini-container" id="faq-kredyt"><div class="faq__box"><img src="../dist/img/plus-icon-faq.png" alt="" class="faq__box-icon"><h3 class="faq__box-heading">Czy pomagacie w uzyskaniu najlepszego kredytu hipotecznego?</h3></div><p class="faq__box-text">Tak. Współpracujemy z doradcami kredytowymi i pomagamy dopasować finansowanie do zakupu nowego lokum.</p></div></div>
+                <div class="faq__container"><div class="faq-mini-container" id="faq-architekt"><div class="faq__box"><img src="../dist/img/plus-icon-faq.png" alt="" class="faq__box-icon"><h3 class="faq__box-heading">Czy pomagacie również w wykończeniu i aranżacji nowego mieszkania?</h3></div><p class="faq__box-text">Tak. Współpracujemy z architektem wnętrz, żeby po odbiorze kluczy można było spokojnie urządzić nowe mieszkanie.</p></div></div>
                 <div class="faq__container"><div class="faq-mini-container"><div class="faq__box"><img src="../dist/img/plus-icon-faq.png" alt="" class="faq__box-icon"><h3 class="faq__box-heading">Co zrobić najpierw, sprzedać stare mieszkanie czy szukać nowego?</h3></div><p class="faq__box-text">Zaczynamy od bezpłatnego audytu i realnej wyceny obecnego mieszkania. Na tej podstawie zgrywamy sprzedaż z rezerwacją nowego lokum.</p></div></div>
                 <div class="faq__container"><div class="faq-mini-container"><div class="faq__box"><img src="../dist/img/plus-icon-faq.png" alt="" class="faq__box-icon"><h3 class="faq__box-heading">Czy transakcja wiązana jest bardziej ryzykowna i kosztowna niż zwykła sprzedaż?</h3></div><p class="faq__box-text">Układamy terminy umów, notariuszy i przelewów tak, żebyś nie został bez dachu nad głową. Warunki współpracy ustalamy przed startem.</p></div></div>
             </div>

@@ -12,7 +12,8 @@
 	padding-block: 1.3rem;
 	width: 100%;
 	z-index: 1000;
-	background-color: rgba(0, 0, 0, 0.7);
+	background-color: transparent;
+	transition: background-color 0.3s ease;
 
 	&__container {
 		display: flex;
@@ -51,10 +52,6 @@
 		filter: invert(1);
 	}
 
-	&__logo-img.nav-open {
-		filter: invert(1);
-	}
-
 	&__links {
 		position: absolute;
 		top: 57px;
@@ -66,6 +63,8 @@
 		padding-top: 8rem;
 		width: 271px;
 		height: 100vh;
+		padding-bottom: 12rem;
+		overflow-y: auto;
 		background-color: #0c2446;
 		transform: translateX(100%);
 		transition: transform 0.3s ease-out;
@@ -86,6 +85,59 @@
 
 		img {
 			width: 22px;
+		}
+	}
+
+	// Przycisk "Usługi" w panelu mobilnym wygląda jak zwykły link
+	&__accordion-toggle {
+		width: calc(100% - 3rem);
+		text-align: left;
+		font-family: inherit;
+		font-weight: 400;
+	}
+
+	&__accordion-toggle &__accordion-icon {
+		width: 1rem;
+		height: 1rem;
+		transition: transform 0.3s ease;
+	}
+
+	&__accordion-toggle[aria-expanded='true'] &__accordion-icon {
+		transform: rotate(180deg);
+	}
+
+	&__submenu {
+		display: grid;
+		grid-template-rows: 0fr;
+		visibility: hidden;
+		transition: grid-template-rows 0.3s ease, visibility 0s 0.3s;
+	}
+
+	&__submenu.open {
+		grid-template-rows: 1fr;
+		visibility: visible;
+		transition: grid-template-rows 0.3s ease, visibility 0s;
+	}
+
+	&__submenu-inner {
+		display: flex;
+		flex-direction: column;
+		gap: 1.8rem;
+		min-height: 0;
+		overflow: hidden;
+	}
+
+	&__submenu-link {
+		margin-left: 3rem;
+		color: #cfd8e6;
+		font-size: 1.6rem;
+
+		&:first-child {
+			margin-top: 2rem;
+		}
+
+		&--sub {
+			margin-left: 5rem;
 		}
 	}
 
@@ -164,10 +216,6 @@
 		filter: invert(1);
 	}
 
-	&__hamburger-img.nav-open {
-		filter: invert(0);
-	}
-
 	&__shadow {
 		position: absolute;
 		top: 57px;
@@ -206,6 +254,32 @@
 
 			img {
 				width: 27px;
+			}
+		}
+
+		&__accordion-toggle {
+			width: calc(100% - 6rem);
+		}
+
+		&__accordion-toggle &__accordion-icon {
+			width: 1.2rem;
+			height: 1.2rem;
+		}
+
+		&__submenu-inner {
+			gap: 2.2rem;
+		}
+
+		&__submenu-link {
+			margin-left: 6rem;
+			font-size: 1.9rem;
+
+			&:first-child {
+				margin-top: 2.4rem;
+			}
+
+			&--sub {
+				margin-left: 8.5rem;
 			}
 		}
 
@@ -280,10 +354,6 @@
 						color: #fff;
 					}
 
-					&.nav-open {
-						color: #fff;
-					}
-
 					&:last-child {
 						margin-right: 0;
 					}
@@ -313,6 +383,7 @@
 				}
 
 				.other-language {
+					right: 0;
 					bottom: -35px;
 					padding: 0 1.3rem 1.3rem;
 					width: 67px;
@@ -366,6 +437,7 @@
 			}
 
 			.other-language {
+				right: 0;
 				bottom: -35px;
 				padding: 0 1.3rem 1.3rem;
 				width: 67px;
@@ -401,6 +473,98 @@
 
 		.nav__language-flag-icon {
 			height: 22px;
+		}
+
+		// Rozwijane menu "Usługi"
+		&__dropdown {
+			position: relative;
+		}
+
+		&__dropdown-toggle {
+			display: inline-flex;
+			align-items: center;
+			gap: 0.7rem;
+			font-family: inherit;
+			font-size: 1.7rem;
+		}
+
+		&__dropdown-icon {
+			width: 1.1rem;
+			height: 1.1rem;
+			transition: transform 0.3s ease;
+		}
+
+		&__dropdown:hover &__dropdown-icon,
+		&__dropdown.open &__dropdown-icon {
+			transform: rotate(180deg);
+		}
+
+		// Padding-top tworzy "mostek", dzięki któremu menu nie znika przy zjechaniu myszką
+		&__dropdown-menu {
+			position: absolute;
+			top: 100%;
+			left: -1.6rem;
+			padding-top: 1.6rem;
+			min-width: 30rem;
+			opacity: 0;
+			visibility: hidden;
+			transform: translateY(-0.8rem);
+			transition: opacity 0.25s ease, transform 0.25s ease, visibility 0s 0.25s;
+		}
+
+		&__dropdown:hover &__dropdown-menu,
+		&__dropdown:focus-within &__dropdown-menu,
+		&__dropdown.open &__dropdown-menu {
+			opacity: 1;
+			visibility: visible;
+			transform: none;
+			transition: opacity 0.25s ease, transform 0.25s ease, visibility 0s;
+		}
+
+		&__dropdown-list {
+			display: flex;
+			flex-direction: column;
+			padding: 1rem;
+			border-radius: 8px;
+			background-color: #081a32;
+			box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.35);
+		}
+
+		&__dropdown-link {
+			padding: 1.1rem 1.6rem;
+			border-radius: 6px;
+			color: #fff;
+			font-size: 1.6rem;
+			font-weight: 700;
+			white-space: nowrap;
+			transition: background-color 0.2s ease;
+
+			&:hover,
+			&:focus-visible {
+				background-color: #112f59;
+			}
+
+			&--sub {
+				padding-left: 3.2rem;
+				color: #cfd8e6;
+				font-weight: 500;
+			}
+		}
+
+		// Odstęp między "Transakcjami wiązanymi" a osobnymi podstronami
+		&__dropdown-link--sub + &__dropdown-link:not(.nav__dropdown-link--sub) {
+			margin-top: 1rem;
+			position: relative;
+
+			&::before {
+				content: '';
+				position: absolute;
+				top: -0.6rem;
+				left: 1.6rem;
+				right: 1.6rem;
+				height: 1px;
+				background-color: rgba(255, 255, 255, 0.15);
+			}
 		}
 	}
 }
