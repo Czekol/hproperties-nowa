@@ -12,7 +12,7 @@
 			margin-top: 0;
 		}
 
-		&__card::after {
+		&__card-media::after {
 			background: rgba(0, 0, 0, 0.3);
 		}
 
@@ -50,40 +50,54 @@
 
 	&__team {
 		display: grid;
+		// start: rozwinięcie jednej karty nie rozciąga pozostałych
+		align-items: start;
 		gap: 2rem;
 		padding-inline: 2.4rem;
 	}
 
 	&__card {
 		position: relative;
+		text-align: left;
+	}
+
+	// Zdjęcie z imieniem – po kliknięciu spod niego wysuwa się biały panel z opisem
+	&__card-media {
+		position: relative;
+		z-index: 1;
 		display: flex;
 		align-items: flex-end;
 		min-height: 275px;
 		padding: 2.4rem;
 		border-radius: 6px;
 		overflow: hidden;
-		text-align: left;
 		background: #1c1c1c center / cover no-repeat;
 		cursor: pointer;
+		transition: border-radius 0.4s ease;
 	}
 
-	&__card::after {
+	&__card-media::after {
 		content: '';
 		position: absolute;
 		inset: 0;
 		background: rgba(0, 0, 0, 0.35);
 	}
 
-	&__card--dima {
-		background-image: url('../img/dima.png');
+	&__card--dima .about__card-media {
+		background-image: url('../img/dima.jpg');
 	}
 
-	&__card--olha {
-		background-image: url('../img/olha.png');
+	&__card--olha .about__card-media {
+		background-image: url('../img/olha.jpg');
 	}
 
-	&__card--mateusz {
-		background-image: url('../img/mateusz.png');
+	&__card--mateusz .about__card-media {
+		background-image: url('../img/mateusz.jpg');
+	}
+
+	&__card.is-open &__card-media {
+		border-bottom-left-radius: 0;
+		border-bottom-right-radius: 0;
 	}
 
 	&__card-body {
@@ -116,19 +130,43 @@
 		}
 	}
 
+	// Panel z opisem: wysokość rośnie od 0, a tekst zjeżdża razem z krawędzią
+	// (translateY), więc wygląda to jak wysuwanie spod karty
 	&__bio {
-		display: none;
-		margin-top: 1.6rem;
-		color: #e9e9e9;
-		font-size: 1.6rem;
-		line-height: 24px;
-		text-align: left;
+		display: grid;
+		grid-template-rows: 0fr;
+		visibility: hidden;
+		transition: grid-template-rows 0.4s ease, visibility 0s 0.4s;
+	}
 
-		p {
-			+ p {
-				margin-top: 1.2rem;
-			}
-		}
+	&__bio-inner {
+		min-height: 0;
+		overflow: hidden;
+	}
+
+	&__bio-text {
+		display: flex;
+		flex-direction: column;
+		gap: 1.2rem;
+		padding: 2.5rem;
+		border-radius: 0 0 6px 6px;
+		background-color: #fff;
+		color: #2a2a2a;
+		font-size: 1.8rem;
+		line-height: 26px;
+		text-align: left;
+		transform: translateY(-100%);
+		transition: transform 0.4s ease;
+	}
+
+	&__card.is-open &__bio {
+		grid-template-rows: 1fr;
+		visibility: visible;
+		transition: grid-template-rows 0.4s ease, visibility 0s;
+	}
+
+	&__card.is-open &__bio-text {
+		transform: none;
 	}
 
 	&__stats {
@@ -166,12 +204,6 @@
 			color: #e0e0e0;
 			font-size: 1.7rem;
 			line-height: 1.4;
-		}
-	}
-
-	&__card.is-open {
-		.about__bio {
-			display: block;
 		}
 	}
 }
@@ -236,7 +268,7 @@
 				padding-inline: 0;
 			}
 
-			&__card {
+			&__card-media {
 				min-height: 275px;
 				background-repeat: no-repeat;
 				background-size: 100% auto;
@@ -263,15 +295,15 @@
 				}
 			}
 
-			&__card--dima {
+			&__card--dima .about__card-media {
 				background-position: 0 29.6%;
 			}
 
-			&__card--olha {
+			&__card--olha .about__card-media {
 				background-position: 0 25.9%;
 			}
 
-			&__card--mateusz {
+			&__card--mateusz .about__card-media {
 				background-position: 0 0;
 			}
 		}

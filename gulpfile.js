@@ -19,10 +19,12 @@ const paths = {
 	sass: './src/sass/**/*.scss',
 	js: './src/js/**/*.js',
 	img: './src/img/*',
+	video: './src/video/*',
 	dist: './dist',
 	sassDest: './dist/css',
 	jsDest: './dist/js',
 	imgDest: './dist/img',
+	videoDest: './dist/video',
 };
 
 // Kompilacja SCSS
@@ -57,6 +59,12 @@ function convertImages() {
 		.pipe(dest(paths.imgDest));
 }
 
+// Kopiowanie filmów (bez dodatkowej kompresji)
+function copyVideos() {
+	return src(paths.video)
+		.pipe(dest(paths.videoDest));
+}
+
 // Kompilacja .kit do .html
 function handleKits() {
 	return src(paths.html)
@@ -89,11 +97,12 @@ function watchForChanges(done) {
 	watch(paths.sass, sassCompailer);
 	watch(paths.js, javaScript);
 	watch(paths.img, convertImages);
+	watch(paths.video, copyVideos);
 	done();
 }
 
 // Główne zadania
-const mainFunctions = parallel(handleKits, sassCompailer, javaScript, convertImages);
+const mainFunctions = parallel(handleKits, sassCompailer, javaScript, convertImages, copyVideos);
 
 exports.cleanStuff = cleanStuff;
 exports.default = series(mainFunctions, startBrowserSync, watchForChanges);

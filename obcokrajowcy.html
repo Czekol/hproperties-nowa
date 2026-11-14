@@ -24,19 +24,56 @@
             <img src="dist/img/logo.png" alt="Logo firmy H.properties" class="nav__logo-img">
         </a>
 
+        <!-- Menu mobile / tablet (wysuwany panel) -->
         <div class="nav__links">
-            <a href="../wynajem-i-najem.html" class="nav__links-link">Najem i wynajem</a>
-            <a href="../obsluga-inwestycji.html" class="nav__links-link">Dla deweloperów</a>
-            <a href="../obcokrajowcy.html" class="nav__links-link">Obcokrajowcy</a>
+            <div class="nav__accordion">
+                <button type="button" class="nav__links-link nav__accordion-toggle" aria-expanded="false" aria-controls="nav-services-mobile">
+                    Usługi
+                    <img src="../dist/img/down-flag-icon.png" alt="" class="nav__accordion-icon">
+                </button>
+                <div class="nav__submenu" id="nav-services-mobile">
+                    <div class="nav__submenu-inner">
+                        <a href="../index.html" class="nav__submenu-link">Transakcje wiązane</a>
+                        <a href="../index.html#buy" class="nav__submenu-link nav__submenu-link--sub">Kupno nieruchomości</a>
+                        <a href="../index.html#sell" class="nav__submenu-link nav__submenu-link--sub">Sprzedaż nieruchomości</a>
+                        <a href="../index.html#faq-spadek" class="nav__submenu-link nav__submenu-link--sub">Nieruchomość ze spadku</a>
+                        <a href="../index.html#faq-kredyt" class="nav__submenu-link nav__submenu-link--sub">Wsparcie kredytowe</a>
+                        <a href="../index.html#faq-architekt" class="nav__submenu-link nav__submenu-link--sub">Pomoc architekta wnętrz</a>
+                        <a href="../obcokrajowcy.html" class="nav__submenu-link">Obsługa obcokrajowców</a>
+                        <a href="../obsluga-inwestycji.html" class="nav__submenu-link">Dla deweloperów</a>
+                        <a href="../wynajem-i-najem.html" class="nav__submenu-link">Wynajem i najem</a>
+                    </div>
+                </div>
+            </div>
+            <a href="../index.html#about" class="nav__links-link">O nas</a>
+            <a href="../index.html#contact" class="nav__links-link">Kontakt</a>
             <a href="../wycena-nieruchomosci.html" class="nav__links-link">Wycena nieruchomości</a>
             <a href="https://www.otodom.pl/pl/firmy/biura-nieruchomosci/h-properties-ID10649871" class="nav__links-link">Nasze oferty</a>
         </div>
 
-
+        <!-- Menu desktop -->
         <div class="nav__links-desktop">
-            <a href="../wynajem-i-najem.html" class="nav__links-link-desktop">Najem i wynajem</a>
-            <a href="../obsluga-inwestycji.html" class="nav__links-link-desktop">Dla deweloperów</a>
-            <a href="../obcokrajowcy.html" class="nav__links-link-desktop">Obcokrajowcy</a>
+            <div class="nav__dropdown">
+                <button type="button" class="nav__links-link-desktop nav__dropdown-toggle" aria-expanded="false" aria-haspopup="true">
+                    Usługi
+                    <img src="../dist/img/down-flag-icon.png" alt="" class="nav__dropdown-icon">
+                </button>
+                <div class="nav__dropdown-menu">
+                    <div class="nav__dropdown-list">
+                        <a href="../index.html" class="nav__dropdown-link">Transakcje wiązane</a>
+                        <a href="../index.html#buy" class="nav__dropdown-link nav__dropdown-link--sub">Kupno nieruchomości</a>
+                        <a href="../index.html#sell" class="nav__dropdown-link nav__dropdown-link--sub">Sprzedaż nieruchomości</a>
+                        <a href="../index.html#faq-spadek" class="nav__dropdown-link nav__dropdown-link--sub">Nieruchomość ze spadku</a>
+                        <a href="../index.html#faq-kredyt" class="nav__dropdown-link nav__dropdown-link--sub">Wsparcie kredytowe</a>
+                        <a href="../index.html#faq-architekt" class="nav__dropdown-link nav__dropdown-link--sub">Pomoc architekta wnętrz</a>
+                        <a href="../obcokrajowcy.html" class="nav__dropdown-link">Obsługa obcokrajowców</a>
+                        <a href="../obsluga-inwestycji.html" class="nav__dropdown-link">Dla deweloperów</a>
+                        <a href="../wynajem-i-najem.html" class="nav__dropdown-link">Wynajem i najem</a>
+                    </div>
+                </div>
+            </div>
+            <a href="../index.html#about" class="nav__links-link-desktop">O nas</a>
+            <a href="../index.html#contact" class="nav__links-link-desktop">Kontakt</a>
             <a href="../wycena-nieruchomosci.html" class="nav__links-link-desktop">Wycena nieruchomości</a>
         </div>
 
@@ -66,6 +103,11 @@
     </div>
 </nav>
     <header class="header header--wide">
+        <video class="header__video" autoplay muted loop playsinline preload="metadata" aria-hidden="true"
+            poster="../dist/video/hero-poster.jpg"
+            data-desktop="../dist/video/hero-desktop.mp4"
+            data-tablet="../dist/video/hero-tablet.mp4"
+            data-mobile="../dist/video/hero-mobile.mp4"></video>
         <h1 class="header__heading">Nieruchomości w Polsce bez barier językowych i prawnych</h1>
         <p class="header__text">Planujesz zakup lub wynajem mieszkania, ale obawiasz się zawiłych przepisów? Przeprowadzimy Cię przez cały proces od A do Z. Załatwiamy wnioski do MSWiA, pomagamy w sprawach bankowych i zapewniamy pełne wsparcie prawno-językowe.</p>
         <a href="#wspolpraca" class="header__btn">Poznaj naszą ofertę</a>
@@ -98,50 +140,68 @@
             </div>
             <div class="about__team">
                 <article class="about__card about__card--dima">
-                    <img src="../dist/img/card-hand.png" alt="" class="about__hint">
-                    <div class="about__card-body">
-                        <h3 class="about__name">Dima Hrycyszyn</h3>
-                        <p class="about__role">Założyciel H. Properties &amp; Ekspert ds. Bezpiecznej Zmiany Nieruchomości</p>
-                        <div class="about__flags">
-                            <img src="../dist/img/polish-flag.png" alt="Polska">
-                            <img src="../dist/img/flag-uk.svg" alt="Rosja">
-                            <img src="../dist/img/ukraine-flag.png" alt="Ukraina">
+                    <div class="about__card-media" role="button" tabindex="0" aria-expanded="false">
+                        <img src="../dist/img/card-hand.png" alt="" class="about__hint">
+                        <div class="about__card-body">
+                            <h3 class="about__name">Dima Hrycyszyn</h3>
+                            <p class="about__role">Założyciel H. Properties &amp; Ekspert ds. Bezpiecznej Zmiany Nieruchomości</p>
+                            <div class="about__flags">
+                                <img src="../dist/img/polish-flag.png" alt="Polska">
+                                <img src="../dist/img/flag-uk.svg" alt="Rosja">
+                                <img src="../dist/img/ukraine-flag.png" alt="Ukraina">
+                            </div>
                         </div>
                     </div>
                     <div class="about__bio">
-                        <p>Prowadzę H. Properties i od ponad 8 lat aktywnie działam na krakowskim rynku nieruchomości. Zaczynałem jako agent, a dziś łączę zarządzanie biurem z osobistą obsługą kluczowych transakcji.</p>
-                        <p>Moim konikiem są transakcje wiązane (sprzedaż starej nieruchomości i równoległy zakup nowej) oraz negocjacje. Pomagam właścicielom bezpiecznie przejść przez cały proces bez stresu, przestojów i ryzyka finansowego.</p>
+                        <div class="about__bio-inner">
+                            <div class="about__bio-text">
+                                <p>Prowadzę H. Properties i od ponad 8 lat aktywnie działam na krakowskim rynku nieruchomości. Zaczynałem jako agent, a dziś łączę zarządzanie biurem z osobistą obsługą kluczowych transakcji.</p>
+                                <p>Moim konikiem są transakcje wiązane (sprzedaż starej nieruchomości i równoległy zakup nowej) oraz negocjacje. Pomagam właścicielom bezpiecznie przejść przez cały proces bez stresu, przestojów i ryzyka finansowego.</p>
+                            </div>
+                        </div>
                     </div>
                 </article>
                 <article class="about__card about__card--olha">
-                    <img src="../dist/img/card-hand.png" alt="" class="about__hint">
-                    <div class="about__card-body">
-                        <h3 class="about__name">Olha Nosal</h3>
-                        <p class="about__role">Specjalistka ds. Rynku Deweloperskiego &amp; Klientów Zagranicznych</p>
-                        <div class="about__flags">
-                            <img src="../dist/img/polish-flag.png" alt="Polska">
-                            <img src="../dist/img/flag-uk.svg" alt="Rosja">
-                            <img src="../dist/img/ukraine-flag.png" alt="Ukraina">
+                    <div class="about__card-media" role="button" tabindex="0" aria-expanded="false">
+                        <img src="../dist/img/card-hand.png" alt="" class="about__hint">
+                        <div class="about__card-body">
+                            <h3 class="about__name">Olha Nosal</h3>
+                            <p class="about__role">Specjalistka ds. Rynku Deweloperskiego &amp; Klientów Zagranicznych</p>
+                            <div class="about__flags">
+                                <img src="../dist/img/polish-flag.png" alt="Polska">
+                                <img src="../dist/img/flag-uk.svg" alt="Rosja">
+                                <img src="../dist/img/ukraine-flag.png" alt="Ukraina">
+                            </div>
                         </div>
                     </div>
                     <div class="about__bio">
-                        <p>Specjalizuję się w wyszukiwaniu ofert zakupu i wynajmu dla klientów zagranicznych oraz w obsłudze rynku deweloperskiego.</p>
-                        <p>Tworzę również angażujące rolki i prowadzę aktywne działania w mediach społecznościowych, co pozwala mi budować szerokie zasięgi i skutecznie promować nieruchomości moich klientów.</p>
+                        <div class="about__bio-inner">
+                            <div class="about__bio-text">
+                                <p>Specjalizuję się w wyszukiwaniu ofert zakupu i wynajmu dla klientów zagranicznych oraz w obsłudze rynku deweloperskiego.</p>
+                                <p>Tworzę również angażujące rolki i prowadzę aktywne działania w mediach społecznościowych, co pozwala mi budować szerokie zasięgi i skutecznie promować nieruchomości moich klientów.</p>
+                            </div>
+                        </div>
                     </div>
                 </article>
                 <article class="about__card about__card--mateusz">
-                    <img src="../dist/img/card-hand.png" alt="" class="about__hint">
-                    <div class="about__card-body">
-                        <h3 class="about__name">Mateusz Grala</h3>
-                        <p class="about__role">Specjalista ds. Trudnych Stanów Prawnych &amp; Spadków</p>
-                        <div class="about__flags">
-                            <img src="../dist/img/polish-flag.png" alt="Polska">
-                            <img src="../dist/img/flag-ua.svg" alt="Wielka Brytania">
+                    <div class="about__card-media" role="button" tabindex="0" aria-expanded="false">
+                        <img src="../dist/img/card-hand.png" alt="" class="about__hint">
+                        <div class="about__card-body">
+                            <h3 class="about__name">Mateusz Grala</h3>
+                            <p class="about__role">Specjalista ds. Trudnych Stanów Prawnych &amp; Spadków</p>
+                            <div class="about__flags">
+                                <img src="../dist/img/polish-flag.png" alt="Polska">
+                                <img src="../dist/img/flag-ua.svg" alt="Wielka Brytania">
+                            </div>
                         </div>
                     </div>
                     <div class="about__bio">
-                        <p>Odpowiadam za skomplikowane i wymagające transakcje, w tym sprawy spadkowe, prostowanie niejasnych stanów prawnych oraz porządkowanie dokumentacji lokali.</p>
-                        <p>Cechuje mnie skrupulatność, dbałość o detale i pełne opanowanie formalności, dzięki czemu moi klienci mają gwarancję 100% bezpieczeństwa prawnego.</p>
+                        <div class="about__bio-inner">
+                            <div class="about__bio-text">
+                                <p>Odpowiadam za skomplikowane i wymagające transakcje, w tym sprawy spadkowe, prostowanie niejasnych stanów prawnych oraz porządkowanie dokumentacji lokali.</p>
+                                <p>Cechuje mnie skrupulatność, dbałość o detale i pełne opanowanie formalności, dzięki czemu moi klienci mają gwarancję 100% bezpieczeństwa prawnego.</p>
+                            </div>
+                        </div>
                     </div>
                 </article>
             </div>
@@ -171,9 +231,9 @@
         <section class="reels">
             <h2 class="section-heading">Twój przewodnik po polskim rynku nieruchomości</h2>
             <div class="reels__grid">
-                <a class="reels__item" href="https://www.instagram.com/dima_hrycyszyn_nieruchomosci/" target="_blank" rel="noopener"><img src="../dist/img/reel-1.png" alt=""></a>
-                <a class="reels__item" href="https://www.instagram.com/dima_hrycyszyn_nieruchomosci/" target="_blank" rel="noopener"><img src="../dist/img/reel-2.png" alt=""></a>
-                <a class="reels__item" href="https://www.instagram.com/dima_hrycyszyn_nieruchomosci/" target="_blank" rel="noopener"><img src="../dist/img/reel-3.png" alt=""></a>
+                <a class="reels__item" href="https://www.instagram.com/dima_hrycyszyn_nieruchomosci/" target="_blank" rel="noopener"><img src="../dist/img/reel-1.jpg" alt=""></a>
+                <a class="reels__item" href="https://www.instagram.com/dima_hrycyszyn_nieruchomosci/" target="_blank" rel="noopener"><img src="../dist/img/reel-2.jpg" alt=""></a>
+                <a class="reels__item" href="https://www.instagram.com/dima_hrycyszyn_nieruchomosci/" target="_blank" rel="noopener"><img src="../dist/img/reel-3.jpg" alt=""></a>
             </div>
         </section>
         <section class="promo">

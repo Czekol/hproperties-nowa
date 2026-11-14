@@ -1,15 +1,18 @@
-// Hamburger menu
+// Nawigacja
+const nav = document.querySelector('.nav')
 const hamburger = document.querySelector('.nav__hamburger')
 const navLinksContainer = document.querySelector('.nav__links')
-const navLinks = document.querySelectorAll('.nav__links-link')
-const body = document.querySelector('body')
 const shadow = document.querySelector('.nav__shadow')
-const logo = document.querySelector('.nav__logo-img')
-const hamburgerIcon = document.querySelector('.nav__hamburger-img')
-const navLinksDesktop = document.querySelectorAll('.nav__links-link-desktop')
+const body = document.querySelector('body')
+const hasHero = Boolean(document.querySelector('.header'))
 
-// Nav shadow
-const nav = document.querySelector('.nav')
+// Menu "Usługi" (mobile / tablet – akordeon w panelu)
+const accordionToggle = document.querySelector('.nav__accordion-toggle')
+const accordionMenu = document.querySelector('.nav__submenu')
+
+// Menu "Usługi" (desktop – lista rozwijana)
+const dropdown = document.querySelector('.nav__dropdown')
+const dropdownToggle = document.querySelector('.nav__dropdown-toggle')
 
 // Change language
 const languageBox = document.querySelector('.nav__language')
@@ -25,25 +28,34 @@ const faqItems = document.querySelectorAll('.faq__container')
 // Year
 const year = document.querySelector('.footer-bottom__box-year')
 
-const hamburgerMenu = () => {
-	navLinksContainer.classList.toggle('show-menu')
-	body.classList.toggle('stop-scrolling')
-	shadow.classList.toggle('show-shadow')
-	nav.classList.add('nav-shadow')
+const isMenuOpen = () => navLinksContainer.classList.contains('show-menu')
 
-	logo.classList.add('nav-open')
-	hamburgerIcon.classList.add('nav-open')
+// Tło nawigacji pojawia się dopiero po przewinięciu strony (lub przy otwartym menu).
+// Strony bez hero (np. wycena, polityka prywatności) mają je od razu.
+const updateNavBackground = () => {
+	const solid = !hasHero || window.scrollY > 10 || isMenuOpen()
+	nav.classList.toggle('nav-shadow', solid)
 }
 
-const navShadow = () => {
-	if (!nav.classList.contains('nav-shadow')) {
-		nav.classList.toggle('nav-shadow')
-		logo.classList.add('nav-open')
-		hamburgerIcon.classList.add('nav-open')
-		navLinksDesktop.forEach(link => link.classList.add('nav-open'))
+const setAccordionOpen = open => {
+	if (!accordionToggle || !accordionMenu) return
+	accordionToggle.setAttribute('aria-expanded', open)
+	accordionMenu.classList.toggle('open', open)
+}
 
-		window.removeEventListener('scroll', navShadow)
-	}
+const setMenuOpen = open => {
+	navLinksContainer.classList.toggle('show-menu', open)
+	shadow.classList.toggle('show-shadow', open)
+	body.classList.toggle('stop-scrolling', open)
+	hamburger.setAttribute('aria-expanded', open)
+	if (!open) setAccordionOpen(false)
+	updateNavBackground()
+}
+
+const setDropdownOpen = open => {
+	if (!dropdown || !dropdownToggle) return
+	dropdown.classList.toggle('open', open)
+	dropdownToggle.setAttribute('aria-expanded', open)
 }
 
 const changeLanguage = () => {
@@ -51,48 +63,133 @@ const changeLanguage = () => {
 	languageBox.classList.toggle('open')
 }
 
-const handleFaq = e => {
-	const faqBox = e.target.closest('.faq-mini-container')
+// Faq: otwieranie / zamykanie pojedynczego pytania
+const setFaqOpen = (faqBox, open) => {
 	const faqBoxText = faqBox.querySelector('.faq__box-text')
 	const faqBoxIcon = faqBox.querySelector('.faq__box-icon')
 
-	faqBoxText.classList.toggle('show')
-	faqBoxIcon.setAttribute('src', '../../dist/img/minus.png')
+	faqBoxText.classList.toggle('show', open)
+	faqBoxIcon.setAttribute('src', open ? '../../dist/img/minus.png' : '../../dist/img/plus-icon-faq.png')
+}
 
-	if (!faqBoxText.classList.contains('show')) {
-		faqBoxIcon.setAttribute('src', '../../dist/img/plus-icon-faq.png')
-	}
+const handleFaq = e => {
+	const faqBox = e.target.closest('.faq-mini-container')
+	setFaqOpen(faqBox, !faqBox.querySelector('.faq__box-text').classList.contains('show'))
+}
+
+// Link z menu typu index.html#faq-spadek otwiera od razu odpowiednie pytanie
+const openFaqFromHash = () => {
+	const target = document.getElementById(decodeURIComponent(window.location.hash.slice(1)))
+	if (!target || !target.classList.contains('faq-mini-container')) return
+
+	setFaqOpen(target, true)
+	target.scrollIntoView({ behavior: 'smooth', block: 'center' })
 }
 
 const foreignFaqOpen = () => {
-	console.log(2)
-  foreingFaqBox.forEach(el => el.classList.add('show'))
+	foreingFaqBox.forEach(el => el.classList.add('show'))
 }
 
 const currentYear = () => {
-	year.textContent = new Date().getFullYear()
+	if (year) year.textContent = new Date().getFullYear()
 }
 
 currentYear()
 
+// Nawigacja – tło po przewinięciu
+updateNavBackground()
+window.addEventListener('scroll', updateNavBackground, { passive: true })
+
 // Hamburger menu
-hamburger.addEventListener('click', hamburgerMenu)
-shadow.addEventListener('click', hamburgerMenu)
-navLinks.forEach(el => el.addEventListener('click', hamburgerMenu))
-// Nav
-window.addEventListener('scroll', navShadow)
-languageBox.addEventListener('click', changeLanguage)
+hamburger?.addEventListener('click', () => setMenuOpen(!isMenuOpen()))
+shadow?.addEventListener('click', () => setMenuOpen(false))
+// Kliknięcie w link zamyka panel (przycisk "Usługi" nie jest linkiem, więc go nie zamyka)
+document.querySelectorAll('.nav__links a').forEach(el => el.addEventListener('click', () => setMenuOpen(false)))
+accordionToggle?.addEventListener('click', () => setAccordionOpen(accordionToggle.getAttribute('aria-expanded') !== 'true'))
+
+// Menu "Usługi" na desktopie
+dropdownToggle?.addEventListener('click', () => setDropdownOpen(!dropdown.classList.contains('open')))
+document.querySelectorAll('.nav__dropdown-link').forEach(el => el.addEventListener('click', () => setDropdownOpen(false)))
+document.addEventListener('click', e => {
+	if (!e.target.closest('.nav__dropdown')) setDropdownOpen(false)
+})
+document.addEventListener('keydown', e => {
+	if (e.key !== 'Escape') return
+	setDropdownOpen(false)
+	if (isMenuOpen()) setMenuOpen(false)
+})
+window.addEventListener('resize', () => {
+	if (window.innerWidth >= 1440 && isMenuOpen()) setMenuOpen(false)
+})
+
+languageBox?.addEventListener('click', changeLanguage)
 faqItems.forEach(el => el.addEventListener('click', handleFaq))
 foreingFaqLinks.forEach(el => el.addEventListener('click', foreignFaqOpen))
 
-document.querySelectorAll('.about__card').forEach(card => {
-	card.addEventListener('click', () => {
+openFaqFromHash()
+window.addEventListener('hashchange', openFaqFromHash)
+// Kliknięcie w ten sam link drugi raz nie zmienia hasha, więc obsługujemy je osobno
+document.addEventListener('click', e => {
+	if (e.target.closest('a[href*="#faq-"]')) setTimeout(openFaqFromHash, 0)
+})
+
+// Poznaj H.Properties – po kliknięciu w kartę wysuwa się spod niej panel z opisem
+const aboutCards = document.querySelectorAll('.about__card')
+
+aboutCards.forEach(card => {
+	const media = card.querySelector('.about__card-media')
+
+	const toggleCard = () => {
 		const open = card.classList.contains('is-open')
-		document.querySelectorAll('.about__card.is-open').forEach(other => other.classList.remove('is-open'))
-		if (!open) card.classList.add('is-open')
+
+		aboutCards.forEach(other => {
+			other.classList.remove('is-open')
+			other.querySelector('.about__card-media').setAttribute('aria-expanded', 'false')
+		})
+
+		if (!open) {
+			card.classList.add('is-open')
+			media.setAttribute('aria-expanded', 'true')
+		}
+	}
+
+	media.addEventListener('click', toggleCard)
+	media.addEventListener('keydown', e => {
+		if (e.key === 'Enter' || e.key === ' ') {
+			e.preventDefault()
+			toggleCard()
+		}
 	})
 })
 
+// Hero – film w tle dobierany do szerokości ekranu (mobile / tablet / desktop)
+const heroVideo = document.querySelector('.header__video')
+
+if (heroVideo) {
+	const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)')
+	let resizeTimer = null
+
+	const loadHeroVideo = () => {
+		// Przy ograniczonej animacji zostaje samo zdjęcie (poster / tło)
+		if (reducedMotion.matches) return
+
+		const width = window.innerWidth
+		const key = width >= 1440 ? 'desktop' : width >= 744 ? 'tablet' : 'mobile'
+		const src = heroVideo.dataset[key]
+
+		if (heroVideo.getAttribute('src') === src) return
+
+		heroVideo.muted = true
+		heroVideo.setAttribute('src', src)
+		heroVideo.play().catch(() => {})
+	}
+
+	loadHeroVideo()
+	window.addEventListener('resize', () => {
+		clearTimeout(resizeTimer)
+		resizeTimer = setTimeout(loadHeroVideo, 200)
+	})
+}
 
 document.addEventListener('DOMContentLoaded', () => {
 	const container = document.querySelector('.reviews__container')
