@@ -1,32 +1,41 @@
 // Rolki
+.reels {
+	margin-bottom: 7.7rem;
 
-// Mobile
-.reels__grid {
-	display: grid;
-	gap: 2rem;
-	padding-inline: 2.4rem;
-}
+	&__grid {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		gap: 2rem;
+		padding-inline: 2.4rem;
+	}
 
-.reels__item {
-	display: block;
-	border-radius: 6px;
-	overflow: hidden;
-
-	img {
+	&__item {
 		width: 100%;
-		height: 520px;
-		object-fit: cover;
-		object-position: center top;
-		display: block;
+		max-width: 400px; // Tutaj ustawiasz docelową szerokość pojedynczej rolki
+		border-radius: 6px;
+		overflow: hidden;
+		box-shadow: 4px 4px 4px rgba(17, 47, 89, 0.23);
 	}
 }
 
 // Tablet
 @media (width >= 744px) {
+
 	.reels__grid {
 		grid-template-columns: repeat(3, 1fr);
 		max-width: 1200px;
 		margin-inline: auto;
+		padding-inline: 6rem;
+	}
+
+	.reels__item {
+		max-width: 327px;
+	}
+
+	.reels__item img {
+		height: auto;
+		aspect-ratio: 9 / 16;
 	}
 }
 
@@ -42,12 +51,12 @@
 
 	.reels__item {
 		flex: 0 0 372px;
-		width: 372px;
-		box-shadow: 4px 4px 4px rgba(17, 47, 89, 0.23);
+		max-width: 372px;
 
 		img {
 			width: 372px;
 			height: 671px;
+			aspect-ratio: auto;
 		}
 	}
 }

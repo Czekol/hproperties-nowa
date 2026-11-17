@@ -4,7 +4,7 @@
 .main {
 	.contact {
 		&__form-container {
-			padding-inline: 3rem;
+			padding-inline: 2.4rem;
 
 			.name-phone-box {
 				display: flex;
@@ -44,7 +44,7 @@
 					border-radius: 10px;
 					border: 1px solid #657480;
 					font-size: 1.4rem;
-					line-height: 19px;
+					line-height: 2.2rem;
 					color: #4f5b6c;
 					height: 160px;
 				}
@@ -57,7 +57,8 @@
 
 			.checkbox-container {
 				display: flex;
-				gap: 3.3rem;
+				flex-wrap: wrap;
+				gap: 1.5rem 3.3rem; // 1.5rem góra-dół, 3.3rem lewo-prawo
 				margin-top: 0.8rem;
 
 				.checkbox-section-container {
@@ -72,8 +73,8 @@
 					padding-bottom: 0.7rem;
 
 					input {
-						height: 12px;
-						width: 12px;
+						height: 13px;
+						width: 13px;
 					}
 
 					label {
@@ -90,6 +91,7 @@
 				border-radius: 10px;
 				color: #fff;
 				font-size: 1.4rem;
+				font-weight: bold;
 			}
 		}
 
@@ -143,7 +145,7 @@
 				input {
 					margin-top: 0.6rem;
 					// padding: 1.5rem;
-					font-size: 1.7rem;
+					font-size: 1.6rem;
 				}
 			}
 
@@ -155,7 +157,8 @@
 				textarea {
 					margin-block: 0.6rem 3.3rem;
 					// padding: 1.5rem;
-					font-size: 1.7rem;
+					font-size: 1.6rem;
+					line-height: 2.4rem;
 				}
 			}
 
@@ -167,15 +170,15 @@
 					gap: 0.7rem;
 
 					input {
-						height: 13px;
-						width: 13px;
+						height: 14px;
+						width: 14px;
 					}
 				}
 			}
 
 			.send-button {
 				margin-top: 2.6rem;
-				font-size: 1.7rem;
+				font-size: 1.6rem;
 			}
 		}
 	}
@@ -221,6 +224,7 @@
 							margin-block: 0.7rem 3.5rem;
 							height: 175px;
 							font-size: 1.8rem;
+							line-height: 19px;
 							padding: 1.6rem;
 						}
 					}

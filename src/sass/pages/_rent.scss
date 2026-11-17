@@ -1,9 +1,72 @@
 // Wynajem i najem (wynajem-i-najem.html)
+.body-rent {
+	.header {
+		&__heading {
+			max-width: 500px;
+		}
+
+		&__text {
+			max-width: 500px;
+		}
+	}
+
+	.main {
+		.special {
+			&__container {
+				.special__box:nth-of-type(2) {
+					.special__box-text {
+						max-width: 245px;
+					}
+				}
+				.special__box:nth-of-type(3) {
+					.special__box-text {
+						max-width: 285px;
+					}
+				}
+				.special__box-text {
+					max-width: 290px;
+				}
+			}
+		}
+	}
+
+	@media (width >= 744px) {
+		.header {
+			&__heading {
+				max-width: 700px;
+			}
+
+			&__text {
+				max-width: 600px;
+			}
+		}
+
+		.main {
+			.special {
+				&__container {
+					.special__box:nth-of-type(2) {
+						.special__box-text {
+							max-width: 281px;
+						}
+					}
+					.special__box:nth-of-type(3) {
+						.special__box-text {
+							max-width: 321px;
+						}
+					}
+
+					.special__box-text {
+						max-width: 331px;
+					}
+				}
+			}
+		}
+	}
+}
 
 // Desktop
 @media (width >= 1440px) {
 	.main.main--rent {
-
 		/* wysokość bloku zdjęcie + tekst wynika z tekstu (Figma: 354 i 380 px) */
 		.sell-info__img-container {
 			position: relative;

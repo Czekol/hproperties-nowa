@@ -3,7 +3,7 @@
 // Mobile
 .main {
 	.reviews {
-		padding: 4.1rem 3rem 4rem 3rem;
+		padding: 4.1rem 2.4rem 4rem 2.4rem;
 		background-color: #081a32;
 
 		.section-heading {
@@ -52,12 +52,12 @@
 				&-text {
 					position: relative;
 					// max-width: 500px;
-					max-height: 100px;
+					max-height: 11rem;
 					// widoczna wysokość fragmentu
 					overflow: hidden;
 					// ukryj resztę
-					line-height: 19px;
-					margin-bottom: 0.7rem;
+					line-height: 2.2rem;
+					margin-bottom: 0.9rem;
 				}
 
 				&-text::after {
@@ -84,7 +84,7 @@
 
 				&-show-more {
 					color: #bfcde2;
-					font-size: 1.5rem;
+					font-size: 1.4rem;
 					font-weight: bold;
 					text-decoration: none;
 				}
@@ -97,15 +97,15 @@
 				}
 
 				&-img {
-					width: 47px;
-					height: 47px;
+					width: 44px;
+					height: 44px;
 					border-radius: 50%;
 					border: 1px solid #0c2445;
 					object-fit: cover;
 				}
 
 				&-name {
-					font-size: 1.5rem;
+					font-size: 1.4rem;
 				}
 			}
 
@@ -154,7 +154,7 @@
 				}
 
 				&-show-more {
-					color: #619ae6;
+					color: #cfd8e6;
 				}
 
 				.test::before {
@@ -169,14 +169,14 @@
 				&-dot {
 					width: 6px;
 					height: 6px;
-					background-color: #010509;
+					background-color: #000000;
 				}
 
 				&-dot.active {
 					width: 10px;
 					height: 10px;
 					outline: 0;
-					border: 2px solid #619ae6;
+					border: 2px solid #cfd8e6;
 					background-color: #020e18;
 				}
 			}
@@ -209,14 +209,15 @@
 
 					&-text {
 						// widoczna wysokość fragmentu
-						line-height: 24px;
-						margin-bottom: 0.9rem;
+						max-height: 12.5rem;
+						line-height: 2.5rem;
+						margin-bottom: 1rem;
 						max-width: 457px;
 					}
 
 					&-show-more {
-						font-size: 1.8rem;
-						line-height: 26px;
+						font-size: 1.6rem;
+						line-height: 2.6rem;
 					}
 
 					.person-box {
@@ -226,12 +227,12 @@
 					}
 
 					&-img {
-						width: 52px;
-						height: 52px;
+						width: 48px;
+						height: 48px;
 					}
 
 					&-name {
-						font-size: 1.8rem;
+						font-size: 1.6rem;
 					}
 				}
 
@@ -271,8 +272,8 @@
 					}
 
 					.test::before {
-						left: -39px;
-						top: -19px;
+						left: -41px;
+						top: -15px;
 						font-size: 7.5rem;
 					}
 
