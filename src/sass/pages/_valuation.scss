@@ -44,8 +44,8 @@
 		display: block;
 		padding: 2rem;
 	}
-	// Zmiana tła dla inputów (w tym checkboxów), textarea oraz buttonów w formularzu
 
+	// Jaśniejsze tło pól formularza na szarym tle tej podstrony
 	.contact {
 		&__form-container {
 			input[type='text'],
@@ -57,7 +57,6 @@
 			input[type='checkbox'] {
 				-webkit-appearance: none;
 				appearance: none;
-				background-color: #f9f9f9;
 				width: 16px;
 				height: 16px;
 				border: 1px solid #443737;
@@ -115,7 +114,7 @@
 			padding-top: 10rem;
 
 			.section-heading,
-			h1 {
+			.h1 {
 				max-width: 900px;
 				margin-bottom: 1rem;
 				font-size: 4.4rem;
@@ -124,7 +123,6 @@
 
 			&__container {
 				&-sub-title {
-					margin-inline: auto;
 					max-width: 950px;
 					font-size: 2rem;
 					line-height: 25px;

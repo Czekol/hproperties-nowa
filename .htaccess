@@ -1,35 +1,67 @@
+DirectoryIndex index.html
+Options -Indexes -MultiViews
+
 <IfModule mod_rewrite.c>
     RewriteEngine On
 
-    # 1. Wymuszenie HTTPS i usunięcie przedrostka www
-    RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
-    RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
+    # Katalogi źródłowe nie są publiczne
+    RewriteRule ^(node_modules|html|src|\.git)(/|$) - [F,L]
 
-    RewriteCond %{HTTPS} off
-    RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+    # https + bez www (jedna wersja adresu, zgodna z tagami canonical)
+    RewriteCond %{HTTPS} !=on [OR]
+    RewriteCond %{HTTP_HOST} ^www\. [NC]
+    RewriteCond %{HTTP_HOST} ^(?:www\.)?(.+)$ [NC]
+    RewriteRule ^ https://%1%{REQUEST_URI} [L,R=301]
 
-    # 2. Przekierowanie "index.html" oraz "index" na czystą domenę główną (/)
-    RewriteCond %{THE_REQUEST} /index(\.html)? [NC]
-    RewriteRule ^index(\.html)?$ / [L,R=301]
+    # /index.html -> /  oraz /ua/index.html -> /ua/
+    RewriteCond %{THE_REQUEST} \s/(.*?)index\.html[\s?] [NC]
+    RewriteRule ^(.*?)index\.html$ /$1 [L,R=301,NE]
 
-    # 3. Usunięcie końcówki .html z widocznego paska adresu
-    RewriteCond %{THE_REQUEST} /([^.]+)\.html [NC]
-    RewriteRule ^ /%1 [NC,L,R=301]
+    # /podstrona.html -> /podstrona  (tak jak w canonical)
+    RewriteCond %{THE_REQUEST} \s/(.+?)\.html[\s?] [NC]
+    RewriteRule ^(.+?)\.html$ /$1 [L,R=301,NE]
 
-    # 4. Wewnętrzne mapowanie czystych adresów na fizyczne pliki .html na serwerze
+    # /podstrona -> /podstrona.html (także /ua/podstrona)
     RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-f
     RewriteCond %{REQUEST_FILENAME}.html -f
-    RewriteRule ^(.*?)/?$ $1.html [L]
+    RewriteRule ^(.+?)/?$ $1.html [L]
 </IfModule>
 
-# 5. Zabezpieczenie przed przeglądaniem struktury katalogów serwera
-Options -Indexes
-
-# 6. Kompresja GZIP dla znacznie szybszego ładowania plików
-<IfModule mod_deflate.c>
-    AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript image/svg+xml
+<IfModule mod_headers.c>
+    Header always set X-Content-Type-Options "nosniff"
+    Header always set X-Frame-Options "SAMEORIGIN"
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+    Header always set Strict-Transport-Security "max-age=31536000" env=HTTPS
 </IfModule>
 
+<IfModule mod_filter.c>
+    AddOutputFilterByType DEFLATE text/html text/css application/javascript text/javascript application/json image/svg+xml
+</IfModule>
 
-# 8. Niestandardowa strona błędu 404 (odkomentuj poniższą linię, jeśli stworzysz plik 404.html)
-# ErrorDocument 404 /404.html
+<IfModule mod_mime.c>
+    AddType image/svg+xml .svg
+    AddType application/javascript .js
+    AddType video/mp4 .mp4
+    AddType video/webm .webm
+    AddDefaultCharset UTF-8
+</IfModule>
+
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresDefault "access plus 1 month"
+    ExpiresByType text/html "access plus 0 seconds"
+    ExpiresByType text/css "access plus 1 week"
+    ExpiresByType application/javascript "access plus 1 week"
+    ExpiresByType image/png "access plus 6 months"
+    ExpiresByType image/jpeg "access plus 6 months"
+    ExpiresByType image/svg+xml "access plus 6 months"
+    ExpiresByType video/mp4 "access plus 6 months"
+    ExpiresByType video/webm "access plus 6 months"
+    ExpiresByType font/woff2 "access plus 1 year"
+</IfModule>
+
+# Pliki, które nie powinny być publiczne
+<FilesMatch "^(\.|package(-lock)?\.json$|gulpfile\.js$|.*\.kit$|.*\.scss$)">
+    Require all denied
+</FilesMatch>

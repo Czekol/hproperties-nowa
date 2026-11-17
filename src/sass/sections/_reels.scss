@@ -1,4 +1,4 @@
-// Rolki
+// Rolki z Instagrama
 .reels {
 	margin-bottom: 7.7rem;
 
@@ -21,9 +21,7 @@
 
 // Tablet
 @media (width >= 744px) {
-
 	.reels__grid {
-		grid-template-columns: repeat(3, 1fr);
 		max-width: 1200px;
 		margin-inline: auto;
 		padding-inline: 6rem;
@@ -32,31 +30,18 @@
 	.reels__item {
 		max-width: 327px;
 	}
-
-	.reels__item img {
-		height: auto;
-		aspect-ratio: 9 / 16;
-	}
 }
 
 // Desktop
 @media (width >= 1440px) {
 	.reels__grid {
-		display: flex;
 		justify-content: space-between;
 		gap: 4.2rem;
-		margin: 0 auto;
 		padding: 0;
 	}
 
 	.reels__item {
 		flex: 0 0 372px;
 		max-width: 372px;
-
-		img {
-			width: 372px;
-			height: 671px;
-			aspect-ratio: auto;
-		}
 	}
 }

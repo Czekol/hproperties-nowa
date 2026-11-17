@@ -15,11 +15,7 @@
 @media (width >= 1440px) {
 	.main {
 		#proces .sell-info__process-container {
-			gap: 11rem;
-
-			.sell-info__process-box:not(:last-child)::after {
-				height: 110px;
-			}
+			--process-gap: 11rem;
 		}
 	}
 }

@@ -4,34 +4,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zarządzanie najmem i wynajem mieszkań w Krakowie | H.Properties</title>
+    <title>Zarządzanie najmem i wynajem mieszkań Kraków | H.Properties</title>
     <link rel="canonical" href="https://hproperties.pl/wynajem-i-najem">
+    <link rel="alternate" href="https://hproperties.pl/wynajem-i-najem" hreflang="pl">
+    <link rel="alternate" href="https://hproperties.pl/ua/wynajem-i-najem" hreflang="uk">
+    <link rel="alternate" href="https://hproperties.pl/wynajem-i-najem" hreflang="x-default">
 
-    <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&display=swap" rel="stylesheet"> -->
+   
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Onest:wght@700&display=swap"
         rel="stylesheet">
 
     <link rel="stylesheet" href="../dist/css/main.min.css">
-    <link rel="icon" type="image/png" sizes="32x32" href="../dist/img/black-favicon.png"
+    <link rel="icon" type="image/png" sizes="192x192" href="../dist/img/black-favicon.png"
         media="(prefers-color-scheme: light)">
-    <link rel="icon" type="image/png" sizes="32x32" href="../dist/img/favicon.png" media="(prefers-color-scheme: dark)">
+    <link rel="icon" type="image/png" sizes="192x192" href="../dist/img/favicon.png" media="(prefers-color-scheme: dark)">
+    <link rel="icon" type="image/svg+xml" href="../dist/img/favicon.svg">
     <meta name="description"
         content="Pomagamy właścicielom znaleźć lokatorów, a poszukującym uczciwe warunki i sprawdzony dach nad głową w Krakowie.">
 </head>
 
 <body class="body-rent">
-            <nav class="nav">
+                <nav class="nav">
 
     <div class="nav__container">
 
         <div class="nav__shadow"></div>
 
         <a href="../index.html" class="nav__logo">
-            <img src="dist/img/logo.png" alt="Logo firmy H.properties" class="nav__logo-img">
+            <img src="../dist/img/logo.png" alt="Logo firmy H.properties" class="nav__logo-img">
         </a>
 
         <!-- Menu mobile / tablet (wysuwany panel) -->
@@ -97,16 +99,15 @@
             <div class="other-language">
 
 
-                <!-- w html zamienic na polityce na dobry link -->
-                <!-- w html zamienic na polityce na dobry link -->
-                <!-- w html zamienic na polityce na dobry link -->
-                <a href="ua.html">
-                    <img src="../dist/img/ukraine-flag.png" alt="Flaga ukrainy" class="other-language__flag">
+                <a href="ua/wynajem-i-najem.html" hreflang="uk" aria-label="Wersja ukraińska">
+                    <img src="../dist/img/ukraine-flag.png" alt="Flaga Ukrainy" class="other-language__flag">
                 </a>
             </div>
             
-            <button class="nav__hamburger" aria-label="Hamburger Menu">
-                    <img src="../dist/img/menu.png" alt="" class="nav__hamburger-img">
+            <button class="nav__hamburger" aria-label="Otwórz menu" aria-expanded="false"
+                data-label-open="Otwórz menu" data-label-close="Zamknij menu">
+                <img src="../dist/img/menu.png" alt="" class="nav__hamburger-img nav__hamburger-img--open">
+                <img src="../dist/img/burger-close-icon.svg" alt="" class="nav__hamburger-img nav__hamburger-img--close">
             </button>
         </div>
 
@@ -126,7 +127,7 @@
         <section class="sell-info" id="najem">
             <h2 class="section-heading">Dla szukających mieszkania</h2>
             <div class="sell-info__img-container">
-                <img src="../dist/img/rent-intro.jpg" alt="Najem mieszkania w Krakowie"
+                <img src="../dist/img/rent-intro.jpg" alt="Dłoń trzymająca klucze z brelokiem w kształcie domu podczas odbioru mieszkania na wynajem w Krakowie"
                     class="sell-info__img-container-img">
                 <div class="sell-info__text-box">
                     <p class="sell-info__text-box-text">Szukanie idealnego mieszkania do wynajęcia w Krakowie bywa
@@ -185,7 +186,7 @@
         <section class="sell-info" id="wlasciciele">
             <h2 class="section-heading">Dla właścicieli mieszkań</h2>
             <div class="sell-info__img-container">
-                <img src="../dist/img/owner-rent.jpg" alt="Zarządzanie najmem mieszkania"
+                <img src="../dist/img/owner-rent.jpg" alt="Spotkanie doradców nieruchomości przy dokumentach i kalkulatorze podczas analizy opłacalności wynajmu mieszkania w Krakowie"
                     class="sell-info__img-container-img">
                 <div class="sell-info__text-box">
                     <p class="sell-info__text-box-text">Zarządzanie najmem to kompleksowa opieka nad Twoją
@@ -273,7 +274,7 @@
                     </p>
                     <div class="about__flags">
                         <img src="../dist/img/polish-flag-about-us.png" alt="Polska flaga">
-                        <img src="../dist/img/russia-flag-about-us.png" alt="Rosjska flaga">
+                        <img src="../dist/img/russia-flag-about-us.png" alt="Rosyjska flaga">
                         <img src="../dist/img/ukraine-flag-about-us.png" alt="Flaga Ukrainy">
                     </div>
                 </div>
@@ -299,7 +300,7 @@
                     <p class="about__role">Specjalistka ds. Rynku Deweloperskiego &amp; Klientów Zagranicznych</p>
                     <div class="about__flags">
                         <img src="../dist/img/polish-flag-about-us.png" alt="Polska flaga">
-                        <img src="../dist/img/russia-flag-about-us.png" alt="Rosjska flaga">
+                        <img src="../dist/img/russia-flag-about-us.png" alt="Rosyjska flaga">
                         <img src="../dist/img/ukraine-flag-about-us.png" alt="Flaga Ukrainy">
                     </div>
                 </div>
@@ -342,15 +343,15 @@
     <div class="about__stats">
         <div class="about__stat">
             <img src="../dist/img/stat-years.png" alt="">
-            <di><b>8 Lat</b><span>doświadczenia na krakowskim rynku</span></di>
+            <div><b>8 Lat</b><span>doświadczenia na krakowskim rynku</span></div>
         </div>
         <div class="about__stat">
             <img src="../dist/img/stat-reviews.png" alt="">
-            <di><b>37+</b><span>5-gwiazdkowych opinii na Google</span></di>
+            <div><b>37+</b><span>5-gwiazdkowych opinii na Google</span></div>
         </div>
         <div class="about__stat">
             <img src="../dist/img/stat-clients.png" alt="">
-            <di><b>100%</b><span>zadowolonych klientów</span></di>
+            <div><b>100%</b><span>zadowolonych klientów</span></div>
         </div>
     </div>
 </section>
@@ -385,7 +386,7 @@
 
 
 
-                <div class="reels__item">
+                <div class="reels__item" data-title="Przeprowadzenie transakcji wiązanej przez biuro nieruchomości">
 
                     <blockquote class="instagram-media"
                         data-instgrm-permalink="https://www.instagram.com/reel/DdBRIyeM2tU/?utm_source=ig_embed&amp;utm_campaign=loading"
@@ -485,7 +486,7 @@
                     </blockquote>
                 </div>
 
-                <div class="reels__item">
+                <div class="reels__item" data-title="Zmiana nieruchomości na większe">
                     <blockquote class="instagram-media"
                         data-instgrm-permalink="https://www.instagram.com/reel/DZpuoMkM2yZ/?utm_source=ig_embed&amp;utm_campaign=loading"
                         data-instgrm-version="14"
@@ -583,7 +584,8 @@
                         </div>
                     </blockquote>
                 </div>
-                <div class="reels__item">
+
+                <div class="reels__item" data-title="Zmiana mieszkania na nowsze">
                     <blockquote class="instagram-media"
                         data-instgrm-permalink="https://www.instagram.com/reel/DdT_x4iMc2I/?utm_source=ig_embed&amp;utm_campaign=loading"
                         data-instgrm-version="14"

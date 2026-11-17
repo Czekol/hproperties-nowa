@@ -1,21 +1,18 @@
 // Baner z przyciskiem (promo)
 
 // Mobile
+// Zdjęcie w tle podmieniamy przez --promo-img: na telefonie mniejsza wersja, od tabletu większa
 .promo {
+	--promo-img: url('../img/promo-krakow-mobile.jpg');
 	position: relative;
 	display: flex;
 	justify-content: center;
-	margin: 0;
 	padding: 6.3rem 2.4rem 7.4rem;
 	text-align: center;
 	color: #fff;
 	background:
 		linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)),
-		url('../img/promo-talk.jpg') center / cover no-repeat;
-	background-size: cover;
-	background-position: center;
-	background-repeat: no-repeat;
-	background-attachment: fixed;
+		var(--promo-img) center / cover no-repeat fixed;
 
 	&__inner {
 		display: flex;
@@ -34,7 +31,6 @@
 
 	&__heading {
 		max-width: 550px;
-
 		font-size: 2.8rem;
 		font-weight: 700;
 		line-height: 1.25;
@@ -68,6 +64,8 @@
 // Tablet
 @media (width >= 744px) {
 	.promo {
+		--promo-img: url('../img/promo-krakow.jpg');
+
 		&__heading {
 			font-size: 3.4rem;
 		}

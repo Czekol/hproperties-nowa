@@ -15,7 +15,6 @@
 
 			.services__box-heading {
 				font-size: 2rem;
-				// line-height: 2.4rem;
 			}
 
 			.services__box-text {
@@ -116,10 +115,6 @@
 						padding: 1.5rem 0 0;
 						line-height: 26px;
 					}
-
-					&.longer {
-						max-width: 504px;
-					}
 				}
 			}
 
@@ -131,40 +126,12 @@
 				margin: 0;
 			}
 
-			&__container:nth-of-type(1) {
-				.services__container-img {
-					order: 2;
-				}
+			&__container:nth-of-type(odd) .services__container-img {
+				order: 2;
 			}
 
-			&__container:nth-of-type(3) {
-				.services__container-img {
-					order: 2;
-				}
-			}
-
-			&__box,
-			&__box.longer {
+			&__box {
 				flex: 1 1 500px;
-			}
-
-			&__box-heading {
-				line-height: normal;
-			}
-
-			&__box.longer-heading {
-				font-size: 2.6rem;
-				line-height: normal;
-			}
-
-			&__box-text {
-				font-size: 1.8rem;
-			}
-
-			&__box.longer-text {
-				padding: 1.5rem 0 0;
-				font-size: 1.8rem;
-				line-height: 26px;
 			}
 		}
 	}

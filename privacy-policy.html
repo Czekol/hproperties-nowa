@@ -8,7 +8,7 @@
 
     <link rel="canonical" href="https://hproperties.pl/privacy-policy">
     <link rel="alternate" href="https://hproperties.pl/privacy-policy" hreflang="pl">
-    <link rel="alternate" href="https://hproperties.pl/ua-privacy-policy" hreflang="uk">
+    <link rel="alternate" href="https://hproperties.pl/ua/privacy-policy" hreflang="uk">
     <link rel="alternate" href="https://hproperties.pl/privacy-policy" hreflang="x-default">
 
 
@@ -23,25 +23,26 @@
         rel="stylesheet">
     <link rel="stylesheet" href="../dist/css/main.min.css">
     <!-- Favicona dla jasnego motywu (białe tło przeglądarki) -->
-    <link rel="icon" type="image/png" sizes="32x32" href="../dist/img/black-favicon.png"
+    <link rel="icon" type="image/png" sizes="192x192" href="../dist/img/black-favicon.png"
         media="(prefers-color-scheme: light)">
 
     <!-- Favicona dla ciemnego motywu (czarne tło przeglądarki) -->
-    <link rel="icon" type="image/png" sizes="32x32" href="../dist/img/favicon.png" media="(prefers-color-scheme: dark)">
+    <link rel="icon" type="image/png" sizes="192x192" href="../dist/img/favicon.png" media="(prefers-color-scheme: dark)">
+    <link rel="icon" type="image/svg+xml" href="../dist/img/favicon.svg">
 
     <meta name="description"
         content="Dowiedz się, w jaki sposób H.properties przetwarza dane osobowe oraz pliki cookies. Informacje o administratorze, celach przetwarzania, prawach użytkownika i zasadach bezpieczeństwa.">
 </head>
 
 <body>
-    <nav class="nav">
+        <nav class="nav">
 
     <div class="nav__container">
 
         <div class="nav__shadow"></div>
 
         <a href="../index.html" class="nav__logo">
-            <img src="dist/img/logo.png" alt="Logo firmy H.properties" class="nav__logo-img">
+            <img src="../dist/img/logo.png" alt="Logo firmy H.properties" class="nav__logo-img">
         </a>
 
         <!-- Menu mobile / tablet (wysuwany panel) -->
@@ -107,16 +108,15 @@
             <div class="other-language">
 
 
-                <!-- w html zamienic na polityce na dobry link -->
-                <!-- w html zamienic na polityce na dobry link -->
-                <!-- w html zamienic na polityce na dobry link -->
-                <a href="ua.html">
-                    <img src="../dist/img/ukraine-flag.png" alt="Flaga ukrainy" class="other-language__flag">
+                <a href="ua/privacy-policy.html" hreflang="uk" aria-label="Wersja ukraińska">
+                    <img src="../dist/img/ukraine-flag.png" alt="Flaga Ukrainy" class="other-language__flag">
                 </a>
             </div>
             
-            <button class="nav__hamburger" aria-label="Hamburger Menu">
-                    <img src="../dist/img/menu.png" alt="" class="nav__hamburger-img">
+            <button class="nav__hamburger" aria-label="Otwórz menu" aria-expanded="false"
+                data-label-open="Otwórz menu" data-label-close="Zamknij menu">
+                <img src="../dist/img/menu.png" alt="" class="nav__hamburger-img nav__hamburger-img--open">
+                <img src="../dist/img/burger-close-icon.svg" alt="" class="nav__hamburger-img nav__hamburger-img--close">
             </button>
         </div>
 

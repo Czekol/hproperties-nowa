@@ -7,7 +7,6 @@
 			&-img {
 				margin-bottom: 3.5rem;
 				height: 265px;
-				// border-radius: 6px;
 				width: 100%;
 				object-fit: cover;
 			}
@@ -32,15 +31,15 @@
 		}
 
 		&__process-container {
+			--process-gap: 7.5rem;
 			display: flex;
 			flex-direction: column;
 			padding-inline: 2.4rem;
-			gap: 7.5rem;
+			gap: var(--process-gap);
 
 			.sell-info__process-box {
 				padding: 2.4rem;
 				position: relative;
-				height: auto;
 				background-color: #081b35;
 				border-radius: 6px;
 
@@ -66,48 +65,15 @@
 					color: #e0e0e0;
 				}
 
-				&:nth-child(2) {
-					position: relative;
-				}
-
-				&:nth-child(2)::before {
-					position: absolute;
-					height: 75px;
-					border-left: 3px dotted #112f59;
-					transform: translateY(-50%);
-					left: 50%;
-					top: -37px;
-					content: none;
-					display: none;
-				}
-
-				&:nth-child(2)::after {
-					position: absolute;
-					height: 75px;
-					border-left: 3px dotted #112f59;
-					transform: translateY(-50%);
-					left: 50%;
-					bottom: -113px;
-					content: none;
-					display: none;
-				}
-
-				&::before,
-				&::after {
-					content: none;
-					display: none;
-				}
-
+				// Linia łącząca kroki ma długość odstępu między kartami (--process-gap)
 				&:not(:last-child)::after {
 					content: '';
-					display: block;
 					position: absolute;
-					left: 50%;
-					height: 75px;
-					transform: translateX(-50%);
 					top: 100%;
+					left: 50%;
 					width: 4px;
-					border-left: 0;
+					height: var(--process-gap);
+					transform: translateX(-50%);
 					background: repeating-linear-gradient(to bottom, #081b35 0 4px, transparent 4px 12px);
 				}
 			}
@@ -149,9 +115,9 @@
 			}
 
 			&__process-container {
+				--process-gap: 9rem;
 				padding-inline: 6rem;
 				max-width: 760px;
-				gap: 9rem;
 
 				.sell-info__process-box {
 					padding: 3.5rem;
@@ -171,18 +137,6 @@
 					&-text {
 						padding-top: 1.2rem;
 						line-height: 2.5rem;
-					}
-
-					&:nth-child(2)::before {
-						height: 95px;
-						border-left: 4px dotted #112f59;
-						top: -47px;
-					}
-
-					&:nth-child(2)::after {
-						height: 95px;
-						border-left: 4px dotted #112f59;
-						bottom: -143px;
 					}
 				}
 			}
@@ -242,15 +196,14 @@
 			}
 
 			&__process-container {
+				--process-gap: 10rem;
 				padding-inline: 0;
 				width: 100%;
-				gap: 10rem;
 				max-width: 808px;
 				margin-inline: auto;
 
 				.sell-info__process-box {
 					padding: 4rem 3.9rem;
-					height: auto !important;
 
 					.icon-heading-box {
 						img {
@@ -269,34 +222,7 @@
 
 					&-text {
 						padding-top: 1.5rem;
-						font-size: 1.8rem;
 						line-height: 26px;
-					}
-
-					&:nth-child(2)::before {
-						height: 111px;
-						top: -55px;
-						content: none !important;
-						display: none !important;
-					}
-
-					&:nth-child(2)::after {
-						height: 111px;
-						bottom: -166px;
-						content: none !important;
-						display: none !important;
-					}
-
-					&::before,
-					&::after {
-						content: none !important;
-						display: none !important;
-					}
-
-					&:not(:last-child)::after {
-						height: 100px;
-						content: '' !important;
-						display: block !important;
 					}
 				}
 			}
