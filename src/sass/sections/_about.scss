@@ -12,10 +12,6 @@
 			margin-top: 0;
 		}
 
-		&__card-media::after {
-			// background: rgba(0, 0, 0, 0.3);
-		}
-
 		&__hint {
 			position: absolute;
 			top: 24px;
@@ -95,7 +91,6 @@
 
 	&__card--mateusz .about__card-media {
 		background-image: url('../img/mateusz.jpg');
-		// background-position-y: bottom;
 	}
 
 	&__card.is-open &__card-media {
@@ -129,7 +124,6 @@
 		margin-top: 1rem;
 
 		img {
-			// width: 18px;
 			height: 14px;
 			object-fit: cover;
 			border-radius: 1px;
@@ -145,8 +139,6 @@
 		transition:
 			grid-template-rows 0.4s ease,
 			visibility 0s 0.4s;
-
-			// box-shadow: ;
 	}
 
 	&__bio-inner {
@@ -160,9 +152,7 @@
 		gap: 1.2rem;
 		padding: 2.4rem;
 		border-radius: 0 0 6px 6px;
-		// background-color: #fff;
 		background-color: hsl(214, 72%, 10%);
-		// color: #2a2a2a;
 		color: #e0e0e0;
 		font-size: 1.5rem;
 		line-height: 2.3rem;
@@ -238,13 +228,10 @@
 		}
 
 		.about__team {
-			// grid-template-columns: repeat(3, 1fr);
 			justify-content: center;
 			max-width: 1200px;
 			margin-inline: auto;
 		}
-
-		//? kod środka
 
 		.about__card-media {
 			height: 270px;
@@ -253,7 +240,6 @@
 
 		.about__name {
 			font-size: 2.2rem;
-			// line-height: 2.4rem;
 		}
 
 		.about__role {
@@ -326,35 +312,25 @@
 			&__stat {
 				min-height: 85px;
 
-				strong {
-					line-height: 26px;
-				}
-
 				span {
 					line-height: 24px;
 				}
 			}
 
 			&__lead {
-				gap: 1.5rem;
 				margin-bottom: 7.5rem;
 				font-size: 1.8rem;
 				line-height: 26px;
-				color: #e0e0e0;
 				padding-inline: 0;
 			}
 
 			&__team {
 				grid-template-columns: repeat(3, 1fr);
-
-				gap: 2rem;
-				max-width: 1200px;
 				padding-inline: 0;
 			}
 
 			&__card-media {
 				min-height: 275px;
-				background-repeat: no-repeat;
 				background-size: 100% auto;
 			}
 
@@ -392,11 +368,6 @@
 			}
 		}
 
-		.about__lead {
-			font-size: 1.8rem;
-			line-height: 26px;
-		}
-
 		.about__card-media {
 			padding: 2.4rem;
 		}
@@ -408,7 +379,6 @@
 
 		.about__role {
 			max-width: 317px;
-
 			font-size: 1.7rem;
 			line-height: normal;
 		}
@@ -424,7 +394,6 @@
 		}
 
 		.about__bio-text {
-			gap: 1.2rem;
 			padding: 2.5rem;
 			font-size: 1.8rem;
 			line-height: 2.6rem;

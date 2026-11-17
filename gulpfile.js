@@ -14,7 +14,15 @@ const browserSync = require('browser-sync').create();
 const paths = {
 	// Części wspólne (używane przez @include) nie są budowane osobno,
 	// bo korzystają ze zmiennych ustawianych w kitach podstron.
-	html: ['./html/**/*.kit', '!./html/about.kit', '!./html/contact.kit', '!./html/reviews.kit'],
+	html: [
+		'./html/**/*.kit',
+		'!./html/about.kit',
+		'!./html/contact.kit',
+		'!./html/reviews.kit',
+		'!./html/nav.kit',
+		'!./html/footer.kit',
+		'!./html/ua/partials/**',
+	],
 	htmlWatch: './html/**/*.kit',
 	sass: './src/sass/**/*.scss',
 	js: './src/js/**/*.js',

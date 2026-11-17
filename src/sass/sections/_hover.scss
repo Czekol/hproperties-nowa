@@ -1,0 +1,90 @@
+// Hovery na desktopie (tylko urządzenia z myszką, żeby na dotyku nic nie "przyklejało się" po tapnięciu)
+
+.nav__links-link-desktop,
+.nav__language,
+.header__btn,
+.band__btn,
+.promo__btn,
+.send-button,
+.top__box-link,
+.footer-bottom__box-link,
+.social-media__box-icon,
+.reviews__box-show-more,
+.reviews__nav,
+.faq__container,
+.about__hint {
+	transition:
+		color 0.25s ease,
+		background-color 0.25s ease,
+		box-shadow 0.25s ease,
+		opacity 0.25s ease,
+		transform 0.25s ease;
+}
+
+.about__card-media::after {
+	transition: background-color 0.3s ease;
+}
+
+@media (width >= 1440px) and (hover: hover) {
+	// Linki w nawigacji
+	.nav__links-desktop .nav__links-link-desktop:hover,
+	.nav__dropdown:hover .nav__dropdown-toggle {
+		color: #cfd8e6;
+	}
+
+	.nav .nav-right-box .sell-link:hover,
+	.nav .nav-right-box .nav__language:hover {
+		background-color: #1a4277;
+	}
+
+	// Przyciski CTA
+	.header__btn:hover,
+	.band__btn:hover,
+	.promo__btn:hover,
+	.main .contact .send-button:hover {
+		background-color: #1a4277;
+		box-shadow: 0 0.8rem 2rem rgba(0, 0, 0, 0.25);
+		transform: translateY(-2px);
+	}
+
+	// Kontakt i stopka
+	.top__box-link:hover,
+	.footer-bottom__box-link:hover {
+		text-decoration: underline;
+		text-underline-offset: 0.3rem;
+	}
+
+	.social-media__box a:hover .social-media__box-icon {
+		opacity: 0.75;
+		transform: translateY(-2px);
+	}
+
+	// Opinie
+	.main .reviews .reviews__box-show-more:hover {
+		color: #fff;
+		text-decoration: underline;
+		text-underline-offset: 0.3rem;
+	}
+
+	.main .reviews .reviews__nav:hover {
+		opacity: 0.7;
+	}
+
+	// FAQ
+	.main .faq .faq__container:hover {
+		box-shadow: 3px 5px 8px #a4abb1;
+	}
+
+	.main .faq .faq__box {
+		cursor: pointer;
+	}
+
+	// Poznaj H.Properties - karty rozwijane kliknięciem
+	.about__card-media:hover::after {
+		background-color: rgba(0, 0, 0, 0.15);
+	}
+
+	.about__card-media:hover .about__hint {
+		transform: translateY(-3px) scale(1.1);
+	}
+}

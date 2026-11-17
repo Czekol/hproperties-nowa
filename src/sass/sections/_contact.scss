@@ -21,7 +21,6 @@
 				input {
 					margin-top: 0.5rem;
 					padding: 1.5rem;
-					// padding: 1.4rem;
 					border-radius: 9px;
 					border: 1px solid #657480;
 					font-size: 1.4rem;
@@ -144,7 +143,6 @@
 
 				input {
 					margin-top: 0.6rem;
-					// padding: 1.5rem;
 					font-size: 1.6rem;
 				}
 			}
@@ -156,7 +154,6 @@
 
 				textarea {
 					margin-block: 0.6rem 3.3rem;
-					// padding: 1.5rem;
 					font-size: 1.6rem;
 					line-height: 2.4rem;
 				}
@@ -197,7 +194,7 @@
 
 				.contact__form-container {
 					order: 2;
-					padding-inline: 0rem;
+					padding-inline: 0;
 					margin-inline: 0;
 					width: 100%;
 					max-width: 588px;
@@ -231,13 +228,6 @@
 
 					.checkbox-container {
 						margin-top: 1rem;
-
-						.checkbox-box {
-							input {
-								height: 14px;
-								width: 14px;
-							}
-						}
 					}
 
 					.send-button {

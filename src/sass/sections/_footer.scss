@@ -37,7 +37,6 @@
 			}
 
 			.location-icon {
-				// width: 18px;
 				height: 17px;
 			}
 
@@ -220,7 +219,7 @@
 @media (width >= 1440px) {
 	.footer__top-container {
 		position: relative;
-		margin-top: 00rem;
+		margin-top: 0;
 		padding: 5.2rem 11rem 8.9rem 0;
 		border-top-right-radius: 120px;
 		flex: 0 0 506px;
@@ -243,19 +242,15 @@
 				gap: 1.2rem;
 
 				.gmail-icon {
-					// margin-top: 0.3rem;
 					width: 27px;
 					height: 19px;
 				}
 
 				.location-icon {
-					// margin-top: 0.3rem;
-					width: 24px;
 					height: 24px;
 				}
 
 				.instagram-icon {
-					// margin-top: 0.3rem;
 					width: 19.75px;
 					height: 19.75px;
 				}
@@ -275,13 +270,8 @@
 				}
 			}
 
-			.top__box-title {
-				line-height: 31px;
-			}
-
 			.top__box-text,
 			.top__box-link {
-				line-height: 25px;
 				white-space: nowrap;
 			}
 		}

@@ -48,6 +48,8 @@ const setMenuOpen = open => {
 	shadow.classList.toggle('show-shadow', open)
 	body.classList.toggle('stop-scrolling', open)
 	hamburger.setAttribute('aria-expanded', open)
+	const label = open ? hamburger.dataset.labelClose : hamburger.dataset.labelOpen
+	if (label) hamburger.setAttribute('aria-label', label)
 	if (!open) setAccordionOpen(false)
 	updateNavBackground()
 }
@@ -96,6 +98,32 @@ const currentYear = () => {
 
 currentYear()
 
+const reelsGrid = document.querySelector('.reels__grid')
+
+if (reelsGrid) {
+	const reelsObserver = new MutationObserver(() => {
+		const items = reelsGrid.querySelectorAll('.reels__item')
+		let updatedCount = 0
+
+		items.forEach((item, index) => {
+			const iframe = item.querySelector('iframe.instagram-media')
+			if (iframe) {
+				if (!iframe.hasAttribute('title')) {
+					const customTitle = item.dataset.title || `Rolka na Instagramie ${index + 1} - H.Properties`
+					iframe.setAttribute('title', customTitle)
+				}
+				updatedCount++
+			}
+		})
+
+		if (updatedCount === items.length && items.length > 0) {
+			reelsObserver.disconnect()
+		}
+	})
+
+	reelsObserver.observe(reelsGrid, { childList: true, subtree: true })
+}
+
 // Nawigacja – tło po przewinięciu
 updateNavBackground()
 window.addEventListener('scroll', updateNavBackground, { passive: true })
@@ -105,11 +133,15 @@ hamburger?.addEventListener('click', () => setMenuOpen(!isMenuOpen()))
 shadow?.addEventListener('click', () => setMenuOpen(false))
 // Kliknięcie w link zamyka panel (przycisk "Usługi" nie jest linkiem, więc go nie zamyka)
 document.querySelectorAll('.nav__links a').forEach(el => el.addEventListener('click', () => setMenuOpen(false)))
-accordionToggle?.addEventListener('click', () => setAccordionOpen(accordionToggle.getAttribute('aria-expanded') !== 'true'))
+accordionToggle?.addEventListener('click', () =>
+	setAccordionOpen(accordionToggle.getAttribute('aria-expanded') !== 'true'),
+)
 
 // Menu "Usługi" na desktopie
 dropdownToggle?.addEventListener('click', () => setDropdownOpen(!dropdown.classList.contains('open')))
-document.querySelectorAll('.nav__dropdown-link').forEach(el => el.addEventListener('click', () => setDropdownOpen(false)))
+document
+	.querySelectorAll('.nav__dropdown-link')
+	.forEach(el => el.addEventListener('click', () => setDropdownOpen(false)))
 document.addEventListener('click', e => {
 	if (!e.target.closest('.nav__dropdown')) setDropdownOpen(false)
 })

@@ -5,15 +5,11 @@
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	grid-template-columns: none;
 	place-items: center;
 	gap: 0.9rem;
 	width: 100%;
-	max-width: none;
 	margin: 0;
 	padding: 11.7rem 2.4rem 5.7rem;
-	min-height: 0;
-	border-radius: 0;
 	text-align: center;
 	color: #fff;
 	position: relative;
@@ -48,7 +44,6 @@
 
 	&__heading {
 		font-size: 2.8rem;
-		// line-height: 3.9rem;
 		max-width: 759px;
 		color: #fff;
 		font-weight: 700;
@@ -75,20 +70,17 @@
 
 // Tablet
 @media (width >= 744px) {
-
 	.header {
 		padding-inline: 6rem;
 	}
 
 	.header__heading {
-		// max-width: 500px;
 		font-size: 3.6rem;
 		line-height: 4.6rem;
 	}
 
 	.header__text {
 		max-width: 640px;
-		
 		font-size: 1.7rem;
 		line-height: 2.5rem;
 	}
@@ -102,29 +94,21 @@
 // Desktop
 @media (width >= 1440px) {
 	.header {
-		grid-template-rows: repeat(5, auto);
-		padding: 22.9rem 2.4rem 14.1rem;
+		padding: 22.9rem 2.4rem 14rem;
 		min-height: 745px;
-		padding-bottom: 14rem;
 
 		&__heading {
-			grid-column: 1 / 2;
-			grid-row: 1 / 2;
 			font-size: 6.7rem;
 			line-height: 94px;
 		}
 
 		&__text {
 			max-width: 790px;
-			grid-column: 1 / 2;
-			grid-row: 2 / 3;
 			font-size: 2.1rem;
 			line-height: 30px;
 		}
 
 		&__btn {
-			grid-column: 1 / 2;
-			grid-row: 3 / 4;
 			width: fit-content;
 			padding: 1.5rem 3rem;
 			font-size: 2.1rem;
