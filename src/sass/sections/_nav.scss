@@ -8,7 +8,7 @@
 .nav {
 	position: fixed;
 	top: 0;
-	padding-inline: 3rem;
+	padding-inline: 2.4rem;
 	padding-block: 1.3rem;
 	width: 100%;
 	z-index: 1000;
@@ -65,7 +65,7 @@
 		height: 100vh;
 		padding-bottom: 12rem;
 		overflow-y: auto;
-		background-color: #0c2446;
+		background-color: hsl(215, 72%, 15%);
 		transform: translateX(100%);
 		transition: transform 0.3s ease-out;
 		z-index: 9;
@@ -79,9 +79,9 @@
 		display: flex;
 		align-items: center;
 		gap: 1rem;
-		margin-left: 3rem;
+		margin-left: 2.8rem;
 		color: #fff;
-		font-size: 1.8rem;
+		font-size: 1.7rem;
 
 		img {
 			width: 22px;
@@ -90,7 +90,7 @@
 
 	// Przycisk "Usługi" w panelu mobilnym wygląda jak zwykły link
 	&__accordion-toggle {
-		width: calc(100% - 3rem);
+		width: calc(100% - 2.4rem);
 		text-align: left;
 		font-family: inherit;
 		font-weight: 400;
@@ -110,13 +110,17 @@
 		display: grid;
 		grid-template-rows: 0fr;
 		visibility: hidden;
-		transition: grid-template-rows 0.3s ease, visibility 0s 0.3s;
+		transition:
+			grid-template-rows 0.3s ease,
+			visibility 0s 0.3s;
 	}
 
 	&__submenu.open {
 		grid-template-rows: 1fr;
 		visibility: visible;
-		transition: grid-template-rows 0.3s ease, visibility 0s;
+		transition:
+			grid-template-rows 0.3s ease,
+			visibility 0s;
 	}
 
 	&__submenu-inner {
@@ -128,16 +132,16 @@
 	}
 
 	&__submenu-link {
-		margin-left: 3rem;
+		margin-left: 2.4rem;
 		color: #cfd8e6;
-		font-size: 1.6rem;
+		font-size: 1.5rem;
 
 		&:first-child {
 			margin-top: 2rem;
 		}
 
 		&--sub {
-			margin-left: 5rem;
+			margin-left: 4.4rem;
 		}
 	}
 
@@ -186,11 +190,11 @@
 			// left: -29px;
 			display: none;
 			align-items: center;
-			padding:0.45rem 0.9rem 0.9rem 0.9rem;
+			padding: 0.45rem 0.9rem 0.9rem 0.9rem;
 			width: 45px;
 			background-color: #112f59;
 			z-index: 456;
-			border-radius: 5px;
+			border-radius: 0px 0px 5px 5px;
 
 			a {
 				height: 13px;
@@ -213,7 +217,7 @@
 
 	&__hamburger-img {
 		width: 28px;
-		filter: invert(1);
+		// filter: invert(1);
 	}
 
 	&__shadow {
@@ -250,10 +254,10 @@
 		&__links-link {
 			margin-left: 6rem;
 			gap: 1.2rem;
-			font-size: 2.2rem;
+			font-size: 2rem;
 
 			img {
-				width: 27px;
+				width: 26px;
 			}
 		}
 
@@ -272,7 +276,7 @@
 
 		&__submenu-link {
 			margin-left: 6rem;
-			font-size: 1.9rem;
+			font-size: 1.7rem;
 
 			&:first-child {
 				margin-top: 2.4rem;
@@ -509,7 +513,10 @@
 			opacity: 0;
 			visibility: hidden;
 			transform: translateY(-0.8rem);
-			transition: opacity 0.25s ease, transform 0.25s ease, visibility 0s 0.25s;
+			transition:
+				opacity 0.25s ease,
+				transform 0.25s ease,
+				visibility 0s 0.25s;
 		}
 
 		&__dropdown:hover &__dropdown-menu,
@@ -518,7 +525,10 @@
 			opacity: 1;
 			visibility: visible;
 			transform: none;
-			transition: opacity 0.25s ease, transform 0.25s ease, visibility 0s;
+			transition:
+				opacity 0.25s ease,
+				transform 0.25s ease,
+				visibility 0s;
 		}
 
 		&__dropdown-list {

@@ -13,13 +13,13 @@
 		}
 
 		&__card-media::after {
-			background: rgba(0, 0, 0, 0.3);
+			// background: rgba(0, 0, 0, 0.3);
 		}
 
 		&__hint {
 			position: absolute;
-			top: 24.5px;
-			right: 25px;
+			top: 24px;
+			right: 24px;
 			z-index: 1;
 			width: 21px;
 			height: 29px;
@@ -44,8 +44,8 @@
 		margin: 0 auto 4rem;
 		padding-inline: 2.4rem;
 		color: #e0e0e0;
-		font-size: 1.6rem;
-		line-height: 26px;
+		font-size: 1.5rem;
+		line-height: 2.4rem;
 	}
 
 	&__team {
@@ -67,7 +67,7 @@
 		z-index: 1;
 		display: flex;
 		align-items: flex-end;
-		min-height: 275px;
+		min-height: 265px;
 		padding: 2.4rem;
 		border-radius: 6px;
 		overflow: hidden;
@@ -85,14 +85,17 @@
 
 	&__card--dima .about__card-media {
 		background-image: url('../img/dima.jpg');
+		background-position-y: top 30%;
 	}
 
 	&__card--olha .about__card-media {
 		background-image: url('../img/olha.jpg');
+		background-position-y: top 27%;
 	}
 
 	&__card--mateusz .about__card-media {
 		background-image: url('../img/mateusz.jpg');
+		// background-position-y: bottom;
 	}
 
 	&__card.is-open &__card-media {
@@ -107,15 +110,17 @@
 
 	&__name {
 		color: #fff;
-		font-size: 2.3rem;
+		font-size: 2rem;
+		line-height: 2.6rem;
 		font-weight: 700;
 	}
 
 	&__role {
 		margin-top: 0.4rem;
-		max-width: 324px;
+		max-width: 287px;
 		color: #e0e0e0;
-		font-size: 1.7rem;
+		font-size: 1.5rem;
+		line-height: 2.1rem;
 	}
 
 	&__flags {
@@ -124,9 +129,10 @@
 		margin-top: 1rem;
 
 		img {
-			width: 18px;
+			// width: 18px;
 			height: 14px;
 			object-fit: cover;
+			border-radius: 1px;
 		}
 	}
 
@@ -136,7 +142,11 @@
 		display: grid;
 		grid-template-rows: 0fr;
 		visibility: hidden;
-		transition: grid-template-rows 0.4s ease, visibility 0s 0.4s;
+		transition:
+			grid-template-rows 0.4s ease,
+			visibility 0s 0.4s;
+
+			// box-shadow: ;
 	}
 
 	&__bio-inner {
@@ -148,12 +158,14 @@
 		display: flex;
 		flex-direction: column;
 		gap: 1.2rem;
-		padding: 2.5rem;
+		padding: 2.4rem;
 		border-radius: 0 0 6px 6px;
-		background-color: #fff;
-		color: #2a2a2a;
-		font-size: 1.8rem;
-		line-height: 26px;
+		// background-color: #fff;
+		background-color: hsl(214, 72%, 10%);
+		// color: #2a2a2a;
+		color: #e0e0e0;
+		font-size: 1.5rem;
+		line-height: 2.3rem;
 		text-align: left;
 		transform: translateY(-100%);
 		transition: transform 0.4s ease;
@@ -162,7 +174,9 @@
 	&__card.is-open &__bio {
 		grid-template-rows: 1fr;
 		visibility: visible;
-		transition: grid-template-rows 0.4s ease, visibility 0s;
+		transition:
+			grid-template-rows 0.4s ease,
+			visibility 0s;
 	}
 
 	&__card.is-open &__bio-text {
@@ -172,8 +186,10 @@
 	&__stats {
 		display: flex;
 		flex-direction: column;
-		gap: 2.4rem;
-		max-width: 1002px;
+		align-items: center;
+		flex-wrap: wrap;
+		gap: 2.5rem;
+		max-width: 890px;
 		margin: 4rem auto 0;
 		padding-inline: 2.4rem;
 	}
@@ -185,24 +201,24 @@
 		text-align: left;
 
 		img {
-			width: 67px;
-			height: 67px;
+			width: 54px;
+			height: 54px;
 			object-fit: contain;
 		}
 
-		strong {
+		b {
 			display: block;
 			color: #fff;
-			font-size: 3.6rem;
+			font-size: 3.1rem;
 			line-height: 1;
 		}
 
 		span {
 			display: block;
 			max-width: 140px;
-			margin-top: 1rem;
+			margin-top: 0.5rem;
 			color: #e0e0e0;
-			font-size: 1.7rem;
+			font-size: 1.5rem;
 			line-height: 1.4;
 		}
 	}
@@ -213,20 +229,86 @@
 	.main {
 		.about {
 			margin-top: 10rem;
-			padding-block: 6.1rem 7rem;
+			padding-block: 6.6rem 7.5rem;
+			padding-inline: 6rem;
 		}
-	}
 
-	.about__team {
-		grid-template-columns: repeat(3, 1fr);
-		max-width: 1200px;
-		margin-inline: auto;
-	}
+		.about__card {
+			max-width: 560px;
+		}
 
-	.about__stats {
-		flex-direction: row;
-		justify-content: space-between;
-		align-items: center;
+		.about__team {
+			// grid-template-columns: repeat(3, 1fr);
+			justify-content: center;
+			max-width: 1200px;
+			margin-inline: auto;
+		}
+
+		//? kod środka
+
+		.about__card-media {
+			height: 270px;
+			padding: 2.6rem;
+		}
+
+		.about__name {
+			font-size: 2.2rem;
+			// line-height: 2.4rem;
+		}
+
+		.about__role {
+			max-width: 307px;
+			font-size: 1.6rem;
+			line-height: 2.3rem;
+		}
+
+		.about__flags {
+			gap: 0.7rem;
+			margin-top: 1.1rem;
+
+			img {
+				height: 15px;
+			}
+		}
+
+		.about__hint {
+			top: 26px;
+			right: 26px;
+		}
+
+		.about__bio-text {
+			padding: 2.6rem;
+			font-size: 1.6rem;
+			line-height: 2.5rem;
+		}
+
+		.about__lead {
+			font-size: 1.6rem;
+			line-height: 2.5rem;
+			margin-bottom: 5.5rem;
+		}
+
+		.about__stats {
+			margin-top: 5.5rem;
+			flex-direction: row;
+			justify-content: space-between;
+			align-items: center;
+		}
+
+		.about__stat span {
+			margin-top: 0.7rem;
+			font-size: 1.6rem;
+			line-height: normal;
+		}
+
+		.about__stat b {
+			font-size: 3.2rem;
+		}
+
+		.about__stat img {
+			width: 56px;
+			height: 56px;
+		}
 	}
 }
 
@@ -263,6 +345,8 @@
 			}
 
 			&__team {
+				grid-template-columns: repeat(3, 1fr);
+
 				gap: 2rem;
 				max-width: 1200px;
 				padding-inline: 0;
@@ -307,9 +391,58 @@
 				background-position: 0 0;
 			}
 		}
-	}
 
-	.about__lead {
-		font-size: 1.8rem;
+		.about__lead {
+			font-size: 1.8rem;
+			line-height: 26px;
+		}
+
+		.about__card-media {
+			padding: 2.4rem;
+		}
+
+		.about__name {
+			font-size: 2.3rem;
+			line-height: normal;
+		}
+
+		.about__role {
+			max-width: 317px;
+
+			font-size: 1.7rem;
+			line-height: normal;
+		}
+
+		.about__flags {
+			gap: 0.6rem;
+			margin-top: 1rem;
+
+			img {
+				width: 18px;
+				height: 14px;
+			}
+		}
+
+		.about__bio-text {
+			gap: 1.2rem;
+			padding: 2.5rem;
+			font-size: 1.8rem;
+			line-height: 2.6rem;
+		}
+
+		.about__stat {
+			img {
+				width: 67px;
+				height: 67px;
+			}
+
+			b {
+				font-size: 3.6rem;
+			}
+
+			span {
+				font-size: 1.7rem;
+			}
+		}
 	}
 }

@@ -1,5 +1,45 @@
 // Obcokrajowcy (obcokrajowcy.html)
+.body-foreign {
+	.header {
+		&__text {
+			max-width: 651px;
+		}
+	}
 
+	.main {
+		.special__container {
+			.special__box {
+				&:nth-of-type(3) {
+					.special__box-text {
+						max-width: 280px;
+					}
+				}
+
+				&-text {
+					max-width: 266px;
+				}
+			}
+		}
+	}
+
+	@media (width >= 744px) {
+		.main {
+			.special__container {
+				.special__box {
+					&:nth-of-type(3) {
+						.special__box-text {
+							max-width: 305px;
+						}
+					}
+
+					&-text {
+						max-width: 303px;
+					}
+				}
+			}
+		}
+	}
+}
 // Desktop
 @media (width >= 1440px) {
 	.main.main--foreign {
