@@ -159,6 +159,20 @@
 		text-align: left;
 		transform: translateY(-100%);
 		transition: transform 0.4s ease;
+
+		div {
+			display: flex;
+			flex-direction: column;
+		}
+		&-link {
+			color: #cfd8e6;
+			text-decoration: underline;
+			transition: color .3s;
+
+			&:hover {
+				color: #fff;
+			}
+		}
 	}
 
 	&__card.is-open &__bio {
