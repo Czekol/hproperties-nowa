@@ -5,7 +5,7 @@ Options -Indexes -MultiViews
     RewriteEngine On
 
     # Katalogi źródłowe nie są publiczne
-    RewriteRule ^(node_modules|html|src|\.git)(/|$) - [F,L]
+    RewriteRule ^(node_modules|html|src|scripts|\.git)(/|$) - [F,L]
 
     # https + bez www (jedna wersja adresu, zgodna z tagami canonical)
     RewriteCond %{HTTPS} !=on [OR]

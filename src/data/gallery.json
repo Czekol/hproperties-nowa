@@ -1,0 +1,416 @@
+{
+	"krakow-mysliwska-mieszkanie-3-pokoje-58-m2": {
+		"gallery": [
+			{
+				"file": "01",
+				"alt": "Salon z aneksem kuchennym i dużym oknem balkonowym w mieszkaniu przy ul. Myśliwskiej"
+			},
+			{
+				"file": "02",
+				"alt": "Jasny salon z dużymi oknami po świeżym wykończeniu"
+			},
+			{
+				"file": "03",
+				"alt": "Kuchnia z zabudową meblową, piekarnikiem i płytą indukcyjną"
+			},
+			{
+				"file": "04",
+				"alt": "Aneks kuchenny w jasnej zabudowie meblowej"
+			},
+			{
+				"file": "05",
+				"alt": "Salon z widokiem na przedpokój i drzwi do sypialni"
+			},
+			{
+				"file": "06",
+				"alt": "Sypialnia w nowym mieszkaniu"
+			},
+			{
+				"file": "07",
+				"alt": "Druga sypialnia z oknem"
+			},
+			{
+				"file": "08",
+				"alt": "Sypialnia od strony północnej"
+			},
+			{
+				"file": "09",
+				"alt": "Pokój z oknem i grzejnikiem"
+			},
+			{
+				"file": "10",
+				"alt": "Wejście do mieszkania i przedpokój"
+			},
+			{
+				"file": "11",
+				"alt": "Łazienka z wanną i szafką pod umywalkę"
+			},
+			{
+				"file": "12",
+				"alt": "Łazienka z wanną i toaletą"
+			},
+			{
+				"file": "13",
+				"alt": "Garderoba z miejscem na pralkę"
+			},
+			{
+				"file": "14",
+				"alt": "Balkon z widokiem na osiedle"
+			},
+			{
+				"file": "15",
+				"alt": "Korytarz z drewnianymi drzwiami do pokoi"
+			},
+			{
+				"file": "16",
+				"alt": "Budynek z 2025 roku przy ul. Myśliwskiej widziany od ulicy"
+			},
+			{
+				"file": "17",
+				"alt": "Parking i okolica budynku"
+			},
+			{
+				"file": "18",
+				"alt": "Elewacja budynku i stojaki rowerowe"
+			},
+			{
+				"file": "19",
+				"alt": "Zielone podwórze osiedla"
+			},
+			{
+				"file": "20",
+				"alt": "Wewnętrzny dziedziniec osiedla z zielenią"
+			}
+		],
+		"plans": [
+			{
+				"file": "plan-1",
+				"alt": "Rzut mieszkania przy ul. Myśliwskiej",
+				"label": "Rzut mieszkania"
+			}
+		],
+		"extra": []
+	},
+	"krakow-bohomolca-13-mieszkanie": {
+		"gallery": [
+			{
+				"file": "01",
+				"alt": "Salon z aneksem kuchennym w mieszkaniu przy ul. Bohomolca"
+			},
+			{
+				"file": "02",
+				"alt": "Salon z kanapą i stołem jadalnianym"
+			},
+			{
+				"file": "03",
+				"alt": "Jasny salon z oknem"
+			},
+			{
+				"file": "04",
+				"alt": "Strefa jadalniana przy kuchni"
+			},
+			{
+				"file": "05",
+				"alt": "Kuchnia w jasnym drewnie z zabudowanym AGD"
+			},
+			{
+				"file": "06",
+				"alt": "Zabudowa kuchenna z okapem i marmurową ścianą"
+			},
+			{
+				"file": "07",
+				"alt": "Kuchnia z zabudowanym piekarnikiem, lodówką i okapem"
+			},
+			{
+				"file": "08",
+				"alt": "Sypialnia z dużym łóżkiem i oknem"
+			},
+			{
+				"file": "09",
+				"alt": "Sypialnia z szafą w zabudowie"
+			},
+			{
+				"file": "10",
+				"alt": "Łazienka z okrągłym lustrem LED i drewnianą szafką"
+			},
+			{
+				"file": "11",
+				"alt": "Łazienka z wanną i ścianą w czarnym kamieniu"
+			},
+			{
+				"file": "12",
+				"alt": "Łazienka z pralką"
+			},
+			{
+				"file": "13",
+				"alt": "Pokój do pracy z biurkiem"
+			},
+			{
+				"file": "14",
+				"alt": "Drugi pokój z miejscem do pracy"
+			},
+			{
+				"file": "15",
+				"alt": "Balkon z widokiem na osiedle"
+			},
+			{
+				"file": "16",
+				"alt": "Budynek przy ul. Bohomolca od strony zieleni"
+			},
+			{
+				"file": "17",
+				"alt": "Osiedle z zagospodarowaną zielenią"
+			},
+			{
+				"file": "18",
+				"alt": "Przedpokój z szafą na buty"
+			}
+		],
+		"plans": [],
+		"extra": []
+	},
+	"krakow-nullo-lokal-uslugowy-80-m2": {
+		"gallery": [
+			{
+				"file": "01",
+				"alt": "Przestronny lokal usługowy z dużymi witrynami od strony ulicy"
+			},
+			{
+				"file": "02",
+				"alt": "Główna przestrzeń lokalu z wejściem od strony osiedla"
+			},
+			{
+				"file": "03",
+				"alt": "Open space w lokalu użytkowym o wysokości 3,3 m"
+			},
+			{
+				"file": "04",
+				"alt": "Wnętrze lokalu usługowego w stanie deweloperskim"
+			},
+			{
+				"file": "05",
+				"alt": "Lokal z kolumną, który można podzielić na gabinety i recepcję"
+			},
+			{
+				"file": "06",
+				"alt": "Wąskie pomieszczenie lokalu prowadzące do zaplecza"
+			},
+			{
+				"file": "07",
+				"alt": "Zaplecze z szafkami i blatem pod aneks kuchenny"
+			},
+			{
+				"file": "08",
+				"alt": "Korytarz z blatem prowadzący do zaplecza"
+			},
+			{
+				"file": "09",
+				"alt": "Toaleta przystosowana dla osób z ograniczoną mobilnością"
+			},
+			{
+				"file": "10",
+				"alt": "Budynek Grzegórzki Park przy ul. Francesco Nullo"
+			},
+			{
+				"file": "11",
+				"alt": "Parter inwestycji z miejscami parkingowymi dla klientów"
+			},
+			{
+				"file": "12",
+				"alt": "Wejście do lokali usługowych na parterze"
+			}
+		],
+		"plans": [
+			{
+				"file": "plan-1",
+				"alt": "Rzut lokalu usługowego U4 o powierzchni 80,03 m²",
+				"label": "Rzut lokalu U4"
+			}
+		],
+		"extra": []
+	},
+	"wegrzce-dzialka-42-ary": {
+		"gallery": [
+			{
+				"file": "01",
+				"alt": "Widok z lotu ptaka na okolicę działki w Węgrzcach"
+			},
+			{
+				"file": "02",
+				"alt": "Mapa z zaznaczoną działką 639/1 o powierzchni 4200 m²"
+			}
+		],
+		"plans": [],
+		"extra": []
+	},
+	"sidzina-dzialka-z-pozwoleniem-na-budowe": {
+		"gallery": [
+			{
+				"file": "01",
+				"alt": "Wizualizacja domu dwulokalowego, na który jest pozwolenie na budowę w Sidzinie"
+			}
+		],
+		"plans": [
+			{
+				"file": "plan-1",
+				"alt": "Rzuty parteru i poddasza lokali w domu dwulokalowym w Sidzinie",
+				"label": "Rzuty lokali"
+			},
+			{
+				"file": "plan-2",
+				"alt": "Koncepcja zagospodarowania działki w Sidzinie",
+				"label": "Zagospodarowanie działki"
+			}
+		],
+		"extra": []
+	},
+	"raczna-dom-wolnostojacy-110-m2": {
+		"gallery": [
+			{
+				"file": "01",
+				"alt": "Wizualizacja domu wolnostojącego 110 m² z balkonem w Rącznej"
+			},
+			{
+				"file": "02",
+				"alt": "Jadalnia z salonem i schodami na piętro"
+			},
+			{
+				"file": "03",
+				"alt": "Jadalnia z drewnianymi panelami na ścianie"
+			},
+			{
+				"file": "04",
+				"alt": "Salon z wyjściem na taras"
+			},
+			{
+				"file": "05",
+				"alt": "Kuchnia z wyspą i oknem na ogród"
+			},
+			{
+				"file": "06",
+				"alt": "Jadalnia z salonem i drewnianymi panelami na ścianie"
+			},
+			{
+				"file": "07",
+				"alt": "Łazienka na poddaszu z oknem dachowym"
+			},
+			{
+				"file": "08",
+				"alt": "Łazienka z wanną wolnostojącą"
+			},
+			{
+				"file": "09",
+				"alt": "Łazienka z drewnianą zabudową"
+			},
+			{
+				"file": "10",
+				"alt": "Wizualizacja domu z ogrodem"
+			}
+		],
+		"plans": [
+			{
+				"file": "plan-1",
+				"alt": "Rzut parteru domu w Rącznej",
+				"label": "Rzut parteru"
+			},
+			{
+				"file": "plan-2",
+				"alt": "Rzut poddasza domu w Rącznej",
+				"label": "Rzut poddasza"
+			}
+		],
+		"extra": []
+	},
+	"cianowice-nowe-domy-szeregowe": {
+		"gallery": [
+			{
+				"file": "01",
+				"alt": "Wizualizacja nowych domów szeregowych w Cianowicach"
+			},
+			{
+				"file": "02",
+				"alt": "Wizualizacja segmentów domów szeregowych z ogródkami"
+			},
+			{
+				"file": "03",
+				"alt": "Wizualizacja elewacji domów szeregowych z podjazdem"
+			},
+			{
+				"file": "04",
+				"alt": "Wizualizacja salonu z jadalnią"
+			},
+			{
+				"file": "05",
+				"alt": "Wizualizacja salonu ze schodami na piętro"
+			},
+			{
+				"file": "06",
+				"alt": "Wizualizacja kuchni z wyspą"
+			},
+			{
+				"file": "07",
+				"alt": "Wizualizacja sypialni"
+			},
+			{
+				"file": "08",
+				"alt": "Wizualizacja pokoju do pracy"
+			},
+			{
+				"file": "09",
+				"alt": "Budowa domów szeregowych w Cianowicach"
+			},
+			{
+				"file": "10",
+				"alt": "Budynki w stanie surowym z drewnianą konstrukcją dachu"
+			},
+			{
+				"file": "11",
+				"alt": "Okolica inwestycji z lotu ptaka"
+			},
+			{
+				"file": "12",
+				"alt": "Widok z drona na inwestycję i sąsiednią zabudowę"
+			},
+			{
+				"file": "13",
+				"alt": "Droga dojazdowa i zabudowa jednorodzinna wokół inwestycji"
+			},
+			{
+				"file": "14",
+				"alt": "Wnętrze budynku w stanie surowym otwartym"
+			},
+			{
+				"file": "15",
+				"alt": "Pomieszczenie z oknem w stanie surowym otwartym"
+			},
+			{
+				"file": "16",
+				"alt": "Poddasze z drewnianą konstrukcją dachu i oknami dachowymi"
+			}
+		],
+		"plans": [
+			{
+				"file": "plan-1",
+				"alt": "Rzut parteru domu w Cianowicach (41,72 m²)",
+				"label": "Parter – 41,72 m²"
+			},
+			{
+				"file": "plan-2",
+				"alt": "Rzut piętra domu w Cianowicach (39,49 m²)",
+				"label": "Piętro – 39,49 m²"
+			},
+			{
+				"file": "plan-3",
+				"alt": "Rzut poddasza domu w Cianowicach (20,50 m²)",
+				"label": "Poddasze – 20,50 m²"
+			}
+		],
+		"extra": [
+			{
+				"file": "extra-1",
+				"alt": "Mapa okolicy inwestycji ze sklepem, szkołą podstawową i przystankiem autobusowym",
+				"label": "Okolica inwestycji"
+			}
+		]
+	}
+}
