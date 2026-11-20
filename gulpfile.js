@@ -10,6 +10,7 @@ const sourcemaps = require('gulp-sourcemaps');
 const clean = require('gulp-clean');
 const kit = require('gulp-kit');
 const browserSync = require('browser-sync').create();
+const buildOffers = require('./scripts/build-offers');
 
 const paths = {
 	// Części wspólne (używane przez @include) nie są budowane osobno,
@@ -28,11 +29,14 @@ const paths = {
 	js: './src/js/**/*.js',
 	img: './src/img/*',
 	video: './src/video/*',
+	offersData: ['./src/data/**', './scripts/build-offers.js', './html/nav.kit', './html/footer.kit', './html/contact.kit'],
+	offersImg: './src/offers/**/*',
 	dist: './dist',
 	sassDest: './dist/css',
 	jsDest: './dist/js',
 	imgDest: './dist/img',
 	videoDest: './dist/video',
+	offersImgDest: './dist/offers',
 };
 
 // Kompilacja SCSS
@@ -73,6 +77,23 @@ function copyVideos() {
 		.pipe(dest(paths.videoDest));
 }
 
+// Strony ofert (oferty/*.html) generowane z src/data/offers.js
+function handleOffers(done) {
+	try {
+		buildOffers();
+		if (browserSync.active) browserSync.reload();
+	} catch (error) {
+		console.error('Błąd generowania ofert:', error.message);
+	}
+	done();
+}
+
+// Zdjęcia ofert (już zoptymalizowane, kopiowane bez zmian)
+function copyOfferImages() {
+	return src(paths.offersImg)
+		.pipe(dest(paths.offersImgDest));
+}
+
 // Kompilacja .kit do .html
 function handleKits() {
 	return src(paths.html)
@@ -106,11 +127,14 @@ function watchForChanges(done) {
 	watch(paths.js, javaScript);
 	watch(paths.img, convertImages);
 	watch(paths.video, copyVideos);
+	watch(paths.offersData, handleOffers);
+	watch(paths.offersImg, copyOfferImages);
 	done();
 }
 
 // Główne zadania
-const mainFunctions = parallel(handleKits, sassCompailer, javaScript, convertImages, copyVideos);
+const mainFunctions = parallel(handleKits, handleOffers, sassCompailer, javaScript, convertImages, copyVideos, copyOfferImages);
 
 exports.cleanStuff = cleanStuff;
+exports.build = mainFunctions;
 exports.default = series(mainFunctions, startBrowserSync, watchForChanges);
