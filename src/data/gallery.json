@@ -3,7 +3,8 @@
 		"gallery": [
 			{
 				"file": "01",
-				"alt": "Salon z aneksem kuchennym i dużym oknem balkonowym w mieszkaniu przy ul. Myśliwskiej"
+				"alt": "Salon z aneksem kuchennym i dużym oknem balkonowym w mieszkaniu przy ul. Myśliwskiej",
+				"largeWidth": 2048
 			},
 			{
 				"file": "02",
@@ -95,7 +96,8 @@
 		"gallery": [
 			{
 				"file": "01",
-				"alt": "Salon z aneksem kuchennym w mieszkaniu przy ul. Bohomolca"
+				"alt": "Salon z aneksem kuchennym w mieszkaniu przy ul. Bohomolca",
+				"largeWidth": 2400
 			},
 			{
 				"file": "02",
@@ -169,11 +171,12 @@
 		"plans": [],
 		"extra": []
 	},
-	"krakow-nullo-lokal-uslugowy-80-m2": {
+	"krakow-lokal-uslugowy-80-m2": {
 		"gallery": [
 			{
 				"file": "01",
-				"alt": "Przestronny lokal usługowy z dużymi witrynami od strony ulicy"
+				"alt": "Przestronny lokal usługowy z dużymi witrynami od strony ulicy",
+				"largeWidth": 2048
 			},
 			{
 				"file": "02",
@@ -342,7 +345,8 @@
 		"gallery": [
 			{
 				"file": "01",
-				"alt": "Wizualizacja nowych domów szeregowych w Cianowicach"
+				"alt": "Wizualizacja nowych domów szeregowych w Cianowicach",
+				"largeWidth": 2400
 			},
 			{
 				"file": "02",

@@ -4,7 +4,10 @@
 // 1. Wrzuć zdjęcia do src/offers/<slug>/ jako 01.jpg, 02.jpg ... (pełny rozmiar, ok. 1600 px szerokości)
 //    oraz 01-s.jpg, 02-s.jpg ... (miniatury, ok. 640 px). Rzuty: plan-1.jpg + plan-1-s.jpg itd.
 // 2. Dopisz obiekt do tablicy poniżej, a opisy zdjęć (alt) do src/data/gallery.json.
-// 3. Uruchom `gulp` (lub `npm run build:offers`) – strony oferty/ zostaną wygenerowane od nowa.
+// 3. Dodaj ukraińskie teksty oferty do src/data/offers.ua.js oraz opisy zdjęć do src/data/gallery.ua.json
+//    (bez tego generator zgłosi błąd).
+// 4. Uruchom `gulp` (lub `npm run build:offers`) – strony oferty/ i ua/oferty/ zostaną wygenerowane od nowa.
+//    Opiekun oferty: pole `agent` ('dima' | 'olha' | 'mateusz'), zdjęcia opiekunów są w src/img/*-profile.png.
 //
 // Pole `order` decyduje o kolejności na liście (mniejsza liczba = wyżej).
 
@@ -24,9 +27,10 @@ const offers = [
 		pricePrefix: 'od',
 		transaction: 'sprzedaz',
 		market: 'pierwotny',
+		condition: 'deweloperski',
 		year: 2027,
 		rooms: 4,
-		amenities: ['parking'],
+		amenities: ['parking', 'balcony'],
 		area: 102,
 		areaPrefix: 'ok.',
 		cardSpecs: [
@@ -38,7 +42,7 @@ const offers = [
 		intro: [
 			'W cenie dwupokojowego mieszkania w Krakowie możesz mieć własny dom z ogródkiem. W Cianowicach w gminie Skała powstają domy szeregowe o powierzchni ok. 102 m², w cichej okolicy bez gęstej zabudowy i osiedlowego zgiełku.',
 			'Każdy dom ma dwie kondygnacje oraz użytkowe poddasze: na parterze salon z aneksem, na piętrze sypialnie, a poddasze można zaadaptować na bawialnię lub pokój do pracy. Przy domu są dwa miejsca postojowe i prywatny ogródek.',
-			'Inwestycja jest w trakcie realizacji, a oddanie pierwszych domów planowane jest na koniec kwietnia 2027 r. Pozostałe domy będą gotowe do końca listopada 2027 r.',
+			'Inwestycja jest w trakcie realizacji, a oddanie pierwszych domów planowane jest na koniec kwietnia 2027 r. Pozostałe domy będą gotowe do końca grudnia 2027 r.',
 		],
 		facts: [
 			['Rodzaj', 'Dom szeregowy (nowa inwestycja)'],
@@ -48,7 +52,7 @@ const offers = [
 			['Ogrzewanie', 'Pompa ciepła (w cenie), ogrzewanie podłogowe na parterze i piętrze'],
 			['Miejsca postojowe', '2 na posesji'],
 			['Opłaty', 'Brak czynszu'],
-			['Termin oddania', 'Kwiecień 2027 r. oraz listopad 2027 r.'],
+			['Termin oddania', 'Kwiecień 2027 r. oraz grudzień 2027 r.'],
 		],
 		featuresTitle: 'Standard i wyposażenie',
 		features: [
@@ -104,7 +108,7 @@ const offers = [
 		market: 'pierwotny',
 		condition: 'deweloperski',
 		year: 2027,
-		amenities: ['balcony'],
+		amenities: ['parking', 'balcony'],
 		area: 110,
 		plotArea: 400,
 		rooms: 6,
@@ -218,7 +222,7 @@ const offers = [
 		priceNote: 'Miejsce postojowe w garażu podziemnym: 50 000 zł (dodatkowo).',
 	},
 	{
-		slug: 'krakow-nullo-lokal-uslugowy-80-m2',
+		slug: 'krakow-lokal-uslugowy-80-m2',
 		agent: 'olha',
 		order: 4,
 		title: 'Lokal usługowy 80,03 m² w Grzegórzki Park',
@@ -230,6 +234,8 @@ const offers = [
 		price: 1240000,
 		priceSuffix: 'netto',
 		transaction: 'sprzedaz',
+		market: 'wtorny',
+		year: 2022,
 		amenities: ['parking'],
 		area: 80.03,
 		cardSpecs: [
@@ -283,7 +289,7 @@ const offers = [
 		tag: 'Pozwolenie na budowę',
 		city: 'Kraków',
 		location: 'Kraków, Sidzina',
-		price: 599000,
+		price: 575000,
 		transaction: 'sprzedaz',
 		area: 3683,
 		areaUnit: 'm²',
@@ -383,7 +389,8 @@ const offers = [
 		priceSuffix: '/ mies.',
 		priceNote: 'Dodatkowo ok. 700 zł czynszu administracyjnego i opłata za prąd.',
 		condition: 'do-zamieszkania',
-		amenities: ['parking', 'balcony'],
+		year: 2025,
+		amenities: ['parking', 'balcony', 'elevator'],
 		area: 53,
 		rooms: 3,
 		cardSpecs: [

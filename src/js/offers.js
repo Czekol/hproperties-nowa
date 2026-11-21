@@ -1,5 +1,28 @@
 // Strona ofert: wyszukiwarka, licznik zdjęć w galerii i powiększanie zdjęć (lightbox)
 
+const isUa = document.documentElement.lang === 'uk'
+const TEXT = isUa
+	? {
+			found: (visible, total, word) => `Знайдено ${visible} ${word} з ${total}`,
+			words: ['пропозицію', 'пропозиції', 'пропозицій'],
+			priceMonth: 'Ціна (zł/міс.)',
+			price: 'Ціна (zł)',
+			lightbox: 'Збільшене фото',
+			close: 'Закрити',
+			prev: 'Попереднє фото',
+			next: 'Наступне фото',
+		}
+	: {
+			found: (visible, total, word) => `Znaleziono ${visible} ${word} z ${total}`,
+			words: ['ofertę', 'oferty', 'ofert'],
+			priceMonth: 'Cena (zł/mies.)',
+			price: 'Cena (zł)',
+			lightbox: 'Powiększone zdjęcie',
+			close: 'Zamknij',
+			prev: 'Poprzednie zdjęcie',
+			next: 'Następne zdjęcie',
+		}
+
 // Wyszukiwarka ofert
 const searchForm = document.querySelector('#offers-search')
 
@@ -22,10 +45,11 @@ if (searchForm) {
 	const selectFields = ['typ', 'transakcja', 'lokalizacja', 'stan']
 	const advanced = ['cena-od', 'cena-do', 'pow-od', 'pow-do', 'pokoje-od', 'pokoje-do', 'rok', 'stan']
 
-	const plural = (n, one, few, many) => {
-		if (n === 1) return one
+	const plural = (n, [one, few, many]) => {
 		const lastTwo = n % 100
 		const last = n % 10
+		if (isUa && last === 1 && lastTwo !== 11) return one
+		if (!isUa && n === 1) return one
 		return last >= 2 && last <= 4 && !(lastTwo >= 12 && lastTwo <= 14) ? few : many
 	}
 
@@ -126,10 +150,10 @@ if (searchForm) {
 		emptyBox.hidden = visible !== 0
 		statusBox.hidden = !active
 		if (active) {
-			statusText.textContent = `Znaleziono ${visible} ${plural(visible, 'ofertę', 'oferty', 'ofert')} z ${cards.length}`
+			statusText.textContent = TEXT.found(visible, cards.length, plural(visible, TEXT.words))
 		}
 
-		priceLabel.textContent = filters.transaction === 'wynajem' ? 'Cena (zł/mies.)' : 'Cena (zł)'
+		priceLabel.textContent = filters.transaction === 'wynajem' ? TEXT.priceMonth : TEXT.price
 		const priceActive = filters.priceFrom !== null || filters.priceTo !== null
 		priceHint.hidden = !(priceActive && !filters.transaction)
 		syncUrl()
@@ -234,13 +258,13 @@ if (lightboxTriggers.length) {
 	box.className = 'lightbox'
 	box.setAttribute('role', 'dialog')
 	box.setAttribute('aria-modal', 'true')
-	box.setAttribute('aria-label', 'Powiększone zdjęcie')
+	box.setAttribute('aria-label', TEXT.lightbox)
 	box.innerHTML = `
 		<p class="lightbox__counter" aria-hidden="true"></p>
-		<button type="button" class="lightbox__btn lightbox__btn--close" aria-label="Zamknij">${icon('M6 6l12 12M18 6L6 18')}</button>
-		<button type="button" class="lightbox__btn lightbox__btn--prev" aria-label="Poprzednie zdjęcie">${icon('M15 5l-7 7 7 7')}</button>
+		<button type="button" class="lightbox__btn lightbox__btn--close" aria-label="${TEXT.close}">${icon('M6 6l12 12M18 6L6 18')}</button>
+		<button type="button" class="lightbox__btn lightbox__btn--prev" aria-label="${TEXT.prev}">${icon('M15 5l-7 7 7 7')}</button>
 		<div class="lightbox__figure"><img class="lightbox__img" alt=""></div>
-		<button type="button" class="lightbox__btn lightbox__btn--next" aria-label="Następne zdjęcie">${icon('M9 5l7 7-7 7')}</button>
+		<button type="button" class="lightbox__btn lightbox__btn--next" aria-label="${TEXT.next}">${icon('M9 5l7 7-7 7')}</button>
 		<p class="lightbox__caption"></p>
 	`
 	document.body.appendChild(box)
