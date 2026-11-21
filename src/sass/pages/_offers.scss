@@ -16,8 +16,9 @@ $offers-select-arrow: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/20
 		text-align: center;
 		color: #fff;
 		background:
-			linear-gradient(rgba(8, 26, 50, 0.82), rgba(8, 26, 50, 0.82)),
-			url('../img/promo-krakow-mobile.jpg') center / cover no-repeat;
+			linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+			url('../../../dist/img/mobile-hero-oferty.jpg') center/cover no-repeat;
+		background-color: #081a32;
 
 		&__inner {
 			margin-inline: auto;
@@ -49,14 +50,22 @@ $offers-select-arrow: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/20
 	.offers-search {
 		position: relative;
 		z-index: 1;
-		display: grid;
-		grid-template-columns: 1fr 1fr;
-		gap: 1.4rem 1.2rem;
 		margin-top: -6rem;
 		padding: 2rem;
 		background-color: #fff;
 		border-radius: 10px;
 		box-shadow: 0 8px 28px rgba(8, 26, 50, 0.18);
+
+		&__main,
+		&__advanced {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			gap: 1.4rem 1.2rem;
+		}
+
+		&__main > .offers-search__field:nth-child(3) {
+			grid-column: 1 / -1;
+		}
 
 		&__field {
 			display: flex;
@@ -69,17 +78,31 @@ $offers-select-arrow: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/20
 			color: #374551;
 			font-size: 1.3rem;
 			font-weight: 700;
+			text-transform: uppercase;
+			letter-spacing: 0.04em;
 		}
 
-		&__select {
-			padding: 1.3rem 3.2rem 1.3rem 1.3rem;
+		&__select,
+		&__input {
+			padding: 1.3rem 1.3rem;
 			width: 100%;
+			min-width: 0;
 			border: 1px solid #657480;
 			border-radius: 6px;
-			background: #fff $offers-select-arrow right 1.3rem center / 12px 8px no-repeat;
+			background-color: #fff;
 			color: #2a2a2a;
 			font: inherit;
 			font-size: 1.4rem;
+
+			&::placeholder {
+				color: #657480;
+				opacity: 1;
+			}
+		}
+
+		&__select {
+			padding-right: 3.2rem;
+			background: #fff $offers-select-arrow right 1.3rem center / 12px 8px no-repeat;
 			appearance: none;
 			cursor: pointer;
 			text-overflow: ellipsis;
@@ -92,6 +115,173 @@ $offers-select-arrow: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/20
 			border-radius: 6px;
 			color: #fff;
 			font-size: 1.5rem;
+			font-weight: 700;
+			cursor: pointer;
+		}
+
+		&__more {
+			margin-top: 1.6rem;
+			padding-top: 1.2rem;
+			border-top: 1px solid #e3e7ee;
+		}
+
+		&__toggle {
+			display: flex;
+			align-items: center;
+			gap: 0.8rem;
+			width: fit-content;
+			color: #112f59;
+			font-size: 1.4rem;
+			font-weight: 700;
+			cursor: pointer;
+			list-style: none;
+
+			&::-webkit-details-marker {
+				display: none;
+			}
+
+			&::after {
+				content: '';
+				width: 0.8rem;
+				height: 0.8rem;
+				margin-left: 0.2rem;
+				border-right: 2px solid currentcolor;
+				border-bottom: 2px solid currentcolor;
+				transform: translateY(-2px) rotate(45deg);
+				transition: transform 0.2s ease;
+			}
+		}
+
+		&__more[open] > .offers-search__toggle::after {
+			transform: translateY(2px) rotate(-135deg);
+		}
+
+		&__count {
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+			min-width: 2.2rem;
+			height: 2.2rem;
+			padding-inline: 0.6rem;
+			background-color: #112f59;
+			border-radius: 11px;
+			color: #fff;
+			font-size: 1.2rem;
+			font-weight: 700;
+
+			&[hidden] {
+				display: none;
+			}
+		}
+
+		&__advanced {
+			margin-top: 1.6rem;
+
+			> :nth-child(-n + 4),
+			> .offers-search__amenities,
+			> .offers-search__hint,
+			> .offers-search__footer {
+				grid-column: 1 / -1;
+			}
+		}
+
+		&__range {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			gap: 0.8rem;
+		}
+
+		&__chips {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 0.8rem;
+		}
+
+		&__chip {
+			padding: 1.2rem 1.8rem;
+			border: 1px solid #657480;
+			border-radius: 6px;
+			background-color: #fff;
+			color: #374551;
+			font-size: 1.4rem;
+			font-weight: 600;
+			cursor: pointer;
+
+			&[aria-pressed='true'] {
+				background-color: #112f59;
+				border-color: #112f59;
+				color: #fff;
+			}
+		}
+
+		&__amenities {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 1rem 2.4rem;
+			min-width: 0;
+			border: 0;
+
+			.offers-search__label {
+				width: 100%;
+				margin-bottom: 0.5rem;
+				padding: 0;
+			}
+		}
+
+		&__check {
+			display: inline-flex;
+			align-items: center;
+			gap: 0.9rem;
+			color: #374551;
+			font-size: 1.4rem;
+			font-weight: 600;
+			text-transform: uppercase;
+			letter-spacing: 0.02em;
+			cursor: pointer;
+
+			input {
+				flex-shrink: 0;
+				appearance: none;
+				width: 2rem;
+				height: 2rem;
+				border: 1px solid #657480;
+				border-radius: 4px;
+				background-color: #fff;
+				cursor: pointer;
+
+				&:checked {
+					background: #112f59
+						url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='10' viewBox='0 0 12 10'%3E%3Cpath fill='none' stroke='%23fff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' d='M1 5l3.5 3.5L11 1.5'/%3E%3C/svg%3E")
+						center / 1.2rem no-repeat;
+					border-color: #112f59;
+				}
+			}
+		}
+
+		&__hint {
+			color: #4f5b6c;
+			font-size: 1.3rem;
+			line-height: 1.8rem;
+
+			&[hidden] {
+				display: none;
+			}
+		}
+
+		&__footer {
+			display: flex;
+			justify-content: flex-end;
+			padding-top: 1.4rem;
+			border-top: 1px solid #e3e7ee;
+		}
+
+		&__clear {
+			padding: 1.1rem 2.4rem;
+			border: 1px solid #657480;
+			border-radius: 6px;
+			background-color: #fff;
+			color: #2a2a2a;
+			font-size: 1.4rem;
 			font-weight: 700;
 			cursor: pointer;
 		}
@@ -686,6 +876,28 @@ $offers-select-arrow: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/20
 			line-height: 2.2rem;
 		}
 
+		&__icon {
+			flex-shrink: 0;
+			display: inline-block;
+			background-color: currentcolor;
+			mask: center / contain no-repeat;
+			-webkit-mask: center / contain no-repeat;
+
+			&--phone {
+				width: 1.8rem;
+				height: 1.8rem;
+				mask-image: url('../img/phone-icon.png');
+				-webkit-mask-image: url('../img/phone-icon.png');
+			}
+
+			&--mail {
+				width: 2.2rem;
+				height: 1.55rem;
+				mask-image: url('../img/mail-icon.png');
+				-webkit-mask-image: url('../img/mail-icon.png');
+			}
+		}
+
 		&__btn {
 			display: flex;
 			align-items: center;
@@ -826,9 +1038,10 @@ $offers-select-arrow: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/20
 	.offers-body {
 		.offers-hero {
 			padding: 13rem 6rem 11.2rem;
+
 			background:
-				linear-gradient(rgba(8, 26, 50, 0.82), rgba(8, 26, 50, 0.82)),
-				url('../img/promo-krakow.jpg') center / cover no-repeat;
+				linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+				url('../../../dist/img/desktop-hero-oferty.jpg') center/cover no-repeat;
 
 			&__title {
 				font-size: 4rem;
@@ -845,16 +1058,28 @@ $offers-select-arrow: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/20
 		}
 
 		.offers-search {
-			grid-template-columns: repeat(2, 1fr);
-			gap: 1.6rem;
 			margin-top: -7rem;
 			padding: 2.4rem;
+
+			&__main,
+			&__advanced {
+				gap: 1.6rem;
+			}
+
+			&__main {
+				grid-template-columns: repeat(3, 1fr);
+			}
+
+			&__main > .offers-search__field:nth-child(3) {
+				grid-column: auto;
+			}
 
 			&__label {
 				font-size: 1.4rem;
 			}
 
-			&__select {
+			&__select,
+			&__input {
 				padding-block: 1.4rem;
 				font-size: 1.5rem;
 			}
@@ -862,6 +1087,20 @@ $offers-select-arrow: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/20
 			&__submit {
 				padding: 1.6rem;
 				font-size: 1.6rem;
+			}
+
+			&__toggle {
+				font-size: 1.5rem;
+			}
+
+			&__advanced > :nth-child(-n + 4) {
+				grid-column: auto;
+			}
+
+			&__chip,
+			&__check,
+			&__clear {
+				font-size: 1.5rem;
 			}
 		}
 
@@ -1055,7 +1294,6 @@ $offers-select-arrow: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/20
 		.offer-agent {
 			padding: 3rem;
 		}
-
 	}
 
 	.lightbox {
@@ -1097,6 +1335,12 @@ $offers-select-arrow: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/20
 			height: 5.2rem;
 		}
 	}
+
+	.promo {
+		&__text {
+			max-width: 600px;
+		}
+	}
 }
 
 // Desktop
@@ -1113,6 +1357,7 @@ $offers-select-arrow: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/20
 				margin-top: 1.6rem;
 				font-size: 1.9rem;
 				line-height: 3rem;
+				max-width: 600px;
 			}
 		}
 
@@ -1121,25 +1366,53 @@ $offers-select-arrow: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/20
 		}
 
 		.offers-search {
-			grid-template-columns: repeat(4, minmax(0, 1fr)) 18rem;
-			align-items: end;
 			margin-top: -8rem;
 			padding: 3rem;
 
+			&__main {
+				grid-template-columns: repeat(3, minmax(0, 1fr)) 18rem;
+				align-items: end;
+			}
+
+			&__advanced {
+				grid-template-columns: repeat(3, minmax(0, 1fr));
+				gap: 2rem 2.4rem;
+			}
+
 			&__label {
-				font-size: 1.5rem;
+				font-size: 1.4rem;
+			}
+
+			&__select,
+			&__input {
+				padding-block: 1.6rem;
+				font-size: 1.6rem;
 			}
 
 			&__select {
-				padding: 1.6rem 3.6rem 1.6rem 1.6rem;
-				font-size: 1.6rem;
+				padding-right: 3.6rem;
 				background-position: right 1.6rem center;
 			}
 
 			&__submit {
 				grid-column: auto;
-				padding: 1.9rem;
+				padding: 1.7rem;
 				font-size: 1.7rem;
+			}
+
+			&__toggle {
+				font-size: 1.6rem;
+			}
+
+			&__chip,
+			&__check,
+			&__clear {
+				font-size: 1.5rem;
+			}
+
+			&__check input {
+				width: 2.2rem;
+				height: 2.2rem;
 			}
 		}
 
@@ -1317,6 +1590,17 @@ $offers-select-arrow: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/20
 			font-size: 1.5rem;
 		}
 	}
+
+	.promo {
+		&__text {
+			max-width: 690px;
+		}
+	}
+	.offer-body {
+		.main .contact .main-container .contact__form-container .textarea-box textarea {
+			height: 299px;
+		}
+	}
 }
 
 // Efekty najechania tylko na desktopie z myszką (zgodnie z sections/_hover.scss)
@@ -1344,6 +1628,30 @@ $offers-select-arrow: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/20
 			&:hover {
 				background-color: #1a4277;
 			}
+		}
+
+		.offers-search__chip,
+		.offers-search__clear,
+		.offers-search__select,
+		.offers-search__input {
+			transition:
+				background-color 0.2s ease,
+				border-color 0.2s ease;
+		}
+
+		.offers-search__chip:not([aria-pressed='true']):hover,
+		.offers-search__clear:hover {
+			background-color: #f1f4f8;
+			border-color: #112f59;
+		}
+
+		.offers-search__chip[aria-pressed='true']:hover {
+			background-color: #1a4277;
+		}
+
+		.offers-search__toggle:hover,
+		.offers-search__check:hover {
+			color: #1a4277;
 		}
 
 		.offers__reset:hover,

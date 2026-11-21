@@ -221,7 +221,7 @@
 							margin-block: 0.7rem 3.5rem;
 							height: 175px;
 							font-size: 1.8rem;
-							line-height: 19px;
+							line-height: 2.5rem;
 							padding: 1.6rem;
 						}
 					}
@@ -238,5 +238,17 @@
 				}
 			}
 		}
+	}
+}
+
+.form-privacy {
+	margin: 1.6rem 0 0;
+	font-size: 1.2rem;
+	line-height: 1.5;
+	color: #4f5b6c;
+
+	a {
+		color: inherit;
+		text-decoration: underline;
 	}
 }

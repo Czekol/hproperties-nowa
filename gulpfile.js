@@ -10,7 +10,7 @@ const sourcemaps = require('gulp-sourcemaps');
 const clean = require('gulp-clean');
 const kit = require('gulp-kit');
 const browserSync = require('browser-sync').create();
-const buildOffers = require('./scripts/build-offers');
+const offersScript = require.resolve('./scripts/build-offers');
 
 const paths = {
 	// Części wspólne (używane przez @include) nie są budowane osobno,
@@ -80,7 +80,8 @@ function copyVideos() {
 // Strony ofert (oferty/*.html) generowane z src/data/offers.js
 function handleOffers(done) {
 	try {
-		buildOffers();
+		delete require.cache[offersScript];
+		require(offersScript)();
 		if (browserSync.active) browserSync.reload();
 	} catch (error) {
 		console.error('Błąd generowania ofert:', error.message);

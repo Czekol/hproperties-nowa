@@ -6,12 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Oferty nieruchomości Kraków i okolice | H.Properties</title>
     <link rel="canonical" href="https://hproperties.pl/oferty/">
-    <meta name="description" content="Aktualne oferty H.Properties: mieszkania, domy, działki i lokale usługowe w Krakowie i okolicach. Sprawdź szczegóły i umów prezentację.">
+    <link rel="alternate" href="https://hproperties.pl/oferty/" hreflang="pl">
+    <link rel="alternate" href="https://hproperties.pl/ua/oferty/" hreflang="uk">
+    <link rel="alternate" href="https://hproperties.pl/oferty/" hreflang="x-default">
+    <meta name="description" content="Aktualne oferty H.Properties: mieszkania, domy, działki i lokale usługowe na sprzedaż i wynajem w Krakowie i okolicach. Sprawdź szczegóły i umów prezentację.">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="H.Properties">
     <meta property="og:locale" content="pl_PL">
     <meta property="og:title" content="Oferty nieruchomości Kraków i okolice | H.Properties">
-    <meta property="og:description" content="Aktualne oferty H.Properties: mieszkania, domy, działki i lokale usługowe w Krakowie i okolicach. Sprawdź szczegóły i umów prezentację.">
+    <meta property="og:description" content="Aktualne oferty H.Properties: mieszkania, domy, działki i lokale usługowe na sprzedaż i wynajem w Krakowie i okolicach. Sprawdź szczegóły i umów prezentację.">
     <meta property="og:url" content="https://hproperties.pl/oferty/">
     <meta property="og:image" content="https://hproperties.pl/dist/offers/cianowice-nowe-domy-szeregowe/01.jpg">
 
@@ -98,7 +101,7 @@
             <div class="other-language">
 
 
-                <a href="../ua/index.html" hreflang="uk" aria-label="Wersja ukraińska">
+                <a href="../ua/oferty/" hreflang="uk" aria-label="Wersja ukraińska">
                     <img src="../dist/img/ukraine-flag.png" alt="Flaga Ukrainy" class="other-language__flag">
                 </a>
             </div>
@@ -119,8 +122,7 @@
         <section class="offers-hero">
             <div class="offers-hero__inner">
                 <h1 class="offers-hero__title">Oferty nieruchomości</h1>
-                <p class="offers-hero__lead">Mieszkania, domy, działki i lokale usługowe w Krakowie i okolicach.
-                    Wybierz ofertę i sprawdź wszystkie szczegóły.</p>
+                <p class="offers-hero__lead">Mieszkania, domy, działki i lokale usługowe na sprzedaż i wynajem w Krakowie i okolicach. Wybierz ofertę i sprawdź wszystkie szczegóły.</p>
             </div>
         </section>
 
@@ -128,23 +130,77 @@
             <div class="offers__container">
 
                 <form class="offers-search" id="offers-search" role="search" aria-label="Wyszukiwarka ofert" novalidate>
-                    <div class="offers-search__field">
-                        <label for="filter-type" class="offers-search__label">Rodzaj nieruchomości</label>
+                    <div class="offers-search__main">
+                        <div class="offers-search__field">
+                        <label for="filter-type" class="offers-search__label">Rodzaj</label>
                         <select id="filter-type" name="typ" class="offers-search__select"><option value="">Wszystkie</option><option value="dom">Dom</option><option value="mieszkanie">Mieszkanie</option><option value="lokal">Lokal użytkowy</option><option value="dzialka">Działka</option></select>
                     </div>
-                    <div class="offers-search__field">
+                        <div class="offers-search__field">
+                        <label for="filter-transaction" class="offers-search__label">Transakcja</label>
+                        <select id="filter-transaction" name="transakcja" class="offers-search__select"><option value="">Wszystkie</option><option value="sprzedaz">Sprzedaż</option><option value="wynajem">Wynajem</option></select>
+                    </div>
+                        <div class="offers-search__field">
                         <label for="filter-city" class="offers-search__label">Lokalizacja</label>
                         <select id="filter-city" name="lokalizacja" class="offers-search__select"><option value="">Wszystkie</option><option value="Kraków">Kraków</option><option value="Cianowice">Cianowice</option><option value="Rączna">Rączna</option><option value="Węgrzce">Węgrzce</option></select>
                     </div>
-                    <div class="offers-search__field">
-                        <label for="filter-from" class="offers-search__label">Cena od</label>
-                        <select id="filter-from" name="cena-od" class="offers-search__select"><option value="">Dowolna</option><option value="300000">od 300 000 zł</option><option value="500000">od 500 000 zł</option><option value="750000">od 750 000 zł</option><option value="1000000">od 1 000 000 zł</option><option value="1250000">od 1 250 000 zł</option></select>
+                        <button type="submit" class="offers-search__submit">Szukaj</button>
                     </div>
-                    <div class="offers-search__field">
-                        <label for="filter-to" class="offers-search__label">Cena do</label>
-                        <select id="filter-to" name="cena-do" class="offers-search__select"><option value="">Dowolna</option><option value="500000">do 500 000 zł</option><option value="750000">do 750 000 zł</option><option value="1000000">do 1 000 000 zł</option><option value="1250000">do 1 250 000 zł</option><option value="1500000">do 1 500 000 zł</option></select>
+
+                    <details class="offers-search__more" id="offers-more">
+                        <summary class="offers-search__toggle">Więcej filtrów <span class="offers-search__count" id="offers-filter-count" hidden></span></summary>
+                        <div class="offers-search__advanced">
+                            <div class="offers-search__field">
+                            <span class="offers-search__label" id="filter-price-label">Cena (zł)</span>
+                            <div class="offers-search__range">
+                                <input type="text" inputmode="decimal" id="filter-price-from" name="cena-od" class="offers-search__input" placeholder="od" aria-label="Cena (zł), od" autocomplete="off">
+                                <input type="text" inputmode="decimal" id="filter-price-to" name="cena-do" class="offers-search__input" placeholder="do" aria-label="Cena (zł), do" autocomplete="off">
+                            </div>
+                        </div>
+                            <div class="offers-search__field">
+                            <span class="offers-search__label">Powierzchnia (m²)</span>
+                            <div class="offers-search__range">
+                                <input type="text" inputmode="decimal" id="filter-area-from" name="pow-od" class="offers-search__input" placeholder="od" aria-label="Powierzchnia (m²), od" autocomplete="off">
+                                <input type="text" inputmode="decimal" id="filter-area-to" name="pow-do" class="offers-search__input" placeholder="do" aria-label="Powierzchnia (m²), do" autocomplete="off">
+                            </div>
+                        </div>
+                            <div class="offers-search__field">
+                            <span class="offers-search__label">Liczba pokoi</span>
+                            <div class="offers-search__range">
+                                <input type="text" inputmode="decimal" id="filter-rooms-from" name="pokoje-od" class="offers-search__input" placeholder="od" aria-label="Liczba pokoi, od" autocomplete="off">
+                                <input type="text" inputmode="decimal" id="filter-rooms-to" name="pokoje-do" class="offers-search__input" placeholder="do" aria-label="Liczba pokoi, do" autocomplete="off">
+                            </div>
+                        </div>
+
+                            <div class="offers-search__field">
+                                <span class="offers-search__label" id="filter-market-label">Rynek</span>
+                                <div class="offers-search__chips" role="group" aria-labelledby="filter-market-label">
+                                    <button type="button" class="offers-search__chip" data-market="pierwotny" aria-pressed="false">Pierwotny</button>
+                                    <button type="button" class="offers-search__chip" data-market="wtorny" aria-pressed="false">Wtórny</button>
+                                </div>
+                            </div>
+                            <div class="offers-search__field">
+                        <label for="filter-condition" class="offers-search__label">Stan</label>
+                        <select id="filter-condition" name="stan" class="offers-search__select"><option value="">Dowolny</option><option value="deweloperski">Deweloperski</option><option value="do-zamieszkania">Do zamieszkania</option></select>
                     </div>
-                    <button type="submit" class="offers-search__submit">Szukaj</button>
+                            <div class="offers-search__field">
+                                <label for="filter-year" class="offers-search__label">Rok budowy (od)</label>
+                                <input type="text" inputmode="numeric" id="filter-year" name="rok" class="offers-search__input" placeholder="np. 2010" autocomplete="off">
+                            </div>
+
+                            <fieldset class="offers-search__amenities">
+                                <legend class="offers-search__label">Udogodnienia</legend>
+                                <label class="offers-search__check"><input type="checkbox" name="udogodnienia" value="parking"><span>Parking / garaż</span></label>
+                                <label class="offers-search__check"><input type="checkbox" name="udogodnienia" value="balcony"><span>Balkon / taras</span></label>
+                                <label class="offers-search__check"><input type="checkbox" name="udogodnienia" value="elevator"><span>Winda</span></label>
+                            </fieldset>
+
+                            <p class="offers-search__hint" id="offers-price-hint" hidden>Przy wyborze „Wszystkie” filtr ceny obejmuje tylko oferty sprzedaży. Aby filtrować wynajem, wybierz transakcję „Wynajem”.</p>
+
+                            <div class="offers-search__footer">
+                                <button type="button" class="offers-search__clear" id="offers-clear">Wyczyść</button>
+                            </div>
+                        </div>
+                    </details>
                 </form>
 
                 <div class="offers__status" id="offers-status" hidden>
@@ -153,7 +209,7 @@
                 </div>
 
                 <ul class="offers__grid" id="offers-grid">
-                    <li class="offer-card" data-type="dom" data-city="Cianowice" data-min="695000" data-max="799000">
+                    <li class="offer-card" data-type="dom" data-transaction="sprzedaz" data-city="Cianowice" data-min="695000" data-max="799000" data-area="102" data-rooms="4" data-market="pierwotny" data-condition="deweloperski" data-year="2027" data-amenities="parking balcony">
                         <a href="cianowice-nowe-domy-szeregowe.html" class="offer-card__media" tabindex="-1" aria-hidden="true">
                             <img src="../dist/offers/cianowice-nowe-domy-szeregowe/01-s.jpg" alt="Wizualizacja nowych domów szeregowych w Cianowicach" class="offer-card__img" width="640" height="480" decoding="async">
                             <span class="offer-card__badge">Dom szeregowy</span>
@@ -166,9 +222,9 @@
                             <ul class="offer-card__specs"><li><span>Powierzchnia</span><strong>ok. 102 m²</strong></li><li><span>Działka</span><strong>0,97–3,34 ara</strong></li><li><span>Domów</span><strong>8</strong></li></ul>
                         </div>
                     </li>
-                    <li class="offer-card" data-type="dom" data-city="Rączna" data-min="999000" data-max="999000">
+                    <li class="offer-card" data-type="dom" data-transaction="sprzedaz" data-city="Rączna" data-min="999000" data-max="999000" data-area="110" data-rooms="6" data-market="pierwotny" data-condition="deweloperski" data-year="2027" data-amenities="parking balcony">
                         <a href="raczna-dom-wolnostojacy-110-m2.html" class="offer-card__media" tabindex="-1" aria-hidden="true">
-                            <img src="../dist/offers/raczna-dom-wolnostojacy-110-m2/01-s.jpg" alt="Wizualizacja domu wolnostojącego 110 m² z balkonem w Rącznej" class="offer-card__img" width="640" height="480" decoding="async">
+                            <img src="../dist/offers/raczna-dom-wolnostojacy-110-m2/01-s.jpg" alt="Wizualizacja domu wolnostojącego w Rącznej od strony wejścia" class="offer-card__img" width="640" height="480" decoding="async">
                             <span class="offer-card__badge">Dom wolnostojący</span>
                             <span class="offer-card__tag">Od dewelopera</span>
                         </a>
@@ -179,7 +235,7 @@
                             <ul class="offer-card__specs"><li><span>Powierzchnia</span><strong>110 m²</strong></li><li><span>Pokoje</span><strong>6</strong></li><li><span>Działka</span><strong>400 m²</strong></li></ul>
                         </div>
                     </li>
-                    <li class="offer-card" data-type="mieszkanie" data-city="Kraków" data-min="995000" data-max="995000">
+                    <li class="offer-card" data-type="mieszkanie" data-transaction="sprzedaz" data-city="Kraków" data-min="995000" data-max="995000" data-area="58.66" data-rooms="3" data-market="wtorny" data-condition="do-zamieszkania" data-year="2025" data-amenities="parking balcony elevator">
                         <a href="krakow-mysliwska-mieszkanie-3-pokoje-58-m2.html" class="offer-card__media" tabindex="-1" aria-hidden="true">
                             <img src="../dist/offers/krakow-mysliwska-mieszkanie-3-pokoje-58-m2/01-s.jpg" alt="Salon z aneksem kuchennym i dużym oknem balkonowym w mieszkaniu przy ul. Myśliwskiej" class="offer-card__img" width="640" height="480" decoding="async">
                             <span class="offer-card__badge">Mieszkanie</span>
@@ -192,63 +248,63 @@
                             <ul class="offer-card__specs"><li><span>Powierzchnia</span><strong>58,66 m²</strong></li><li><span>Pokoje</span><strong>3</strong></li><li><span>Piętro</span><strong>1 z 5</strong></li></ul>
                         </div>
                     </li>
-                    <li class="offer-card" data-type="lokal" data-city="Kraków" data-min="1240000" data-max="1240000">
-                        <a href="krakow-nullo-lokal-uslugowy-80-m2.html" class="offer-card__media" tabindex="-1" aria-hidden="true">
-                            <img src="../dist/offers/krakow-nullo-lokal-uslugowy-80-m2/01-s.jpg" alt="Przestronny lokal usługowy z dużymi witrynami od strony ulicy" class="offer-card__img" width="640" height="480" loading="lazy" decoding="async">
+                    <li class="offer-card" data-type="lokal" data-transaction="sprzedaz" data-city="Kraków" data-min="1240000" data-max="1240000" data-area="80.03" data-rooms="" data-market="wtorny" data-condition="" data-year="2022" data-amenities="parking">
+                        <a href="krakow-lokal-uslugowy-80-m2.html" class="offer-card__media" tabindex="-1" aria-hidden="true">
+                            <img src="../dist/offers/krakow-lokal-uslugowy-80-m2/01-s.jpg" alt="Przestronny lokal usługowy z dużymi witrynami od strony ulicy" class="offer-card__img" width="640" height="480" loading="lazy" decoding="async">
                             <span class="offer-card__badge">Lokal użytkowy</span>
                             <span class="offer-card__tag">Parter z witrynami</span>
                         </a>
                         <div class="offer-card__body">
                             <p class="offer-card__price">1 240 000 zł netto</p>
-                            <h2 class="offer-card__title"><a href="krakow-nullo-lokal-uslugowy-80-m2.html" class="offer-card__link">Lokal usługowy 80,03 m² w Grzegórzki Park</a></h2>
+                            <h2 class="offer-card__title"><a href="krakow-lokal-uslugowy-80-m2.html" class="offer-card__link">Lokal usługowy 80,03 m² w Grzegórzki Park</a></h2>
                             <p class="offer-card__location"><svg class="offer-card__pin" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5Z"/></svg>Kraków, Grzegórzki, ul. Francesco Nullo</p>
                             <ul class="offer-card__specs"><li><span>Powierzchnia</span><strong>80,03 m²</strong></li><li><span>Wysokość</span><strong>3,3 m</strong></li><li><span>Kondygnacja</span><strong>Parter</strong></li></ul>
                         </div>
                     </li>
-                    <li class="offer-card" data-type="dzialka" data-city="Kraków" data-min="599000" data-max="599000">
+                    <li class="offer-card" data-type="dzialka" data-transaction="sprzedaz" data-city="Kraków" data-min="575000" data-max="575000" data-area="3683" data-rooms="" data-market="" data-condition="" data-year="" data-amenities="">
                         <a href="sidzina-dzialka-z-pozwoleniem-na-budowe.html" class="offer-card__media" tabindex="-1" aria-hidden="true">
                             <img src="../dist/offers/sidzina-dzialka-z-pozwoleniem-na-budowe/01-s.jpg" alt="Wizualizacja domu dwulokalowego, na który jest pozwolenie na budowę w Sidzinie" class="offer-card__img" width="640" height="480" loading="lazy" decoding="async">
                             <span class="offer-card__badge">Działka</span>
                             <span class="offer-card__tag">Pozwolenie na budowę</span>
                         </a>
                         <div class="offer-card__body">
-                            <p class="offer-card__price">599 000 zł</p>
+                            <p class="offer-card__price">575 000 zł</p>
                             <h2 class="offer-card__title"><a href="sidzina-dzialka-z-pozwoleniem-na-budowe.html" class="offer-card__link">Działka 3683 m² z pozwoleniem na budowę domu dwulokalowego</a></h2>
                             <p class="offer-card__location"><svg class="offer-card__pin" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5Z"/></svg>Kraków, Sidzina</p>
                             <ul class="offer-card__specs"><li><span>Powierzchnia</span><strong>3 683 m²</strong></li><li><span>Część budowlana</span><strong>7,9 ara</strong></li><li><span>Teren</span><strong>Płaski</strong></li></ul>
                         </div>
                     </li>
-                    <li class="offer-card" data-type="dzialka" data-city="Węgrzce" data-min="1100000" data-max="1100000">
+                    <li class="offer-card" data-type="dzialka" data-transaction="sprzedaz" data-city="Węgrzce" data-min="995000" data-max="995000" data-area="4200" data-rooms="" data-market="" data-condition="" data-year="" data-amenities="">
                         <a href="wegrzce-dzialka-42-ary.html" class="offer-card__media" tabindex="-1" aria-hidden="true">
                             <img src="../dist/offers/wegrzce-dzialka-42-ary/01-s.jpg" alt="Widok z lotu ptaka na okolicę działki w Węgrzcach" class="offer-card__img" width="640" height="480" loading="lazy" decoding="async">
                             <span class="offer-card__badge">Działka</span>
                             <span class="offer-card__tag">Bez prowizji dla kupującego</span>
                         </a>
                         <div class="offer-card__body">
-                            <p class="offer-card__price">1 100 000 zł</p>
+                            <p class="offer-card__price">995 000 zł</p>
                             <h2 class="offer-card__title"><a href="wegrzce-dzialka-42-ary.html" class="offer-card__link">Działka 4200 m² w Węgrzcach, kilka minut od Krakowa</a></h2>
                             <p class="offer-card__location"><svg class="offer-card__pin" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5Z"/></svg>Węgrzce, gm. Zielonki</p>
                             <ul class="offer-card__specs"><li><span>Powierzchnia</span><strong>4 200 m²</strong></li><li><span>Wymiary</span><strong>19 × 206 m</strong></li><li><span>Media</span><strong>W drodze</strong></li></ul>
                         </div>
                     </li>
-                    <li class="offer-card" data-type="mieszkanie" data-city="Kraków" data-min="" data-max="">
+                    <li class="offer-card" data-type="mieszkanie" data-transaction="wynajem" data-city="Kraków" data-min="3600" data-max="3600" data-area="53" data-rooms="3" data-market="" data-condition="do-zamieszkania" data-year="2025" data-amenities="parking balcony elevator">
                         <a href="krakow-bohomolca-13-mieszkanie.html" class="offer-card__media" tabindex="-1" aria-hidden="true">
                             <img src="../dist/offers/krakow-bohomolca-13-mieszkanie/01-s.jpg" alt="Salon z aneksem kuchennym w mieszkaniu przy ul. Bohomolca" class="offer-card__img" width="640" height="480" loading="lazy" decoding="async">
-                            <span class="offer-card__badge">Mieszkanie</span>
+                            <span class="offer-card__badge">Mieszkanie na wynajem</span>
+                            <span class="offer-card__tag">Pierwszy najem</span>
                         </a>
                         <div class="offer-card__body">
-                            <p class="offer-card__price">Cena na zapytanie</p>
-                            <h2 class="offer-card__title"><a href="krakow-bohomolca-13-mieszkanie.html" class="offer-card__link">Mieszkanie przy ul. Bohomolca 13</a></h2>
+                            <p class="offer-card__price">3 600 zł / mies.</p>
+                            <h2 class="offer-card__title"><a href="krakow-bohomolca-13-mieszkanie.html" class="offer-card__link">Pierwszy najem: 3-pokojowe mieszkanie 53 m² przy Galerii Serenada</a></h2>
                             <p class="offer-card__location"><svg class="offer-card__pin" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5Z"/></svg>Kraków, ul. Bohomolca 13</p>
-                            <ul class="offer-card__specs"><li><span>Rodzaj</span><strong>Mieszkanie</strong></li><li><span>Balkon</span><strong>Tak</strong></li><li><span>Stan</span><strong>Wykończone</strong></li></ul>
+                            <ul class="offer-card__specs"><li><span>Powierzchnia</span><strong>53 m²</strong></li><li><span>Pokoje</span><strong>3</strong></li><li><span>Czynsz adm.</span><strong>ok. 700 zł</strong></li></ul>
                         </div>
                     </li>
                 </ul>
 
                 <div class="offers__empty" id="offers-empty" hidden>
                     <h2 class="offers__empty-title">Brak ofert spełniających kryteria</h2>
-                    <p class="offers__empty-text">Zmień filtry lub zadzwoń do nas. Część ofert mamy poza ogłoszeniami i chętnie
-                        dopasujemy nieruchomość do Twoich oczekiwań.</p>
+                    <p class="offers__empty-text">Zmień filtry lub zadzwoń do nas. Część ofert mamy poza ogłoszeniami i chętnie dopasujemy nieruchomość do Twoich oczekiwań.</p>
                     <a href="tel:+48572910341" class="offers__empty-btn">Zadzwoń: 572 910 341</a>
                 </div>
             </div>
@@ -258,8 +314,7 @@
             <div class="promo__inner">
                 <div class="promo__copy">
                     <h2 class="promo__heading">Nie widzisz oferty dla siebie?</h2>
-                    <p class="promo__text">Opisz, czego szukasz. Sprawdzimy rynek i wrócimy z ofertami dopasowanymi do
-                        Twojego budżetu, także z tych, których nie ma jeszcze w ogłoszeniach.</p>
+                    <p class="promo__text">Opisz, czego szukasz. Sprawdzimy rynek i wrócimy z ofertami dopasowanymi do Twojego budżetu, także z tych, których nie ma jeszcze w ogłoszeniach.</p>
                 </div>
                 <a href="#contact" class="promo__btn">Napisz do nas</a>
             </div>
@@ -317,6 +372,7 @@
                     </div>
 
                     <button type="submit" class="send-button">Wyślij wiadomość</button>
+                    <p class="form-privacy">Administratorem danych jest H.Properties. Dane z formularza przetwarzamy w celu odpowiedzi na zapytanie. Szczegóły w <a href="../privacy-policy.html">Polityce prywatności</a>.</p>
                 </form>
 
 
@@ -348,7 +404,7 @@
                                     Porozmawiajmy w biurze przy kawie
                                 </p>
                                 <a class="top__box-link" href="https://maps.app.goo.gl/cXuazeJ2jq4BsAKA7">Józefa
-                                    Wybickiego 3A/104, 31-261 Kraków</a>
+                                    Wybickiego 3A/104, 31-302 Kraków</a>
                             </div>
                         </div>
 

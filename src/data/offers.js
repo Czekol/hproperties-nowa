@@ -4,7 +4,10 @@
 // 1. Wrzuć zdjęcia do src/offers/<slug>/ jako 01.jpg, 02.jpg ... (pełny rozmiar, ok. 1600 px szerokości)
 //    oraz 01-s.jpg, 02-s.jpg ... (miniatury, ok. 640 px). Rzuty: plan-1.jpg + plan-1-s.jpg itd.
 // 2. Dopisz obiekt do tablicy poniżej, a opisy zdjęć (alt) do src/data/gallery.json.
-// 3. Uruchom `gulp` (lub `npm run build:offers`) – strony oferty/ zostaną wygenerowane od nowa.
+// 3. Dodaj ukraińskie teksty oferty do src/data/offers.ua.js oraz opisy zdjęć do src/data/gallery.ua.json
+//    (bez tego generator zgłosi błąd).
+// 4. Uruchom `gulp` (lub `npm run build:offers`) – strony oferty/ i ua/oferty/ zostaną wygenerowane od nowa.
+//    Opiekun oferty: pole `agent` ('dima' | 'olha' | 'mateusz'), zdjęcia opiekunów są w src/img/*-profile.png.
 //
 // Pole `order` decyduje o kolejności na liście (mniejsza liczba = wyżej).
 
@@ -22,6 +25,12 @@ const offers = [
 		location: 'Cianowice, gm. Skała',
 		price: 695000,
 		pricePrefix: 'od',
+		transaction: 'sprzedaz',
+		market: 'pierwotny',
+		condition: 'deweloperski',
+		year: 2027,
+		rooms: 4,
+		amenities: ['parking', 'balcony'],
 		area: 102,
 		areaPrefix: 'ok.',
 		cardSpecs: [
@@ -33,7 +42,7 @@ const offers = [
 		intro: [
 			'W cenie dwupokojowego mieszkania w Krakowie możesz mieć własny dom z ogródkiem. W Cianowicach w gminie Skała powstają domy szeregowe o powierzchni ok. 102 m², w cichej okolicy bez gęstej zabudowy i osiedlowego zgiełku.',
 			'Każdy dom ma dwie kondygnacje oraz użytkowe poddasze: na parterze salon z aneksem, na piętrze sypialnie, a poddasze można zaadaptować na bawialnię lub pokój do pracy. Przy domu są dwa miejsca postojowe i prywatny ogródek.',
-			'Inwestycja jest w trakcie realizacji, a oddanie pierwszych domów planowane jest na koniec kwietnia 2027 r. Pozostałe domy będą gotowe do końca listopada 2027 r.',
+			'Inwestycja jest w trakcie realizacji, a oddanie pierwszych domów planowane jest na koniec kwietnia 2027 r. Pozostałe domy będą gotowe do końca grudnia 2027 r.',
 		],
 		facts: [
 			['Rodzaj', 'Dom szeregowy (nowa inwestycja)'],
@@ -43,7 +52,7 @@ const offers = [
 			['Ogrzewanie', 'Pompa ciepła (w cenie), ogrzewanie podłogowe na parterze i piętrze'],
 			['Miejsca postojowe', '2 na posesji'],
 			['Opłaty', 'Brak czynszu'],
-			['Termin oddania', 'Kwiecień 2027 r. oraz listopad 2027 r.'],
+			['Termin oddania', 'Kwiecień 2027 r. oraz grudzień 2027 r.'],
 		],
 		featuresTitle: 'Standard i wyposażenie',
 		features: [
@@ -95,6 +104,11 @@ const offers = [
 		city: 'Rączna',
 		location: 'Rączna, pod Krakowem',
 		price: 999000,
+		transaction: 'sprzedaz',
+		market: 'pierwotny',
+		condition: 'deweloperski',
+		year: 2027,
+		amenities: ['parking', 'balcony'],
 		area: 110,
 		plotArea: 400,
 		rooms: 6,
@@ -159,6 +173,11 @@ const offers = [
 		city: 'Kraków',
 		location: 'Kraków, ul. Myśliwska',
 		price: 995000,
+		transaction: 'sprzedaz',
+		market: 'wtorny',
+		condition: 'do-zamieszkania',
+		year: 2025,
+		amenities: ['parking', 'balcony', 'elevator'],
 		area: 58.66,
 		rooms: 3,
 		cardSpecs: [
@@ -203,7 +222,8 @@ const offers = [
 		priceNote: 'Miejsce postojowe w garażu podziemnym: 50 000 zł (dodatkowo).',
 	},
 	{
-		slug: 'krakow-nullo-lokal-uslugowy-80-m2',
+		slug: 'krakow-lokal-uslugowy-80-m2',
+		agent: 'olha',
 		order: 4,
 		title: 'Lokal usługowy 80,03 m² w Grzegórzki Park',
 		type: 'lokal',
@@ -213,6 +233,10 @@ const offers = [
 		location: 'Kraków, Grzegórzki, ul. Francesco Nullo',
 		price: 1240000,
 		priceSuffix: 'netto',
+		transaction: 'sprzedaz',
+		market: 'wtorny',
+		year: 2022,
+		amenities: ['parking'],
 		area: 80.03,
 		cardSpecs: [
 			['Powierzchnia', '80,03 m²'],
@@ -265,7 +289,8 @@ const offers = [
 		tag: 'Pozwolenie na budowę',
 		city: 'Kraków',
 		location: 'Kraków, Sidzina',
-		price: 599000,
+		price: 575000,
+		transaction: 'sprzedaz',
 		area: 3683,
 		areaUnit: 'm²',
 		cardSpecs: [
@@ -309,6 +334,7 @@ const offers = [
 	},
 	{
 		slug: 'wegrzce-dzialka-42-ary',
+		agent: 'mateusz',
 		order: 6,
 		title: 'Działka 4200 m² w Węgrzcach, kilka minut od Krakowa',
 		type: 'dzialka',
@@ -316,8 +342,8 @@ const offers = [
 		tag: 'Bez prowizji dla kupującego',
 		city: 'Węgrzce',
 		location: 'Węgrzce, gm. Zielonki',
-		price: 1100000,
-		priceNote: 'Cena do negocjacji.',
+		price: 995000,
+		transaction: 'sprzedaz',
 		area: 4200,
 		areaUnit: 'm²',
 		cardSpecs: [
@@ -350,29 +376,58 @@ const offers = [
 	},
 	{
 		slug: 'krakow-bohomolca-13-mieszkanie',
+		agent: 'mateusz',
 		order: 7,
-		title: 'Mieszkanie przy ul. Bohomolca 13',
+		title: 'Pierwszy najem: 3-pokojowe mieszkanie 53 m² przy Galerii Serenada',
 		type: 'mieszkanie',
-		typeLabel: 'Mieszkanie',
+		typeLabel: 'Mieszkanie na wynajem',
+		tag: 'Pierwszy najem',
 		city: 'Kraków',
 		location: 'Kraków, ul. Bohomolca 13',
-		price: null,
+		transaction: 'wynajem',
+		price: 3600,
+		priceSuffix: '/ mies.',
+		priceNote: 'Dodatkowo ok. 700 zł czynszu administracyjnego i opłata za prąd.',
+		condition: 'do-zamieszkania',
+		year: 2025,
+		amenities: ['parking', 'balcony', 'elevator'],
+		area: 53,
+		rooms: 3,
 		cardSpecs: [
-			['Rodzaj', 'Mieszkanie'],
-			['Balkon', 'Tak'],
-			['Stan', 'Wykończone'],
+			['Powierzchnia', '53 m²'],
+			['Pokoje', '3'],
+			['Czynsz adm.', 'ok. 700 zł'],
 		],
-		lead: 'Wykończone mieszkanie z balkonem przy ul. Bohomolca 13 w Krakowie. Cenę i szczegóły przekażemy telefonicznie.',
+		lead: 'Pierwszy najem! Nowe, w pełni wyposażone 3-pokojowe mieszkanie 53 m² przy ul. Bohomolca, tuż przy Galerii Serenada. 3 600 zł miesięcznie.',
 		intro: [
-			'Wykończone mieszkanie w nowoczesnym budynku przy ul. Bohomolca 13 w Krakowie, z jasnym salonem połączonym z aneksem kuchennym, sypialnią, łazienką i balkonem.',
-			'Mieszkanie jest urządzone w spójnym, nowoczesnym stylu. Dokładny metraż, układ pomieszczeń, cenę i warunki transakcji przekażemy telefonicznie lub podczas prezentacji.',
+			'Pierwszy najem! Nowe, 3-pokojowe mieszkanie o powierzchni 53 m² przy ul. Bohomolca, tuż przy Galerii Serenada.',
+			'Mieszkanie jest w pełni wyposażone, wykończone w wysokim standardzie i gotowe do zamieszkania. Świetna lokalizacja: blisko sklepów, Parku Wodnego i komunikacji miejskiej.',
+			'Możliwość zamieszkania z jednym zwierzęciem.',
 		],
 		facts: [
-			['Rodzaj', 'Mieszkanie'],
-			['Adres', 'Kraków, ul. Bohomolca 13'],
-			['Balkon', 'Tak'],
-			['Stan', 'Wykończone'],
-			['Cena', 'Na zapytanie'],
+			['Rodzaj', 'Mieszkanie na wynajem (pierwszy najem)'],
+			['Powierzchnia', '53 m²'],
+			['Pokoje', '3'],
+			['Stan', 'Nowe, w pełni wyposażone, wykończone w wysokim standardzie'],
+			['Czynsz najmu', '3 600 zł miesięcznie'],
+			['Czynsz administracyjny', 'ok. 700 zł miesięcznie, dodatkowo prąd'],
+			['Miejsce parkingowe', '300 zł miesięcznie'],
+			['Zwierzęta', 'Możliwość zamieszkania z jednym zwierzęciem'],
+		],
+		featuresTitle: 'Atuty',
+		features: [
+			'Pierwszy najem, nowe mieszkanie',
+			'W pełni wyposażone i gotowe do zamieszkania',
+			'Wysoki standard wykończenia',
+			'Balkon',
+			'Możliwość wynajmu miejsca parkingowego (300 zł miesięcznie)',
+			'Możliwość zamieszkania z jednym zwierzęciem',
+		],
+		surroundingsTitle: 'W okolicy',
+		surroundings: [
+			['Galeria Serenada', 'tuż obok'],
+			['Park Wodny', 'w pobliżu'],
+			['Sklepy i komunikacja miejska', 'w pobliżu'],
 		],
 	},
 ]
