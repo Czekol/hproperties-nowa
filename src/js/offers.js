@@ -9,13 +9,18 @@ if (searchForm) {
 	const statusBox = document.querySelector('#offers-status')
 	const statusText = document.querySelector('#offers-status-text')
 	const resetBtn = document.querySelector('#offers-reset')
+	const clearBtn = document.querySelector('#offers-clear')
+	const moreBox = document.querySelector('#offers-more')
+	const countBadge = document.querySelector('#offers-filter-count')
+	const priceLabel = document.querySelector('#filter-price-label')
+	const priceHint = document.querySelector('#offers-price-hint')
+	const chips = Array.from(searchForm.querySelectorAll('.offers-search__chip'))
+	const checks = Array.from(searchForm.querySelectorAll('input[name="udogodnienia"]'))
+	const el = searchForm.elements
 
-	const fields = {
-		typ: searchForm.elements.typ,
-		lokalizacja: searchForm.elements.lokalizacja,
-		'cena-od': searchForm.elements['cena-od'],
-		'cena-do': searchForm.elements['cena-do'],
-	}
+	const textFields = ['cena-od', 'cena-do', 'pow-od', 'pow-do', 'pokoje-od', 'pokoje-do', 'rok']
+	const selectFields = ['typ', 'transakcja', 'lokalizacja', 'stan']
+	const advanced = ['cena-od', 'cena-do', 'pow-od', 'pow-do', 'pokoje-od', 'pokoje-do', 'rok', 'stan']
 
 	const plural = (n, one, few, many) => {
 		if (n === 1) return one
@@ -24,39 +29,86 @@ if (searchForm) {
 		return last >= 2 && last <= 4 && !(lastTwo >= 12 && lastTwo <= 14) ? few : many
 	}
 
+	const num = value => {
+		const parsed = parseFloat(String(value).replace(/\s/g, '').replace(',', '.'))
+		return Number.isFinite(parsed) ? parsed : null
+	}
+
+	const pressedMarkets = () => chips.filter(chip => chip.getAttribute('aria-pressed') === 'true').map(chip => chip.dataset.market)
+	const checkedAmenities = () => checks.filter(box => box.checked).map(box => box.value)
+
 	const readFilters = () => ({
-		type: fields.typ.value,
-		city: fields.lokalizacja.value,
-		from: fields['cena-od'].value ? Number(fields['cena-od'].value) : null,
-		to: fields['cena-do'].value ? Number(fields['cena-do'].value) : null,
+		type: el.typ.value,
+		transaction: el.transakcja.value,
+		city: el.lokalizacja.value,
+		condition: el.stan.value,
+		priceFrom: num(el['cena-od'].value),
+		priceTo: num(el['cena-do'].value),
+		areaFrom: num(el['pow-od'].value),
+		areaTo: num(el['pow-do'].value),
+		roomsFrom: num(el['pokoje-od'].value),
+		roomsTo: num(el['pokoje-do'].value),
+		year: num(el.rok.value),
+		markets: pressedMarkets(),
+		amenities: checkedAmenities(),
 	})
 
-	const matches = (card, f) => {
-		if (f.type && card.dataset.type !== f.type) return false
-		if (f.city && card.dataset.city !== f.city) return false
+	const inRange = (value, from, to) => {
+		if (from === null && to === null) return true
+		if (value === null) return false
+		if (from !== null && value < from) return false
+		if (to !== null && value > to) return false
+		return true
+	}
 
-		if (f.from !== null || f.to !== null) {
-			if (card.dataset.min === '') return false
-			const min = Number(card.dataset.min)
-			const max = Number(card.dataset.max)
-			if (f.from !== null && max < f.from) return false
-			if (f.to !== null && min > f.to) return false
+	const matches = (card, f) => {
+		const d = card.dataset
+		if (f.type && d.type !== f.type) return false
+		if (f.transaction && d.transaction !== f.transaction) return false
+		if (f.city && d.city !== f.city) return false
+		if (f.condition && d.condition !== f.condition) return false
+		if (f.markets.length && !f.markets.includes(d.market)) return false
+		if (f.amenities.length) {
+			const have = d.amenities.split(' ')
+			if (!f.amenities.every(item => have.includes(item))) return false
 		}
+
+		const priceActive = f.priceFrom !== null || f.priceTo !== null
+		if (priceActive) {
+			if (!f.transaction && d.transaction === 'wynajem') return false
+			if (d.min === '') return false
+			const min = Number(d.min)
+			const max = Number(d.max)
+			if (f.priceFrom !== null && max < f.priceFrom) return false
+			if (f.priceTo !== null && min > f.priceTo) return false
+		}
+
+		if (!inRange(d.area === '' ? null : Number(d.area), f.areaFrom, f.areaTo)) return false
+		if (!inRange(d.rooms === '' ? null : Number(d.rooms), f.roomsFrom, f.roomsTo)) return false
+		if (f.year !== null && (d.year === '' || Number(d.year) < f.year)) return false
 		return true
 	}
 
 	const syncUrl = () => {
 		const params = new URLSearchParams()
-		Object.keys(fields).forEach(key => {
-			if (fields[key].value) params.set(key, fields[key].value)
+		textFields.concat(selectFields).forEach(key => {
+			if (el[key].value) params.set(key, el[key].value)
 		})
+		if (pressedMarkets().length) params.set('rynek', pressedMarkets().join(','))
+		if (checkedAmenities().length) params.set('udogodnienia', checkedAmenities().join(','))
 		const query = params.toString()
 		history.replaceState(null, '', query ? `?${query}` : location.pathname)
 	}
 
+	const countAdvanced = () => {
+		let total = advanced.filter(key => el[key].value.trim() !== '').length
+		if (pressedMarkets().length) total += 1
+		total += checkedAmenities().length
+		return total
+	}
+
 	const apply = () => {
 		const filters = readFilters()
-		const active = Boolean(filters.type || filters.city || filters.from !== null || filters.to !== null)
 		let visible = 0
 
 		cards.forEach(card => {
@@ -65,26 +117,62 @@ if (searchForm) {
 			if (show) visible += 1
 		})
 
+		const advancedCount = countAdvanced()
+		const active = Boolean(filters.type || filters.transaction || filters.city) || advancedCount > 0
+
+		countBadge.hidden = advancedCount === 0
+		countBadge.textContent = advancedCount
+
 		emptyBox.hidden = visible !== 0
 		statusBox.hidden = !active
-
 		if (active) {
 			statusText.textContent = `Znaleziono ${visible} ${plural(visible, 'ofertę', 'oferty', 'ofert')} z ${cards.length}`
 		}
+
+		priceLabel.textContent = filters.transaction === 'wynajem' ? 'Cena (zł/mies.)' : 'Cena (zł)'
+		const priceActive = filters.priceFrom !== null || filters.priceTo !== null
+		priceHint.hidden = !(priceActive && !filters.transaction)
 		syncUrl()
 	}
 
 	const restoreFromUrl = () => {
 		const params = new URLSearchParams(location.search)
-		Object.keys(fields).forEach(key => {
+		textFields.forEach(key => {
 			const value = params.get(key)
-			if (value === null) return
-			const exists = Array.from(fields[key].options).some(option => option.value === value)
-			if (exists) fields[key].value = value
+			if (value !== null) el[key].value = value
+		})
+		selectFields.forEach(key => {
+			const value = params.get(key)
+			if (value !== null && Array.from(el[key].options).some(option => option.value === value)) el[key].value = value
+		})
+		const markets = (params.get('rynek') || '').split(',')
+		chips.forEach(chip => chip.setAttribute('aria-pressed', String(markets.includes(chip.dataset.market))))
+		const amenities = (params.get('udogodnienia') || '').split(',')
+		checks.forEach(box => {
+			box.checked = amenities.includes(box.value)
 		})
 	}
 
-	Object.keys(fields).forEach(key => fields[key].addEventListener('change', apply))
+	const clearAll = () => {
+		textFields.concat(selectFields).forEach(key => {
+			el[key].value = ''
+		})
+		chips.forEach(chip => chip.setAttribute('aria-pressed', 'false'))
+		checks.forEach(box => {
+			box.checked = false
+		})
+		apply()
+	}
+
+	selectFields.forEach(key => el[key].addEventListener('change', apply))
+	textFields.forEach(key => el[key].addEventListener('input', apply))
+	checks.forEach(box => box.addEventListener('change', apply))
+	chips.forEach(chip =>
+		chip.addEventListener('click', () => {
+			chip.setAttribute('aria-pressed', String(chip.getAttribute('aria-pressed') !== 'true'))
+			apply()
+		}),
+	)
 
 	searchForm.addEventListener('submit', event => {
 		event.preventDefault()
@@ -92,14 +180,11 @@ if (searchForm) {
 		document.querySelector('#offers-grid').scrollIntoView({ behavior: 'smooth', block: 'start' })
 	})
 
-	resetBtn.addEventListener('click', () => {
-		Object.keys(fields).forEach(key => {
-			fields[key].value = ''
-		})
-		apply()
-	})
+	resetBtn.addEventListener('click', clearAll)
+	clearBtn.addEventListener('click', clearAll)
 
 	restoreFromUrl()
+	if (window.matchMedia('(width < 744px)').matches && countAdvanced() === 0) moreBox.open = false
 	apply()
 }
 

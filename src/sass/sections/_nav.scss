@@ -393,6 +393,7 @@
 				padding: 0 1.3rem 1.3rem;
 				width: 67px;
 
+
 				a {
 					height: 22px;
 				}
@@ -400,6 +401,10 @@
 				&__flag {
 					width: 22px;
 					height: 22px;
+					transition: opacity 0.3s;
+					&:hover {
+						opacity: 0.8;
+					}
 				}
 			}
 

@@ -268,43 +268,55 @@
 		"gallery": [
 			{
 				"file": "01",
-				"alt": "Wizualizacja domu wolnostojącego 110 m² z balkonem w Rącznej"
+				"alt": "Wizualizacja domu wolnostojącego w Rącznej od strony wejścia"
 			},
 			{
 				"file": "02",
-				"alt": "Jadalnia z salonem i schodami na piętro"
+				"alt": "Wizualizacja domu wieczorem, z wiatą garażową i oświetlonym wejściem"
 			},
 			{
 				"file": "03",
-				"alt": "Jadalnia z drewnianymi panelami na ścianie"
+				"alt": "Wizualizacja domu od strony ogrodu i tarasu"
 			},
 			{
 				"file": "04",
-				"alt": "Salon z wyjściem na taras"
+				"alt": "Wizualizacja domu z balkonem i tarasem o zmierzchu"
 			},
 			{
 				"file": "05",
-				"alt": "Kuchnia z wyspą i oknem na ogród"
+				"alt": "Salon z jadalnią i telewizorem na ścianie z kamienia"
 			},
 			{
 				"file": "06",
-				"alt": "Jadalnia z salonem i drewnianymi panelami na ścianie"
+				"alt": "Jadalnia z drewnianymi schodami na piętro"
 			},
 			{
 				"file": "07",
-				"alt": "Łazienka na poddaszu z oknem dachowym"
+				"alt": "Salon połączony z jadalnią i wyjściem na taras"
 			},
 			{
 				"file": "08",
-				"alt": "Łazienka z wanną wolnostojącą"
+				"alt": "Jadalnia z aneksem kuchennym i widokiem na ogród"
 			},
 			{
 				"file": "09",
-				"alt": "Łazienka z drewnianą zabudową"
+				"alt": "Kuchnia z wyspą i oknem na ogród"
 			},
 			{
 				"file": "10",
-				"alt": "Wizualizacja domu z ogrodem"
+				"alt": "Kuchnia połączona z jadalnią i salonem"
+			},
+			{
+				"file": "11",
+				"alt": "Łazienka na poddaszu z oknem dachowym i wanną"
+			},
+			{
+				"file": "12",
+				"alt": "Łazienka z wanną i drewnianą zabudową"
+			},
+			{
+				"file": "13",
+				"alt": "Łazienka z szafką pod umywalkę i oknem dachowym"
 			}
 		],
 		"plans": [
@@ -317,6 +329,11 @@
 				"file": "plan-2",
 				"alt": "Rzut poddasza domu w Rącznej",
 				"label": "Rzut poddasza"
+			},
+			{
+				"file": "plan-3",
+				"alt": "Plan zagospodarowania działki z dwoma budynkami w Rącznej",
+				"label": "Zagospodarowanie działki"
 			}
 		],
 		"extra": []

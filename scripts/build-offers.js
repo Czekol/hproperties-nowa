@@ -9,11 +9,18 @@ const outDir = path.join(root, 'oferty')
 const SITE = 'https://hproperties.pl'
 const PHONE = '572 910 341'
 const PHONE_HREF = 'tel:+48572910341'
-const MAIL = 'dima@hproperties.pl'
+
+const AGENTS = {
+	dima: { name: 'Dima Hrycyszyn', photo: '../dist/img/dima.jpg', phone: '572 910 341', phoneHref: 'tel:+48572910341', mail: 'dima@hproperties.pl' },
+	olha: { name: 'Olha Nosal', photo: '../dist/offers/agents/olha.jpg', phone: '511 535 417', phoneHref: 'tel:+48511535417', mail: 'olha@hproperties.pl' },
+	mateusz: { name: 'Mateusz Grala', photo: '../dist/offers/agents/mateusz.jpg', phone: '511 473 416', phoneHref: 'tel:+48511473416', mail: 'mateusz@hproperties.pl' },
+}
 
 const TYPE_LABELS = { dom: 'Dom', mieszkanie: 'Mieszkanie', lokal: 'Lokal użytkowy', dzialka: 'Działka' }
-const PRICE_FROM_STEPS = [300000, 500000, 750000, 1000000, 1250000]
-const PRICE_TO_STEPS = [500000, 750000, 1000000, 1250000, 1500000]
+const TRANSACTION_LABELS = { sprzedaz: 'Sprzedaż', wynajem: 'Wynajem' }
+const MARKET_LABELS = { pierwotny: 'Pierwotny', wtorny: 'Wtórny' }
+const CONDITION_LABELS = { deweloperski: 'Deweloperski', 'do-zamieszkania': 'Do zamieszkania', 'do-remontu': 'Do remontu' }
+const AMENITY_LABELS = { parking: 'Parking / garaż', balcony: 'Balkon / taras', elevator: 'Winda' }
 
 const esc = value =>
 	String(value)
@@ -36,7 +43,7 @@ function priceLabel(offer) {
 }
 
 function pricePerM2(offer) {
-	if (offer.price == null || !offer.area || offer.pricePrefix || offer.units) return ''
+	if (offer.price == null || !offer.area || offer.pricePrefix || offer.units || offer.transaction === 'wynajem') return ''
 	const suffix = offer.priceSuffix ? ` ${offer.priceSuffix}` : ''
 	return `${money(offer.price / offer.area)} zł/m²${suffix}`.replace(/ /g, NBSP)
 }
@@ -136,7 +143,20 @@ function card(offer, { eager = false } = {}) {
 	const specs = offer.cardSpecs
 		.map(([label, value]) => `<li><span>${esc(label)}</span><strong>${esc(value)}</strong></li>`)
 		.join('')
-	return `<li class="offer-card" data-type="${offer.type}" data-city="${esc(offer.city)}" data-min="${min}" data-max="${max}">
+	const attrs = [
+		`data-type="${offer.type}"`,
+		`data-transaction="${offer.transaction}"`,
+		`data-city="${esc(offer.city)}"`,
+		`data-min="${min}"`,
+		`data-max="${max}"`,
+		`data-area="${offer.area ?? ''}"`,
+		`data-rooms="${offer.rooms ?? ''}"`,
+		`data-market="${offer.market ?? ''}"`,
+		`data-condition="${offer.condition ?? ''}"`,
+		`data-year="${offer.year ?? ''}"`,
+		`data-amenities="${(offer.amenities || []).join(' ')}"`,
+	].join(' ')
+	return `<li class="offer-card" ${attrs}>
                         <a href="${href}" class="offer-card__media" tabindex="-1" aria-hidden="true">
                             <img src="${img(offer.slug, cover.file + '-s')}" alt="${esc(cover.alt)}" class="offer-card__img" width="640" height="480"${eager ? '' : ' loading="lazy"'} decoding="async">
                             <span class="offer-card__badge">${esc(offer.typeLabel)}</span>${offer.tag ? `\n                            <span class="offer-card__tag">${esc(offer.tag)}</span>` : ''}
@@ -158,16 +178,27 @@ function select(id, name, label, options) {
                     </div>`
 }
 
+function range(idBase, name, label, labelId = '') {
+	return `<div class="offers-search__field">
+                            <span class="offers-search__label"${labelId ? ` id="${labelId}"` : ''}>${label}</span>
+                            <div class="offers-search__range">
+                                <input type="text" inputmode="decimal" id="${idBase}-from" name="${name}-od" class="offers-search__input" placeholder="od" aria-label="${label}, od" autocomplete="off">
+                                <input type="text" inputmode="decimal" id="${idBase}-to" name="${name}-do" class="offers-search__input" placeholder="do" aria-label="${label}, do" autocomplete="off">
+                            </div>
+                        </div>`
+}
+
 function listPage(offers) {
 	const types = Object.keys(TYPE_LABELS).filter(type => offers.some(o => o.type === type))
+	const transactions = Object.keys(TRANSACTION_LABELS).filter(t => offers.some(o => o.transaction === t))
+	const markets = Object.keys(MARKET_LABELS).filter(m => offers.some(o => o.market === m))
+	const conditions = Object.keys(CONDITION_LABELS).filter(c => offers.some(o => o.condition === c))
+	const amenities = Object.keys(AMENITY_LABELS).filter(a => offers.some(o => (o.amenities || []).includes(a)))
 	const cities = [...new Set(offers.map(o => o.city))].sort((a, b) =>
 		a === 'Kraków' ? -1 : b === 'Kraków' ? 1 : a.localeCompare(b, 'pl'),
 	)
-	const fromOptions = [['', 'Dowolna'], ...PRICE_FROM_STEPS.map(v => [v, `od ${money(v)} zł`])]
-	const toOptions = [['', 'Dowolna'], ...PRICE_TO_STEPS.map(v => [v, `do ${money(v)} zł`])]
-
 	const description =
-		'Aktualne oferty H.Properties: mieszkania, domy, działki i lokale usługowe w Krakowie i okolicach. Sprawdź szczegóły i umów prezentację.'
+		'Aktualne oferty H.Properties: mieszkania, domy, działki i lokale usługowe na sprzedaż i wynajem w Krakowie i okolicach. Sprawdź szczegóły i umów prezentację.'
 
 	return (
 		head({
@@ -185,8 +216,8 @@ function listPage(offers) {
         <section class="offers-hero">
             <div class="offers-hero__inner">
                 <h1 class="offers-hero__title">Oferty nieruchomości</h1>
-                <p class="offers-hero__lead">Mieszkania, domy, działki i lokale usługowe w Krakowie i okolicach.
-                    Wybierz ofertę i sprawdź wszystkie szczegóły.</p>
+                <p class="offers-hero__lead">Mieszkania, domy, działki i lokale usługowe na sprzedaż i wynajem w Krakowie
+                    i okolicach. Wybierz ofertę i sprawdź wszystkie szczegóły.</p>
             </div>
         </section>
 
@@ -194,11 +225,44 @@ function listPage(offers) {
             <div class="offers__container">
 
                 <form class="offers-search" id="offers-search" role="search" aria-label="Wyszukiwarka ofert" novalidate>
-                    ${select('filter-type', 'typ', 'Rodzaj nieruchomości', [['', 'Wszystkie'], ...types.map(t => [t, TYPE_LABELS[t]])])}
-                    ${select('filter-city', 'lokalizacja', 'Lokalizacja', [['', 'Wszystkie'], ...cities.map(c => [c, c])])}
-                    ${select('filter-from', 'cena-od', 'Cena od', fromOptions)}
-                    ${select('filter-to', 'cena-do', 'Cena do', toOptions)}
-                    <button type="submit" class="offers-search__submit">Szukaj</button>
+                    <div class="offers-search__main">
+                        ${select('filter-type', 'typ', 'Rodzaj', [['', 'Wszystkie'], ...types.map(t => [t, TYPE_LABELS[t]])])}
+                        ${select('filter-transaction', 'transakcja', 'Transakcja', [['', 'Wszystkie'], ...transactions.map(t => [t, TRANSACTION_LABELS[t]])])}
+                        ${select('filter-city', 'lokalizacja', 'Lokalizacja', [['', 'Wszystkie'], ...cities.map(c => [c, c])])}
+                        <button type="submit" class="offers-search__submit">Szukaj</button>
+                    </div>
+
+                    <details class="offers-search__more" id="offers-more" open>
+                        <summary class="offers-search__toggle">Więcej filtrów <span class="offers-search__count" id="offers-filter-count" hidden></span></summary>
+                        <div class="offers-search__advanced">
+                            ${range('filter-price', 'cena', 'Cena (zł)', 'filter-price-label')}
+                            ${range('filter-area', 'pow', 'Powierzchnia (m²)')}
+                            ${range('filter-rooms', 'pokoje', 'Liczba pokoi')}
+
+                            <div class="offers-search__field">
+                                <span class="offers-search__label" id="filter-market-label">Rynek</span>
+                                <div class="offers-search__chips" role="group" aria-labelledby="filter-market-label">
+                                    ${markets.map(m => `<button type="button" class="offers-search__chip" data-market="${m}" aria-pressed="false">${MARKET_LABELS[m]}</button>`).join('\n                                    ')}
+                                </div>
+                            </div>
+                            ${select('filter-condition', 'stan', 'Stan', [['', 'Dowolny'], ...conditions.map(c => [c, CONDITION_LABELS[c]])])}
+                            <div class="offers-search__field">
+                                <label for="filter-year" class="offers-search__label">Rok budowy (od)</label>
+                                <input type="text" inputmode="numeric" id="filter-year" name="rok" class="offers-search__input" placeholder="np. 2010" autocomplete="off">
+                            </div>
+
+                            <fieldset class="offers-search__amenities">
+                                <legend class="offers-search__label">Udogodnienia</legend>
+                                ${amenities.map(a => `<label class="offers-search__check"><input type="checkbox" name="udogodnienia" value="${a}"><span>${AMENITY_LABELS[a]}</span></label>`).join('\n                                ')}
+                            </fieldset>
+
+                            <p class="offers-search__hint" id="offers-price-hint" hidden>Przy wyborze „Wszystkie” filtr ceny obejmuje tylko oferty sprzedaży. Aby filtrować wynajem, wybierz transakcję „Wynajem”.</p>
+
+                            <div class="offers-search__footer">
+                                <button type="button" class="offers-search__clear" id="offers-clear">Wyczyść</button>
+                            </div>
+                        </div>
+                    </details>
                 </form>
 
                 <div class="offers__status" id="offers-status" hidden>
@@ -282,6 +346,7 @@ function detailPage(offer, offers) {
 		})
 		.join('\n                        ')
 
+	const agent = AGENTS[offer.agent || 'dima']
 	const perM2 = pricePerM2(offer)
 	const plansHtml = offer.plans.length
 		? `<section class="offer-section">
@@ -421,16 +486,16 @@ function detailPage(offer, offers) {
             <aside class="offer-aside" aria-label="Kontakt w sprawie oferty">
                 <div class="offer-agent">
                     <div class="offer-agent__person">
-                        <img src="../dist/img/dima.jpg" alt="Dima Hrycyszyn" class="offer-agent__photo" width="72" height="72" loading="lazy">
+                        <img src="${agent.photo}" alt="${agent.name}" class="offer-agent__photo" width="72" height="72" loading="lazy">
                         <div>
-                            <p class="offer-agent__name">Dima Hrycyszyn</p>
+                            <p class="offer-agent__name">${agent.name}</p>
                             <p class="offer-agent__role">Opiekun oferty, H.Properties</p>
                         </div>
                     </div>
                     <p class="offer-agent__text">Chcesz zobaczyć nieruchomość lub poznać szczegóły? Zadzwoń albo napisz, a umówimy prezentację.</p>
-                    <a href="${PHONE_HREF}" class="offer-agent__btn offer-agent__btn--primary">${phoneIcon}${PHONE}</a>
+                    <a href="${agent.phoneHref}" class="offer-agent__btn offer-agent__btn--primary">${phoneIcon}${agent.phone}</a>
                     <a href="#contact" class="offer-agent__btn offer-agent__btn--ghost">${mailIcon}Napisz wiadomość</a>
-                    <a href="mailto:${MAIL}" class="offer-agent__mail">${MAIL}</a>
+                    <a href="mailto:${agent.mail}" class="offer-agent__mail">${agent.mail}</a>
                 </div>
             </aside>
         </div>
